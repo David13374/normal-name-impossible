@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Fisiere vechi">
+      <UniqueIdentifier>{50ab10a8-627e-4c00-a8b8-e434c21ccc9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="normal name impossible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cartele.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cartele.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="culori1.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="culori1.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="triunghi3.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="triunghi3.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="vecini_buni.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="vecini_buni.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="volei1.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="volei1.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="traseu2.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="traseu2.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="arrows.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="sumainsecv.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="sumainsecv.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="secvk.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="secvk.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="elicop.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="elicop.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="roata.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="roata.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="maxdiv.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="maxdiv.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="broscute.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="broscute.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="concurs4.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="concurs4.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="tan.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="tan.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="pareimpare.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="pareimpare.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="defrag.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="defrag.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="arc.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="arc.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="colina.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="colina.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cifre12.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cifre12.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="betisoare1.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="betisoare1.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="3cifre.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="3cifre.in">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="factori.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </Text>
+    <Text Include="factori.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </Text>
+    <Text Include="arrows.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
