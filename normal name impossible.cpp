@@ -2189,63 +2189,63 @@
 //	else
 //		cout << "NU APARE N";
 //}
-#include<iostream>
-#include<fstream>
-#include<string>
-using namespace std;
-ifstream fin("betisoare1.in");
-ofstream fout("betisoare1.out");
-int main()
-{
-	int n;
-	string s;
-	fin >> n;
-	fin >> s;
-	int b = 1, max = 1, nr = 1, d;
-	int tip = s[0], i;
-	for (i = 1; i < s.size(); i++)
-	{
-		if (i + 1 < s.size() and s[i] == s[i + 1])
-			b++;
-		else
-		{
-			d = s[i - 1] - '0';
-			if (b > max)
-			{
-				max = b;
-				tip = d;
-				nr = 1;
-			}
-			else
-				if (b == max)
-				{
-					if (tip == d)
-						nr++;
-					else
-						if (tip == 0 and d == 1)
-							nr = 1, tip = d;
-				}
-			b = 1;
-		}
-	}
-	d = s[i - 1] - '0';
-	if (b > max)
-	{
-		max = b;
-		tip = d;
-		nr = 1;
-	}
-	else
-		if (b == max)
-		{
-			if (tip == d)
-				nr++;
-			else
-				if (tip == 0 and d == 1)
-					nr = 1, tip = d;
-		}
-	fout << tip << " " << max << '\n' << nr;
-}
+//#include<iostream>
+//#include<fstream>
+//#include<string>
+//using namespace std;
+//ifstream fin("betisoare1.in");
+//ofstream fout("betisoare1.out");
+//int main()
+//{
+//	int n;
+//	string s;
+//	fin >> n;
+//	fin >> s;
+//	int b = 1, max = 1, nr = 1, d;
+//	int tip = s[0], i;
+//	for (i = 1; i < s.size(); i++)
+//	{
+//		if (i + 1 < s.size() and s[i] == s[i + 1])
+//			b++;
+//		else
+//		{
+//			d = s[i - 1] - '0';
+//			if (b > max)
+//			{
+//				max = b;
+//				tip = d;
+//				nr = 1;
+//			}
+//			else
+//				if (b == max)
+//				{
+//					if (tip == d)
+//						nr++;
+//					else
+//						if (tip == 0 and d == 1)
+//							nr = 1, tip = d;
+//				}
+//			b = 1;
+//		}
+//	}
+//	d = s[i - 1] - '0';
+//	if (b > max)
+//	{
+//		max = b;
+//		tip = d;
+//		nr = 1;
+//	}
+//	else
+//		if (b == max)
+//		{
+//			if (tip == d)
+//				nr++;
+//			else
+//				if (tip == 0 and d == 1)
+//					nr = 1, tip = d;
+//		}
+//	fout << tip << " " << max << '\n' << nr;
+//}
 //#include<iostream>
 //#include<fstream>
 //#include<vector>
@@ -2359,3 +2359,1575 @@ int main()
 //			fout << v2[i] << " ";
 //	}
 //}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("roboti2.in");
+//ofstream fout("roboti2.out");
+//vector < int > v;
+//int c, n, x;
+//void citire()
+//{
+//	fin >> c >> n;
+//	for (int i = 0; i < n; i++)
+//		fin >> x, v.push_back(x);
+//}
+//int main()
+//{
+//	citire();
+//	if (c == 1)
+//	{
+//		v.push_back(v[0]);
+//		int max;
+//		max = -1;
+//		int k = 1, i = 0, b = 1;
+//		i = 0;
+//		while (k <= 2)
+//		{
+//			if (v[i] < v[i + 1])
+//				b++;
+//			else
+//			{
+//				if(max<b)
+//					max = b;
+//				b = 1;
+//			}
+//			i++;
+//			if (i == n)
+//			{
+//				i = 0;
+//				k++;
+//			}
+//		}
+//		cout << max << endl;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("castel.in");
+//ofstream fout("castel.out");
+//vector < int > v(10, 0);
+//int main()
+//{
+//	int a;
+//	fin >> a;
+//	for (int i = 0; i < a; i++)
+//	{
+//		int x;
+//		fin >> x;
+//		while (x)
+//		{
+//			v[x % 10]++;
+//			x /= 10;
+//		}
+//	}
+//	fin >> a;
+//	int max=0, r = 0;
+//	for (int i = 0; i < a; i++)
+//	{
+//		int x;
+//		fin >> x;
+//		if (v[x] > max)
+//		{
+//			max = v[x];
+//			r = x;
+//		}
+//	}
+//	fout << r << " " << max;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//ifstream fin("grup.in");
+//ofstream fout("grup.out");
+//struct nice
+//{
+//	ll nr;
+//	short pc;
+//};
+//struct nice2
+//{
+//	ll nrap, pa;
+//};
+////struct nice2
+////{
+////	ll nrpc, pa, nrm;
+////};
+//vector < nice > v;
+//vector < nice2 > v1;
+//ll n, c, x, maxi = 999999999, pc = 0;
+//bool criteriu(nice a, nice b)
+//{
+//	return a.pc < b.pc or (a.pc == b.pc and a.nr < b.nr);
+//}
+////bool criteriu2(nice2 a, nice2 b)
+////{
+////	return a.nrpc < b.nrpc or (a.nrpc == b.nrpc and a.nrm < b.nrm);
+////}
+//bool criteriu2(nice2 a, nice2 b)
+//{
+//	return a.nrap < b.nrap;
+//}
+//void citire()
+//{
+//	fin >> n >> c;
+//	v.resize(n + 1);
+//	v1.resize(10);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		fin >> v[i].nr;
+//		x = v[i].nr;
+//		while (x > 10)
+//		{
+//			x /= 10;
+//		}
+//		/*if (v1[x].pa == 0)
+//			v1[x].pa=i, v1[x].nrpc=0, v1[x].nrm=v[i].nr;
+//		v1[x].nrpc++;*/
+//		if(v1[x].pa==0)
+//			v1[x].pa = i;
+//		v1[x].nrap++;
+//		v[i].pc = x;
+//	}
+//}
+//void rezolvarec1()
+//{
+//	sort(v.begin(), v.end(), criteriu);
+//	sort(v1.begin(), v1.end(), criteriu2);
+//	int i = 0;
+//	while (v[v1[i].pa].nr == 0)
+//		i++;
+//	maxi = v[v1[i].pa].nr, pc = i;
+//	for (int j=i; i < 10; i++)
+//	{
+//		if(v1[i].nrap>v1[pc].nrap)
+//			if(v1[i].pa!=0)
+//				if(v[v1[i].pa].nr<v[v1[pc].pa].nr)
+//				maxi = v[v1[i].pa].nr, pc = i;
+//	}
+//	fout << maxi;
+//}
+//int main()
+//{
+//	citire();
+//	if (c == 1)
+//	{
+//		rezolvarec1();
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//ifstream fin("numere23.in");
+//ofstream fout("numere23.out");
+//vector < ll > v;
+//ll n, c, k, x;
+//ll verificare(ll u)
+//{
+//	ll nrdiv, p, d;
+//	d = 2;
+//	nrdiv = 0;
+//	while (u % d == 0)
+//	{
+//		u /= d;
+//		nrdiv++;
+//	}
+//	d = 3;
+//	if (nrdiv > 3)
+//		return 0;
+//	while (u >= d)
+//	{
+//		while (u % d == 0)
+//		{
+//			u /= d;
+//			nrdiv++;
+//		}
+//		d += 2;
+//		if (nrdiv > 3)
+//			return 0;
+//	}
+//	if (nrdiv <= 3)
+//		return 1;
+//}
+//ll next(ll x)
+//{
+//	ll p, d, r, nrdiv = 0;;
+//	while (true)
+//	{
+//		x++;
+//		if (verificare(x) == 1)
+//			return x;
+//	}
+//}
+//void citire()
+//{
+//	fin >> n >> k >> c;
+//	v.resize(n);
+//	x = 2;
+//	for (int i = 0; i < n; i++)
+//	{
+//		v[i] = x;
+//		x = next(x);
+//	}
+//}
+//int main()
+//{
+//	citire();
+//	if (c == 1)
+//		fout << v[n - 1];
+//	else
+//	{
+//		int i, j;
+//
+//		i = 0;
+//		j = 1;
+//		vector<int> solution;
+//		solution.resize(n);
+//		solution[0] = 2;
+//		int nr = 0;
+//		while (j < n)
+//		{
+//			if (solution[i] == 0)
+//				nr++;
+//			if (nr == k)
+//				solution[i] = v[j], nr = 0, j++;
+//			i++;
+//			if (i == n)
+//				i = 1;
+//		}
+//		for (int i = 0; i < n; i++)
+//		{
+//			fout << solution[i] << " ";
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("tnia.in");
+//ofstream fout("tnia.out");
+//#define ll long long
+//#define dvector vector < int >
+//#define matrice vector < vector < int > >
+//matrice A, S;
+//ll n, m;
+//int main()
+//{
+//	fin >> n >> m;
+//	A.resize(n + 2);
+//	S.resize(n + 2);
+//	for (int i = 0; i < n+2; i++)
+//	{
+//		A[i].resize(m + 2, 0);
+//		S[i].resize(m + 2, 0);
+//	}
+//	for (int i = 0; i <= n; i++)
+//	{
+//		for (int j = 0; j <= m; j++)
+//			A[i][j] = 0;
+//	}
+//	for (int i = 0; i <= n; i++)
+//		S[i][0] = 0;
+//	for (int j = 0; j <= m; j++)
+//		S[0][j] = 0;
+//	for (int x = 1; x <= n; x++)
+//	{
+//		ll r;
+//		fin >> r;
+//		for (int j = 1; j <= r; j++)
+//		{
+//			A[x][j] = 1;
+//		}
+//	}
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//			S[i][j] = S[i - 1][j] + S[i][j - 1] - S[i - 1][j - 1] + A[i][j]; //cout << A[i][j];
+//		//cout << '\n';
+//	}
+//	ll r;
+//	fin >> r;
+//	ll is, js;
+//	ll ij, jj;
+//	ll is1, js1, ij1, jj1;
+//	//cout << '\n';
+//	//cout << '\n';
+//	//cout << '\n';
+//	//cout << '\n';
+//	//cout << '\n';
+//
+//	while (r)
+//	{
+//		fin >> is >> js >> ij >> jj;
+//		//is= is1;
+//		//jj= js1;
+//		//ij= ij1;
+//		//js= jj1;
+//		//cout << ij << " " << jj << " " << is << " " << js << "      " ;
+//		fout << S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1] << endl;
+//		r--;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//#include<string>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("binar.in");
+//ofstream fout("binar.out");
+//struct ni
+//{
+//	ll nr, nr0;
+//};
+//bool conditie(ni a, ni b)
+//{
+//	return a.nr0 > b.nr0 or (a.nr0 == b.nr0 and a.nr > b.nr);
+//}
+//ll i = 0;
+//vector < ni > v;
+//string s;
+//void binar(int x)
+//{
+//	ll nr;
+//	nr = 0;
+//	while (x / 2 > 0)
+//	{
+//		if (x % 2 == 1)
+//			nr++;
+//		x /= 2;
+//	}
+//	if (x % 2 == 1)
+//		nr++;
+//	v[i].nr0 = nr;
+//	i++;
+//}
+//int main()
+//{
+//	short c;
+//	int n;
+//	fin >> c >> n;
+//	v.resize(n);
+//	ll r;
+//	r = 0;
+//	while (r<n)
+//	{
+//		fin >> v[r].nr;
+//		binar(v[r].nr);
+//		r++;
+//	}
+//	if (c == 1)
+//	{
+//		sort(v.begin(), v.end(), conditie);
+//		fout << v[0].nr;
+//	}
+//	else if(c==2)
+//	{
+//		ll pi=0, pimax = 0;
+//		ll b = 1, max = 1;
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (i < v.size() - 1 and v[i].nr0 == v[i + 1].nr0)
+//				b++;
+//			else
+//			{
+//				if (b > max)
+//					max = b, pimax=pi;
+//				b = 1;
+//				pi = i + 2;
+//			}
+//		}
+//		fout << max << " " << pimax << endl;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < long long > >
+//#define iara v2[v[i]].val++, v2[v[i]].ua=i;
+//ifstream fin("numere.in");
+//ofstream fout("numere.out");
+//struct neg
+//{
+//	ll pa, ua, val;
+//};
+//vector < ll > v;
+//vector < neg > v2;
+//ll verifprim(ll x)
+//{
+//	ll div, i;
+//	div = 0;
+//	for (i = 2; i * i < x; i++)
+//	{
+//		if (x % i == 0)
+//			div += 2;
+//	}
+//	if (i * i == x)
+//		div++;
+//	if (div == 0)
+//		return 1;
+//	else
+//		return 0;
+//}
+//ll prim(ll x)
+//{
+//	ll max = 0;
+//	if (verifprim(x) == 1)
+//		return x;
+//	for (ll d = 1; d <= x / 2; d++)
+//	{
+//		if (x % d == 0)
+//		{
+//			if (verifprim(d) == 1)
+//				max = d;
+//		}
+//	}
+//	return max;
+//}
+//int main()
+//{
+//	ll c, n;
+//	fin >> n >> c;
+//	v.resize(n);
+//	v2.resize(10001);
+//	for (ll i = 0; i < n; i++)
+//	{
+//		ll x;
+//		fin >> x;
+//		v[i] = prim(x);
+//	}
+//	for (ll i = 0; i < n; i++)
+//	{
+//		if (v2[v[i]].val == 0)
+//		{
+//			v2[v[i]].pa = i;
+//			iara
+//		}
+//		else
+//		{
+//			iara
+//		}
+//	}
+//	if (c == 1)
+//	{
+//		ll max = 0;
+//		for (ll i = 1; i <= 10000; i++)
+//		{
+//			if (v2[i].ua - v2[i].pa + 1> max)
+//				max = v2[i].ua - v2[i].pa + 1;
+//		}
+//		fout << max;
+//	}
+//	else
+//		if (c == 2)
+//		{
+//			ll nr = 0;
+//			for (ll i = 1; i <= 10000; i++)
+//			{
+//				if (v2[i].val > 1)
+//					nr = nr + (v2[i].val - 1) * v2[i].val / 2;
+//			}
+//			fout << nr << endl;
+//		}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("cufar.in");
+//ofstream fout("cufar.out");
+//vector<int> v, v2;
+//int divprimk(int x, int k)
+//{
+//	int i = 0;
+//	while (k)
+//	{
+//		if (x % v2[i] == 0)
+//			k--;
+//		i++;
+//	}
+//	return v2[i - 1];
+//}
+//int main()
+//{
+//	ll n, c;
+//	fin >> c >> n;
+//	v.resize(1000001, 0);
+//	for (int i = 3; i * i <= 1000000; i++)
+//		for (int j = 2 * i; j <= 1000000; j = j + i)
+//			v[j] = 1;
+//	v2.push_back(2);
+//	for (int i = 3; i < 1000001; i=i+2)
+//	{
+//		if (v[i] == 0)
+//			v2.push_back(i);
+//	}
+//	if (c == 1)
+//	{
+//		for (ll i = 0; i < n; i++)
+//		{
+//			ll nr, k;
+//			fin >> nr >> k;
+//			fout << divprimk(nr, k);
+//		}
+//	}
+//	else
+//	{
+//		ll s = 0;
+//		for (ll i = 0; i < n; i++)
+//		{
+//			ll nr, k;
+//			fin >> nr >> k;
+//			s = s + divprimk(nr, k);
+//		}
+//		fout << s << endl;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("panglica.in");
+//ofstream fout("panglica.out");
+//int main()
+//{
+//	int n, c, x, max, cmax, i;
+//	vector<int> first, last;
+//	fin >> n >> c;
+//	first.resize(c + 1, 0);
+//	last.resize(c + 1, 0);
+//	for (i = 1; i <= n; i++)
+//	{
+//		fin >> x;
+//		if (first[x] == 0)
+//			first[x] = i;
+//		last[x] = i;
+//	}
+//	max = 0;
+//	for (i = 1; i <= c; i++)
+//	{
+//		if (last[i] - first[i] + 1 > max)
+//			max = last[i] - first[i] + 1, cmax=i;
+//	}
+//	fout << max << '\n' << cmax << '\n' << first[cmax] - 1 << '\n' << n - last[cmax];
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//#include<string>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("cifre3.in");
+//ofstream fout("cifre3.out");
+//vector<int> va, vb, v;
+//int main()
+//{
+//	ll a, b;
+//	bool ok = 0;
+//	fin >> a >> b;
+//	va.resize(10);
+//	vb.resize(10);
+//	while (a)
+//	{
+//		va[a % 10]++;
+//		a /= 10;
+//	}
+//	while (b)
+//	{
+//		vb[b % 10]++;
+//		b /= 10;
+//	}
+//	for (int i = 0; i < 10; i++)
+//	{
+//		if (va[i] > 0 and vb[i] > 0)
+//			fout << i << " ", ok = 1;
+//	}
+//	if (ok == 0)
+//		fout << "-1";
+//	fout << '\n';
+//	for (int i = 9; i >= 0; i--)
+//	{
+//		while (va[i])
+//		{
+//			fout << i;
+//			va[i]--;
+//		}
+//		while (vb[i])
+//		{
+//			fout << i;
+//			vb[i]--;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<map>
+//using namespace std;
+//
+//int main()
+//{
+//	int a, b, i, ok;
+//	ifstream fin("cifre3.in");
+//	ofstream fout("cifre3.out");
+//	vector < int > v(10, 0);
+//	map< int, int> M;
+//	fin >> a >> b;
+//	while (a)
+//	{
+//		v[a % 10] = 1;
+//		a /= 10;
+//		if (M.find(a % 10) == M.end()) //a%10 nu este in M
+//			M.insert({ a % 10, 10 });
+//		else
+//			M[a % 10]++;
+//	}
+//	while (b)
+//	{
+//		if (v[b % 10] == 1)
+//			v[b % 10] = 2;
+//		b /= 10;
+//	}
+//	ok = 0;
+//	for (i = 0; i < 10; i++)
+//		if (v[i] == 2)
+//		{
+//			fout << i << " ";
+//			ok = 1;
+//		}
+//	if (ok == 0)
+//		fout << -1;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("pdif.in");
+//ofstream fout("pdif.out");
+//vector < ll > v;
+//int cifracontrol(int x)
+//{
+//	bool ok;
+//	ok = 0;
+//	int r;
+//	while (ok == 0)
+//	{
+//		r = 0;
+//		if (x < 10)
+//			ok = 1;
+//		else
+//		{
+//			while (x != 0)
+//			{
+//				r = r + x % 10;
+//				x /= 10;
+//			}
+//			x = r;
+//		}
+//	}
+//	return x;
+//}
+//int main()
+//{
+//	ll n, c;
+//	fin >> n >> c;
+//	for (int i = 0; i < n; i++)
+//	{
+//		ll x;
+//		fin >> x;
+//		v.push_back(cifracontrol(x));
+//	}
+//	if (c == 1)
+//	{
+//		ll b, max, cnt;
+//		max = cnt = 0;
+//		b = 1;
+//		int i;
+//		for (i = 0; i < n; i++)
+//		{
+//			if (i < v.size() - 1 and v[i] % 2 != v[i + 1] % 2)
+//				b++;
+//			else
+//			{
+//				if (b > max)
+//				{
+//					max = b;
+//					cnt = 0;
+//				}
+//				if (b == max)
+//					cnt++;
+//				b = 1;
+//			}
+//		}
+//		if (i < v.size() - 1 and v[i] % 2 != v[i + 1] % 2)
+//			b++;
+//		else
+//		{
+//			if (b > max)
+//			{
+//				max = b;
+//				cnt = 0;
+//			}
+//			if (b == max)
+//				cnt++;
+//			b = 1;
+//		}
+//		fout << max << " " << cnt;
+//	}
+//	else
+//	{
+//		ll b, max, cnt;
+//		max = cnt = 0;
+//		b = 1;
+//		int i;
+//		ll pi, pf;
+//		pi = pf = 0;
+//		for (i = 0; i < n; i++)
+//		{
+//			if (i < v.size() - 1 and v[i] % 2 != v[i + 1] % 2)
+//				b++;
+//			else
+//			{
+//				if (b > max)
+//				{
+//					max = b;
+//					cnt = 0;
+//					pi = i - b + 1;
+//					pf = i;
+//				}
+//				b = 1;
+//			}
+//		}
+//		if (i < v.size() - 1 and v[i] % 2 != v[i + 1] % 2)
+//			b++;
+//		else
+//		{
+//			if (b > max)
+//			{
+//				max = b;
+//				cnt = 0;
+//				pi = i - b + 1;
+//				pf = i;
+//			}
+//			b = 1;
+//		}
+//		fout << pi + 1 << " " << pf + 1;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("prietene.in");
+//ofstream fout("prietene.out");
+//struct neger
+//{
+//	ll val, div;
+//};
+//bool conditie(neger a, neger b)
+//{
+//	return a.div > b.div or (a.div == b.div and a.val > b.val);
+//}
+//vector<neger> v1, v2;
+//vector<bool> r;
+//vector<int> u;
+//int verifprim(int x)
+//{
+//	if (x % 2 == 0)
+//		return 0;
+//	for (int i = 3; i <= x / 2; i += 2)
+//		if (x % i == 0)
+//			return 0;
+//	return 1;
+//}
+//int nrdivprim(int x)
+//{
+//	int i, nr = 0;
+//	i = 0;
+//	if (verifprim(x) == 1)
+//		nr++;
+//	while (u[i] <= x / 2)
+//	{
+//		if (x % u[i] == 0)
+//			nr++;
+//		i++;
+//	}
+//	return nr;
+//}
+//int main()
+//{
+//	int c;
+//	fin >> c;
+//	int n, m;
+//	fin >> n >> m;
+//	ll max = 0;
+//	v1.resize(n + 10);
+//	for (int i = 0; i < n; i++)
+//	{
+//		fin >> v1[i].val;
+//		if (v1[i].val > max)
+//			max = v1[i].val;
+//	}
+//	v2.resize(m + 10);
+//	for (int i = 0; i < m; i++)
+//	{
+//		fin >> v2[i].val;
+//		if (v2[i].val > max)
+//			max = v2[i].val;
+//	}
+//	r.resize(max + 10);
+//	for (int i = 3; i * i <= max; i ++)
+//		for (int j = 2 * i; j <= max; j = j + i)
+//			r[j] = 1;
+//	u.push_back(2);
+//	for (int i = 3; i < max; i += 2)
+//	{
+//		if (r[i] == 0 and i % 2 == 1)
+//			u.push_back(i);
+//	}
+//	if (c == 1)
+//	{
+//		for (int i = 0; i < n; i++)
+//			v1[i].div = nrdivprim(v1[i].val);
+//		for (int i = 0; i < m; i++)
+//			v2[i].div = nrdivprim(v2[i].val);
+//		sort(v1.begin(), v1.end(), conditie);
+//		sort(v2.begin(), v2.end(), conditie);
+//		if (v1[0].div > v2[0].div or (v1[0].div == v2[0].div and v1[0].val > v2[0].val))
+//			fout << v1[0].val;
+//		else
+//			fout << v2[0].val;
+//	}
+//	if (c == 2)
+//	{
+//		vector<int> v3, v4;
+//		v3.resize(max + 10);
+//		v4.resize(max + 10);
+//		ll perechi = 0;
+//		for (int i = 0; i < n; i++)
+//			v3[nrdivprim(v1[i].val)]++;
+//		for (int i = 0; i < m; i++)
+//			v4[nrdivprim(v2[i].val)]++;
+//		for (int i = 0; i <= max; i++)
+//		{
+//			perechi = perechi + v3[i] * v4[i];
+//		}
+//		fout << perechi;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("binar.in");
+//ofstream fout("binar.out");
+//int Cifre1(int x)
+//{
+//	int nr = 0;
+//	while (x)
+//	{
+//		nr += x % 2;
+//		x /= 2;
+//	}
+//	return nr;
+//}
+//int Cifre(int x)
+//{
+//	int nr = 0;
+//	while (x)
+//	{
+//		nr += (x & 1);
+//		x = (x >> 1);
+//	}
+//	return nr;
+//}
+//int main()
+//{
+//	int i, n, x, max, task, y, nr, pmax, p;
+//	fin >> task;
+//	fin >> n;
+//	if(task==1)
+//	{
+//		max = 0;
+//		for (i = 1; i <= n; i++)
+//		{
+//			fin >> x;
+//			if (Cifre1(x) > Cifre1(max))
+//				max = x;
+//			else
+//				if (Cifre1(x) == Cifre1(max) and x > max)
+//					max = x;
+//		}
+//		fout << max;
+//	}
+//	else
+//	{
+//		max = 1;
+//		pmax = 1;
+//		nr = 1;
+//		fin >> y;
+//		for (i = 2; i <= n; i++)
+//		{
+//			fin >> x;
+//			if (Cifre(x) == Cifre(y))
+//				nr++;
+//			else
+//			{
+//				nr = 1;
+//				p = i;
+//			}
+//			if (max < nr)
+//			{
+//				max = nr;
+//				pmax = p;
+//			}
+//			y = x;
+//		}
+//		fout << max << " " << pmax;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("fadema.in");
+//ofstream fout("fadema.out");
+//matrice v;
+//int main()
+//{
+//	int n, m, max, nr = 0;
+//	fin >> n >> m;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//		v[i].resize(m);
+//	max = 0;
+//	bool ok = 1;
+//	for(int i=0;i<n;i++)
+//	{
+//		for (int j = 0; j < m; j++)
+//		{
+//			for (int k = i; k < n; k++)
+//			{
+//				for (int t = j; t < m; t++)
+//				{
+//					ok = 1;
+//					nr = 0;
+//					for (int x = i; x <= k and ok == 1; x++)
+//					{
+//						for (int y = j; y <= t and ok == 1; y++)
+//						{
+//							if ((x < n - 1 and v[x][y] == v[x + 1][y]) or (y < m - 1 and v[x][y] == v[x][y + 1]))
+//								ok = 0;
+//							nr++;
+//						}
+//					}
+//					if (nr > max)
+//						max = nr;
+//				}
+//			}
+//		}
+//	}
+//	cout << max;
+//
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//#define fori for(int i=0;i<n;i++) for(int j=0;j<n;j++)
+//ifstream fin("lasere.in");
+//ofstream fout("lasere.out");
+//matrice m;
+//int main()
+//{
+//	ll n, k, c;
+//	fin >> c >> n >> k;
+//	m.resize(n + 2);
+//	for (int i = 0; i < n + 2; i++)
+//	{
+//		m[i].resize(n + 2);
+//	}
+//	for (int j = 0; j < n + 2; j++)
+//		m[0][j] = m[n + 1][j] = 10000;
+//	for (int i = 0; i < n + 2; i++)
+//		m[i][0] = m[i][n + 1] = 10000;
+//	vector < int > v1, v2;
+//	int dl[9] = { 0, -1 , -1, 0, 1, 1, 1, 0, -1 };
+//	int dc[9] = { 0, 0, 1, 1, 1, 0, -1, -1, -1 };
+//	for(int i=1;i<=n;i++)
+//		for(int j=1;j<=n;j++)
+//			{
+//				fin >> m[i][j];
+//			}
+//	while (k)
+//	{
+//		ll nrgropi;
+//		ll i1, j1, d;
+//		fin >> i1 >> j1 >> d;
+//		if (d == 1)
+//		{
+//			for (int i = 1; i < i1; i++)
+//				m[i][j1]--;
+//		}
+//		else
+//			if (d == 2)
+//			{
+//				for (int j = j1 + 1; j <= n; j++)
+//					m[i1][j]--;
+//			}
+//			else
+//				if (d == 3)
+//				{
+//					for (int i = i1 + 1; i <= n; i++)
+//						m[i][j1]--;
+//				}
+//				else
+//					if (d == 4)
+//					{
+//						for (int j = 1; j < j1; j++)
+//							m[i1][j]--;
+//					}
+//		k--;
+//	}
+//	ll nrgropi = 0;
+//	if(c==1)
+//	{
+//		bool ok = 1;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= n; j++)
+//			{
+//				ok = 1;
+//				for (int k = 1; k <= 8 and ok == 1; k++)
+//				{
+//					if (m[i][j] > m[i + dl[k]][j + dc[k]])
+//						ok = 0;
+//				}
+//				if (ok == 1)
+//					nrgropi++;
+//			}
+//		}
+//		fout << nrgropi;
+//	}
+//	else
+//	{
+//		matrice r;
+//		r.resize(n + 2);
+//		for (int i = 0; i < n + 2; i++)
+//		{
+//			r[i].resize(n + 2);
+//		}
+//		for (int j = 0; j < n + 2; j++)
+//			r[0][j] = r[n + 1][j] = 0;
+//		for (int i = 0; i < n + 2; i++)
+//			r[i][0] = r[i][n + 1] = 0;
+//		bool ok = 1;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= n; j++)
+//			{
+//				ok = 1;
+//				for (int k = 1; k <= 8 and ok == 1; k++)
+//				{
+//					if (m[i][j] > m[i + dl[k]][j + dc[k]])
+//						ok = 0;
+//				}
+//				if (ok == 1)
+//					r[i][j] = 1;
+//			}
+//		}
+//		ll nrtrans = 0;
+//		int i, j;
+//		for (i = 1; i <= n; i++)
+//		{
+//			ok = 1;
+//			for (j = 1; j <= n; j++)
+//			{
+//				if (r[i][j] == 1 and r[i][j + 1] == 1)
+//				{
+//					while (j+1<n and r[i][j + 1] == 1)
+//						j++;
+//					nrtrans++;
+//				}
+//			}
+//		}
+//		fout << nrtrans;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("galerie.in");
+//ofstream fout("galerie.out");
+//struct neger
+//{
+//	ll i, j;
+//};
+//int main()
+//{
+//	int c, n, m, t;
+//	fin >> c >> n >> m >> t;
+//	vector<neger> v;
+//	ll r = 0;
+//	while (r<t)
+//	{
+//		ll x;
+//		fin >> x;
+//		r++;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("chei.in");
+//ofstream fout("chei.out");
+//
+//int Pcifra(int x)
+//{
+//	while (x > 9)
+//		x /= 10;
+//	return x;
+//}
+//
+//bool verifprim(int x)
+//{
+//	int i;
+//	if (x == 1 or x == 0)
+//		return 0;
+//	if (x == 2)
+//		return 1;
+//	if (x % 2 == 0)
+//		return 0;
+//	for (i = 3; i * i <= x; i+=2)
+//		if (x % i == 0)
+//			return 0;
+//	return 1;
+//}
+//
+//int Sum(int x)
+//{
+//	int d = 3, s = 0;
+//	if (x % 2 == 0)
+//	{
+//		s += 2;
+//		while (x % 2 == 0)
+//			x /= 2;
+//	}
+//	while (d * d <= x and d != 1)
+//	{
+//		if (x % d == 0)
+//		{
+//			s += d;
+//			while (x % d == 0)
+//				x /= d;
+//		}
+//		d+=2;
+//	}
+//	if (x != 1)
+//		s += x;
+//	return s;
+//}
+//
+//
+//int main()
+//{
+//	vector<int> v;
+//	int c1, c2, c3, c;
+//	fin >> c1 >> c2;
+//	fout << c1 << " " << c2 << " ";
+//	c3 = c1 % 10 * 10 + Pcifra(c2);
+//	if (verifprim(c3)==0 and c3 != 1)
+//		c3 = c3 - Sum(c3);
+//	if (c3 != c1 and c3 != c2)
+//		fout << c3 << " ";
+//	c = -1;
+//	while (true)
+//	{
+//		c = c2 % 10 * 10 + Pcifra(c3);
+//		if (verifprim(c)==0 and c != 1)
+//			c = c - Sum(c);
+//		if (c == c1 or c == c2 or c == c3)
+//			break;
+//		else
+//		{
+//			fout << c << " ";
+//			c1 = c2;
+//			c2 = c3;
+//			c3 = c;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//#include<set>
+//using namespace std;
+//#define ll long long
+//#define matrice vector < vector < int > >
+//ifstream fin("campionat.in");
+//ofstream fout("campionat.out");
+//struct nurasism
+//{
+//	short x, y;
+//};
+//struct rasismnu
+//{
+//	short scor, poz, posi, ok;
+//};
+//bool conditie(rasismnu a, rasismnu b)
+//{
+//	return a.scor > b.scor or (a.scor == b.scor and a.poz < b.poz);
+//}
+//int main()
+//{
+//	short c;
+//	fin >> c;
+//	int n;
+//	fin >> n;
+//	vector<rasismnu> v;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		fin >> v[i].scor;
+//		v[i].poz = i + 1;
+//	}
+//	int k;
+//	fin >> k;
+//	if(c==1)
+//	{
+//		vector<nurasism> v1;
+//		int r = 0;
+//		while (r < k)
+//		{
+//			bool ok = 1;
+//			short x, y;
+//			fin >> x >> y;
+//			if (y > x)
+//				swap(x, y);
+//			for (int i = 0; i < r and ok == 1; i++)
+//				if (v1[i].x == x and v1[i].y == y)
+//					ok = 0;
+//			if (ok == 1)
+//			{
+//				v1.push_back({ x, y });
+//				v[x - 1].scor++;
+//				v[y - 1].scor++;
+//			}
+//			r++;
+//		}
+//		sort(v.begin(), v.end(), conditie);
+//		fout << v[0].poz << " ";
+//		int i = 1;
+//		while (v[i].scor == v[0].scor)
+//		{
+//			fout << v[i].poz << " ";
+//			i++;
+//		}
+//	}
+//	else
+//	{
+//		int r = 0;
+//		vector<nurasism> v1;
+//		while (r < k)
+//		{
+//			bool ok = 1;
+//			short x, y;
+//			fin >> x >> y;
+//			x--;
+//			y--;
+//			if (y > x)
+//				swap(x, y);
+//			for (int i = 0; i < v1.size() and ok == 1; i++)
+//				if (v1[i].x == x and v1[i].y == y)
+//					ok = 0;
+//			if (ok == 1)
+//				v1.push_back({ x, y });
+//			r++;
+//		}
+//		int i = 0;
+//		for (int z = 0; z < v.size(); z++)
+//		{
+//			i = 0;
+//			v[z].posi = v[z].scor;
+//			for (int j = 0; j < v1.size(); j++)
+//			{
+//				if (v1[j].x == z or v1[j].y == z)
+//					v[z].posi += 3;
+//			}
+//			while (i < v.size())
+//			{
+//				if (i == z)
+//					i++;
+//				if (i < v.size())
+//				{
+//					v[i].posi = v[i].scor;
+//					for (int j = 0; j < v1.size(); j++)
+//					{
+//						if (v1[j].x != z and v1[j].y != z)
+//						{
+//							v[i].posi += 3;
+//						}
+//					}
+//					if (v[i].posi >= v[z].posi)
+//						v[z].ok = 1;
+//				}
+//				i++;
+//			}
+//		}
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (v[i].ok == 0)
+//				fout << i + 1 << " ";
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//
+//#define NMAX 32000
+//
+//void Ciur(vector<int>& Prime)
+//{
+//	int f, i;
+//	vector<char> ciur(NMAX, 0);
+//
+//	for (f = 3; f * f < NMAX; f++)
+//		if (ciur[f] == 0)
+//			for (i = 2 * f; i < NMAX; i += f)
+//				ciur[i] = 1;
+//
+//	Prime.push_back(2);
+//	for (i = 3; i < NMAX; i += 2)
+//		if (ciur[i] == 0)
+//			Prime.push_back(i);
+//}
+//
+//int NrFactori(long long x, vector<int> Prime)
+//{
+//	int i = 0, nrf = 0, n = Prime.size();
+//	while (i < n && Prime[i] * Prime[i] <= x)
+//	{
+//		if (x % Prime[i] == 0)
+//		{
+//			nrf++;
+//			while (x % Prime[i] == 0)
+//				x /= Prime[i];
+//		}
+//		i++;
+//	}
+//	if (x != 1)
+//		nrf++;
+//	return nrf;
+//}
+//
+//int NrDivizori(long long x, vector<int> Prime)
+//{
+//	int i = 0, nr = 0, n = Prime.size(), nrd = 1;
+//	while (i < n && Prime[i] * Prime[i] <= x)
+//	{
+//		nr = 0;
+//		while (x % Prime[i] == 0)
+//		{
+//			nr++;
+//			x /= Prime[i];
+//		}
+//		nrd *= nr + 1;
+//		i++;
+//	}
+//	if (x != 1)
+//		nrd *= 2;
+//	return nrd;
+//}
+//
+//int main()
+//{
+//	vector<int> Prime;
+//	vector<int> f1(15, 0), f2(15, 0);
+//	int i, n, m, task, x, max;
+//	ifstream fin("prietene.in");
+//	ofstream fout("prietene.out");
+//	max = 2;
+//	fin >> task >> n >> m;
+//	Ciur(Prime);
+//	for (i = 1; i <= n; i++)
+//	{
+//		fin >> x;
+//		f1[NrFactori(x, Prime)]++;
+//		if (NrFactori(x, Prime) > NrFactori(max, Prime))
+//			max = x;
+//		else
+//			if (NrFactori(x, Prime) == NrFactori(max, Prime) and x > max)
+//				max = x;
+//	}
+//	for (i = 1; i <= n; i++)
+//	{
+//		fin >> x;
+//		f2[NrFactori(x, Prime)]++;
+//		if (NrFactori(x, Prime) > NrFactori(max, Prime))
+//			max = x;
+//		else
+//			if (NrFactori(x, Prime) == NrFactori(max, Prime) and x > max)
+//				max = x;
+//	}
+//	if(task==1)
+//		cout << max;
+//	else
+//	{
+//		int sol = 0;
+//		for (i = 1; i < 15; i++)
+//		{
+//			sol += f1[i] * f2[i];
+//		}
+//		cout << sol;
+//	}
+//}
+//#include <iostream>
+//#include <stdlib.h>
+//
+//int main(void)
+//{
+//	int a,
+//		b = 0;
+//	srand(66);
+//	a = rand();                     // This is
+//	b = rand();                     // "pure luck" 
+//	    if ((a == b) && (a-1 == b-1))
+//	{
+//		std::cout << "fail\n";
+//		return 0;
+//	}
+//	std::cout << "success\n";
+//	return 0;
+//}
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<fstream>
+using namespace std;
+ifstream fin("campionat.in");
+ofstream fout("campionat.out");
+vector<int> scor, meciuri, maxi;
+int a[1001][1001];
+int main()
+{
+	int c, n;
+	fin >> c >> n;
+	meciuri.resize(n);
+	for (int i = 0; i < n; i++)
+	{
+		int x;
+		fin >> x;
+		scor.push_back(x);
+}
+	int k;
+	fin >> k;
+	while (k)
+	{
+		int i, j;
+		fin >> i >> j;
+		i--;
+		j--;
+		if (a[i][j] == 0)
+{
+			meciuri[i]++;
+			meciuri[j]++;
+			a[i][j] = a[j][i] = 1;
+		}
+		k--;
+	}
+	if (c == 1)
+	{
+		maxi.resize(n);
+		int max = 0;
+		for (int i = 0; i < n; i++)
+		{
+			maxi[i] = scor[i] + meciuri[i];
+			if (maxi[i] > max)
+				max = maxi[i];
+		}
+		for (int i = 0; i < n; i++)
+		{
+			if (maxi[i] == max)
+				fout << i + 1 << " ";
+		}
+		
+	}
+			else
+			{
+		maxi.resize(n);
+		int scor1 = 0;
+		for (int i = 0; i < n; i++)
+		{
+			maxi[i] = scor[i] + 3 * meciuri[i];
+			}
+		bool ok = 0, ok2 = 0;
+		for (int i = 0; i < n; i++)
+			{
+			ok = 0;
+			for (int j = 0; j < n and ok == 0; j++)
+			{
+				if (j != i)
+				{
+					scor1 = maxi[j] - 3 * a[i][j];
+					if (scor1 >= maxi[i])
+						ok = 1;
+				}
+			}
+			if (ok == 0)
+				fout << i + 1 << " ", ok2 = 1;
+		}
+		if (ok2 == 0)
+			fout << "0";
+	}
+}
