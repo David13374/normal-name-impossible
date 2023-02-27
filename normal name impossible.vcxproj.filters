@@ -18,11 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="normal name impossible.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="cartele.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
@@ -141,16 +136,121 @@
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
     <None Include="betisoare1.out">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Fisiere vechi</Filter>
     </None>
     <None Include="betisoare1.in">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="3cifre.out">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Fisiere vechi</Filter>
     </None>
     <None Include="3cifre.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="3cifre.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="roboti2.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="roboti2.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="castel.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="numere23.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="numere23.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="tnia.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="tnia.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="panglica.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="panglica.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="numere.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="numere.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cufar.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cufar.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cifre3.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cifre3.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="prietene.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="prietene.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="pdif.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="pdif.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="binar.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="binar.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="fadema.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="fadema.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="galerie.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="galerie.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="lasere.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="lasere.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cri.in">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="cri.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="grup.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="grup.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="chei.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="chei.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="campionat.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="campionat.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -163,5 +263,10 @@
     <Text Include="arrows.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="normal name impossible.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

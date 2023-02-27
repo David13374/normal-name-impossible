@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="normal name impossible.cpp" />
+    <ClCompile Include="normal name impossible.cpp">
+      <DeploymentContent>false</DeploymentContent>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="3cifre.in" />
@@ -137,34 +139,69 @@
     <None Include="arrows.out" />
     <None Include="betisoare1.in" />
     <None Include="betisoare1.out" />
+    <None Include="binar.in" />
+    <None Include="binar.out" />
     <None Include="broscute.in" />
     <None Include="broscute.out" />
+    <None Include="campionat.in" />
+    <None Include="campionat.out" />
     <None Include="cartele.in" />
     <None Include="cartele.out" />
+    <None Include="castel.in" />
+    <None Include="chei.in" />
+    <None Include="chei.out" />
     <None Include="cifre12.in" />
     <None Include="cifre12.out" />
+    <None Include="cifre3.in" />
+    <None Include="cifre3.out" />
     <None Include="colina.in" />
     <None Include="colina.out" />
     <None Include="concurs4.in" />
     <None Include="concurs4.out" />
+    <None Include="cri.in" />
+    <None Include="cri.out" />
+    <None Include="cufar.in" />
+    <None Include="cufar.out" />
     <None Include="culori1.in" />
     <None Include="culori1.out" />
     <None Include="defrag.in" />
     <None Include="defrag.out" />
     <None Include="elicop.in" />
     <None Include="elicop.out" />
+    <None Include="fadema.in" />
+    <None Include="fadema.out" />
+    <None Include="galerie.in" />
+    <None Include="galerie.out" />
+    <None Include="grup.in" />
+    <None Include="grup.out" />
+    <None Include="lasere.in" />
+    <None Include="lasere.out" />
     <None Include="maxdiv.in" />
     <None Include="maxdiv.out" />
+    <None Include="numere.in" />
+    <None Include="numere.out" />
+    <None Include="numere23.in" />
+    <None Include="numere23.out" />
+    <None Include="panglica.in" />
+    <None Include="panglica.out" />
     <None Include="pareimpare.in" />
     <None Include="pareimpare.out" />
+    <None Include="pdif.in" />
+    <None Include="pdif.out" />
+    <None Include="prietene.in" />
+    <None Include="prietene.out" />
     <None Include="roata.in" />
     <None Include="roata.out" />
+    <None Include="roboti2.in" />
+    <None Include="roboti2.out" />
     <None Include="secvk.in" />
     <None Include="secvk.out" />
     <None Include="sumainsecv.in" />
     <None Include="sumainsecv.out" />
     <None Include="tan.in" />
     <None Include="tan.out" />
+    <None Include="tnia.in" />
+    <None Include="tnia.out" />
     <None Include="traseu2.in" />
     <None Include="traseu2.out" />
     <None Include="triunghi3.in" />

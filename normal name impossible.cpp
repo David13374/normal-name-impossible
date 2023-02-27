@@ -3850,84 +3850,289 @@
 //	std::cout << "success\n";
 //	return 0;
 //}
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("campionat.in");
+//ofstream fout("campionat.out");
+//vector<int> scor, meciuri, maxi;
+//int a[1001][1001];
+//int main()
+//{
+//	int c, n;
+//	fin >> c >> n;
+//	meciuri.resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int x;
+//		fin >> x;
+//		scor.push_back(x);
+//	}
+//	int k;
+//	fin >> k;
+//	while (k)
+//	{
+//		int i, j;
+//		fin >> i >> j;
+//		i--;
+//		j--;
+//		if (a[i][j] == 0)
+//		{
+//			meciuri[i]++;
+//			meciuri[j]++;
+//			a[i][j] = a[j][i] = 1;
+//		}
+//		k--;
+//	}
+//	if (c == 1)
+//	{
+//		maxi.resize(n);
+//		int max = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			maxi[i] = scor[i] + meciuri[i];
+//			if (maxi[i] > max)
+//				max = maxi[i];
+//		}
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (maxi[i] == max)
+//				fout << i + 1 << " ";
+//		}
+//		
+//	}
+//	else
+//	{
+//		maxi.resize(n);
+//		int scor1 = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			maxi[i] = scor[i] + 3 * meciuri[i];
+//		}
+//		bool ok = 0, ok2 = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			ok = 0;
+//			for (int j = 0; j < n and ok == 0; j++)
+//			{
+//				if (j != i)
+//				{
+//					scor1 = maxi[j] - 3 * a[i][j];
+//					if (scor1 >= maxi[i])
+//						ok = 1;
+//				}
+//			}
+//			if (ok == 0)
+//				fout << i + 1 << " ", ok2 = 1;
+//		}
+//		if (ok2 == 0)
+//			fout << "0";
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("cri.in");
+//ofstream fout("cri.out");
+//int main()
+//{
+//	int n, m, i1, j1, gz1, gz2, gz3, gz4, minz1, minz2, minz3, minz4;
+//	gz1 = gz2 = gz3 = gz4 = 0;
+//	minz1 = minz2 = minz3 = minz4 = 2147000000;
+//	fin >> n >> m >> i1 >> j1;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			int x;
+//			fin >> x;
+//			if (i <= i1 and j <= j1)
+//			{
+//				gz1 += x;
+//				if ((i != i1 or j1 != j1) and (i != 1 or j != 1))
+//					if (x < minz1)
+//						minz1 = x;
+//			}
+//			if (i <= i1 and j >= j1)
+//			{
+//				gz2 += x;
+//				if ((i != i1 or j1 != j1) and (i != 1 or j != m))
+//					if (x < minz2)
+//						minz2 = x;
+//			}
+//			if (i >= i1 and j <= j1)
+//			{
+//				gz3 += x;
+//				if ((i != i1 or j1 != j1) != 0 and (i != n or j != 1))
+//					if (x < minz3)
+//						minz3 = x;
+//			}
+//			if (i >= i1 and j >= j1)
+//			{
+//				gz4 += x;
+//				if ((i != i1 or j1 != j1) and (i != n or j != m))
+//					if (x < minz4)
+//						minz4 = x;
+//			}
+//		}
+//	}
+//	int az1, az2, az3, az4;
+//	az1 = i1 * j1;
+//	az2 = i1 * (m - j1 + 1);
+//	az3 = (n - i1 + 1) * j1;
+//	az4 = (n - i1 + 1) * (m - j1 + 1);
+//	if (i1 % 2 == 0 and j1 % 2 == 0)
+//	{
+//		az1--;
+//		gz1 -= minz1;
+//	}
+//	if (i1 % 2 == 0 and (m - j1 + 1) % 2 == 0)
+//	{
+//		az2--;
+//		gz2 -= minz2;
+//	}
+//	if ((n - i1 + 1)%2 == 0 and j1 % 2 == 0)
+//	{
+//		az3--;
+//		gz3 -= minz3;
+//	}
+//	if ((n - i1 + 1)%2 == 0 and (m - j1 + 1) % 2 == 0)
+//	{
+//		az4--;
+//		gz4 -= minz4;
+//	}
+//	int maxg, minl, zona;
+//	maxg = gz1;
+//	minl = az1;
+//	zona = 1;
+//	//cout << gz2 << endl;
+//	//cout << zona << " " << maxg << " " << minl << endl;
+//	if (maxg < gz2)
+//	{
+//		maxg = gz2;
+//		minl = az2;
+//		zona = 2;
+//	}
+//	else
+//		if (maxg == gz2 and az2<minl)
+//		{
+//			minl = az2;
+//			zona = 2;
+//		}
+//	//cout << zona << " " << maxg << " " << minl << endl;
+//	if (maxg < gz3)
+//	{
+//		maxg = gz3;
+//		minl = az3;
+//		zona = 3;
+//	}
+//	else
+//		if (maxg == gz3 and az3 < minl)
+//		{
+//			minl = az3;
+//			zona = 3;
+//		}
+//	//cout << zona << " " << maxg << " " << minl << endl;
+//	if (maxg < gz4)
+//	{
+//		maxg = gz4;
+//		minl = az4;
+//		zona = 4;
+//	}
+//	else
+//		if (maxg == gz4 and az4 < minl)
+//		{
+//			minl = az4;
+//			zona = 4;
+//		}
+//	fout << zona << " " << maxg << " " << minl << endl;
+//}
 #include<iostream>
+#include<fstream>
 #include<vector>
 #include<algorithm>
-#include<fstream>
+#include<set>
 using namespace std;
-ifstream fin("campionat.in");
-ofstream fout("campionat.out");
-vector<int> scor, meciuri, maxi;
-int a[1001][1001];
+#define ll long long
+ifstream fin("grup.in");
+ofstream fout("grup.out");
+struct nice
+{
+	int nrap, min;
+};
 int main()
 {
 	int c, n;
-	fin >> c >> n;
-	meciuri.resize(n);
-	for (int i = 0; i < n; i++)
-	{
-		int x;
-		fin >> x;
-		scor.push_back(x);
-}
-	int k;
-	fin >> k;
-	while (k)
-	{
-		int i, j;
-		fin >> i >> j;
-		i--;
-		j--;
-		if (a[i][j] == 0)
-{
-			meciuri[i]++;
-			meciuri[j]++;
-			a[i][j] = a[j][i] = 1;
-		}
-		k--;
-	}
+	fin >> n >> c;
 	if (c == 1)
 	{
-		maxi.resize(n);
-		int max = 0;
+		vector<nice> v(10);
+		for (int i = 1; i <= 9; i++)
+			v[i].min = 2147483647;
 		for (int i = 0; i < n; i++)
 		{
-			maxi[i] = scor[i] + meciuri[i];
-			if (maxi[i] > max)
-				max = maxi[i];
+			int x, r;
+			fin >> x;
+			r = x;
+			while (x > 9)
+				x /= 10;
+			v[x].nrap++;
+			if (r < v[x].min)
+				v[x].min = r;
 		}
-		for (int i = 0; i < n; i++)
+		int nrapmax, min;
+		nrapmax = 0;
+		min = 2147483647;
+		for (int i = 1; i < 10; i++)
 		{
-			if (maxi[i] == max)
-				fout << i + 1 << " ";
+			if (v[i].nrap > nrapmax)
+				nrapmax = v[i].nrap, min = 2147483647;
+			if(v[i].min>0)
+				if (v[i].nrap == nrapmax and v[i].min < min)
+					min = v[i].min;
 		}
-		
+		fout << min;
 	}
+	else
+	{
+		vector<int> v1;
+		set<int>::iterator it;
+		for (int i = 0; i < n; i++)
+		{
+			int x;
+			fin >> x;
+			set<int> v;
+			while (x)
+			{
+				v.insert(x % 10);
+				x /= 10;
+			}
+			int r = 0;
+			x = 1;
+			for (it = v.begin(); it != v.end(); it++)
+			{
+				r = *it * x + r;
+				x = x * 10;
+			}
+			v1.push_back(r);
+		}
+		sort(v1.begin(), v1.end());
+		int b = 1, max=0;
+		for (int i = 0; i < v1.size() - 1; i++)
+		{
+			if (v1[i] == v1[i + 1])
+			{
+				b++;
+			}
 			else
 			{
-		maxi.resize(n);
-		int scor1 = 0;
-		for (int i = 0; i < n; i++)
-		{
-			maxi[i] = scor[i] + 3 * meciuri[i];
+				if (b > max)
+					max = b;
+				b = 1;
 			}
-		bool ok = 0, ok2 = 0;
-		for (int i = 0; i < n; i++)
-			{
-			ok = 0;
-			for (int j = 0; j < n and ok == 0; j++)
-			{
-				if (j != i)
-				{
-					scor1 = maxi[j] - 3 * a[i][j];
-					if (scor1 >= maxi[i])
-						ok = 1;
-				}
-			}
-			if (ok == 0)
-				fout << i + 1 << " ", ok2 = 1;
 		}
-		if (ok2 == 0)
-			fout << "0";
+		fout << max;
 	}
 }
