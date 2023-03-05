@@ -137,6 +137,7 @@
     <None Include="arc.in" />
     <None Include="arc.out" />
     <None Include="arrows.out" />
+    <None Include="balba.in" />
     <None Include="betisoare1.in" />
     <None Include="betisoare1.out" />
     <None Include="binar.in" />
@@ -166,6 +167,8 @@
     <None Include="culori1.out" />
     <None Include="defrag.in" />
     <None Include="defrag.out" />
+    <None Include="deminare.in" />
+    <None Include="deminare.out" />
     <None Include="elicop.in" />
     <None Include="elicop.out" />
     <None Include="fadema.in" />
@@ -182,12 +185,17 @@
     <None Include="numere.out" />
     <None Include="numere23.in" />
     <None Include="numere23.out" />
+    <None Include="oneout.in" />
+    <None Include="oneout.out" />
     <None Include="panglica.in" />
     <None Include="panglica.out" />
     <None Include="pareimpare.in" />
     <None Include="pareimpare.out" />
+    <None Include="patratele.in" />
+    <None Include="patratele.out" />
     <None Include="pdif.in" />
     <None Include="pdif.out" />
+    <None Include="pergament.in" />
     <None Include="prietene.in" />
     <None Include="prietene.out" />
     <None Include="roata.in" />

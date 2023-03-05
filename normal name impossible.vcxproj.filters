@@ -228,18 +228,6 @@
     <None Include="lasere.out">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
-    <None Include="cri.in">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="cri.out">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="grup.out">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="grup.in">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="chei.out">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
@@ -251,6 +239,42 @@
     </None>
     <None Include="campionat.in">
       <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="grup.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="grup.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cri.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cri.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="oneout.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="deminare.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="deminare.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="balba.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="pergament.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="patratele.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="patratele.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="oneout.out">
+      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

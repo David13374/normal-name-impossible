@@ -4049,90 +4049,430 @@
 //		}
 //	fout << zona << " " << maxg << " " << minl << endl;
 //}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//#include<set>
+//using namespace std;
+//#define ll long long
+//ifstream fin("grup.in");
+//ofstream fout("grup.out");
+//struct nice
+//{
+//	int nrap, min;
+//};
+//int main()
+//{
+//	int c, n;
+//	fin >> n >> c;
+//	if (c == 1)
+//	{
+//		vector<nice> v(10);
+//		for (int i = 1; i <= 9; i++)
+//			v[i].min = 2147483647;
+//		for (int i = 0; i < n; i++)
+//		{
+//			int x, r;
+//			fin >> x;
+//			r = x;
+//			while (x > 9)
+//				x /= 10;
+//			v[x].nrap++;
+//			if (r < v[x].min)
+//				v[x].min = r;
+//		}
+//		int nrapmax, min;
+//		nrapmax = 0;
+//		min = 2147483647;
+//		for (int i = 1; i < 10; i++)
+//		{
+//			if (v[i].nrap > nrapmax)
+//				nrapmax = v[i].nrap, min = 2147483647;
+//			if(v[i].min>0)
+//				if (v[i].nrap == nrapmax and v[i].min < min)
+//					min = v[i].min;
+//		}
+//		fout << min;
+//	}
+//	else
+//	{
+//		vector<int> v1;
+//		set<int>::iterator it;
+//		for (int i = 0; i < n; i++)
+//		{
+//			int x;
+//			fin >> x;
+//			set<int> v;
+//			while (x)
+//			{
+//				v.insert(x % 10);
+//				x /= 10;
+//			}
+//			int r = 0;
+//			x = 1;
+//			for (it = v.begin(); it != v.end(); it++)
+//			{
+//				r = *it * x + r;
+//				x = x * 10;
+//			}
+//			v1.push_back(r);
+//		}
+//		sort(v1.begin(), v1.end());
+//		int b = 1, max=0;
+//		for (int i = 0; i < v1.size() - 1; i++)
+//		{
+//			if (v1[i] == v1[i + 1])
+//			{
+//				b++;
+//			}
+//			else
+//			{
+//				if (b > max)
+//					max = b;
+//				b = 1;
+//			}
+//		}
+//		fout << max;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("patratele.in");
+//ofstream fout("patratele.out");
+//struct tip
+//{
+//	int val, t0, t1, t2, t3;
+//};
+//int main()
+//{
+//	int n, m, c;
+//	fin >> n >> m >> c;
+//	vector< vector < tip > > M;
+//	M.resize(n + 1);
+//	for (int i = 0; i <= n; i++)
+//		M[i].resize(m + 1);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			int r;
+//			fin >> M[i][j].val;
+//			r = M[i][j].val;
+//			if (M[i][j].val & 1 == 1)
+//				M[i][j].t0 = 1;
+//			if (M[i][j].val & 2 == 1)
+//				M[i][j].t1 = 1;
+//			if (M[i][j].val & 2 == 4)
+//				M[i][j].t2 = 1;
+//			if (M[i][j].val & 2 == 8)
+//				M[i][j].t3 = 1;
+//		}
+//	}
+//	for (int x = 1; x <= n; x++)
+//	{
+//		for (int y = 1; y <= m; y++)
+//		{
+//			int i, j;
+//			i = j = 1;
+//			while(M[i][j])
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<set>
+//using namespace std;
+//ifstream fin("balba.in");
+//ofstream fout("balba.out");
+//int main()
+//{
+//	int c;
+//	fin >> c;
+//	int n;
+//	fin >> n;
+//	if (c == 1)
+//	{
+//		//set<int> s;
+//		vector<int> v;
+//		for (int i = 0; i < n; i++)
+//		{
+//			int x;
+//			fin >> x;
+//			v.push_back(x);
+//		}
+//		v.push_back(-3);
+//		int nr2 = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (i + 1 < v.size() and v[i] != v[i + 1])
+//				nr2++;
+//		}
+//		cout << nr2 << endl;
+//		int nr = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (i > 0 and i + 1 < v.size() and v[i - 1] != v[i] and v[i] == v[i + 1])
+//				nr++;
+//		}
+//		cout << nr;
+//	}
+//	else
+//	{
+//		vector<int> v, t;
+//		t.resize(10);
+//		for (int i = 0; i < n; i++)
+//		{
+//			int x;
+//			fin >> x;
+//			v.push_back(x);
+//			t[x]++;
+//		}
+//		int celmaimarenumarcuaparatiiimpare=-1;
+//		for (int i = 0; i < 10; i++)
+//		{
+//			if (t[i] % 2 == 1)
+//				celmaimarenumarcuaparatiiimpare = i;
+//		}
+//		vector<int> palindrom;
+//		palindrom.resize(n); 
+//		for (int i = 0; i < 10; i++)
+//		{
+//
+//		}
+//	}
+//}
 #include<iostream>
 #include<fstream>
 #include<vector>
-#include<algorithm>
 #include<set>
 using namespace std;
-#define ll long long
-ifstream fin("grup.in");
-ofstream fout("grup.out");
-struct nice
+struct poz
 {
-	int nrap, min;
+	int poz1, poz2;
 };
+#define ne v1[i] - v1[i - 1] - 1 + v1[i + 1] - v1[i] - 1
+vector<int> r;
+vector<int> t;
+ifstream fin("oneout.in");
+ofstream fout("oneout.out");
 int main()
 {
-	int c, n;
-	fin >> n >> c;
+	int n, c;
+	fin >> c >> n;
+	vector<int> v;
+	v.resize(n);
+	int max = 0;
+	for (int i = 0; i < n; i++)
+	{
+		fin >> v[i];
+		if (v[i] > max)
+			max = v[i];
+	}
+	t.resize(max + 1);
+	for (int i = 2; i * i <= max; i++)
+		for (int j = i * i; j <= max; j += i * i)
+			t[j] = 1;
 	if (c == 1)
 	{
-		vector<nice> v(10);
-		for (int i = 1; i <= 9; i++)
-			v[i].min = 2147483647;
+		int nr = 0;
 		for (int i = 0; i < n; i++)
 		{
-			int x, r;
-			fin >> x;
-			r = x;
-			while (x > 9)
-				x /= 10;
-			v[x].nrap++;
-			if (r < v[x].min)
-				v[x].min = r;
+			if ( t[v[i]] == 0)
+				nr++;
 		}
-		int nrapmax, min;
-		nrapmax = 0;
-		min = 2147483647;
-		for (int i = 1; i < 10; i++)
-		{
-			if (v[i].nrap > nrapmax)
-				nrapmax = v[i].nrap, min = 2147483647;
-			if(v[i].min>0)
-				if (v[i].nrap == nrapmax and v[i].min < min)
-					min = v[i].min;
-		}
-		fout << min;
+		fout << nr;
 	}
 	else
 	{
 		vector<int> v1;
-		set<int>::iterator it;
+		v1.push_back(0);
 		for (int i = 0; i < n; i++)
 		{
-			int x;
-			fin >> x;
-			set<int> v;
-			while (x)
-			{
-				v.insert(x % 10);
-				x /= 10;
-			}
-			int r = 0;
-			x = 1;
-			for (it = v.begin(); it != v.end(); it++)
-			{
-				r = *it * x + r;
-				x = x * 10;
-			}
-			v1.push_back(r);
+			if (t[v[i]] == 1)
+				v1.push_back(i + 1);
 		}
-		sort(v1.begin(), v1.end());
-		int b = 1, max=0;
-		for (int i = 0; i < v1.size() - 1; i++)
+		v1.push_back(n + 1);
+		vector<poz> v2;
+		int max = 0, nr = 0;
+		for (int i = 1; i < v1.size() - 1; i++)
 		{
-			if (v1[i] == v1[i + 1])
+			if (v1[i] != v1[i + 1] - 1 and v1[i] != v1[i - 1] + 1)
 			{
-				b++;
-			}
-			else
-			{
-				if (b > max)
-					max = b;
-				b = 1;
+				if (ne > max)
+					max = ne, nr = 0, v2.clear();
+				if (ne == max)
+				{
+					nr++;
+					v2.push_back({ v1[i - 1] + 1, v1[i + 1] - 1 });
+				}
 			}
 		}
-		fout << max;
+		fout << max << " " << nr << endl;
+		for (int i = 0; i < v2.size(); i++)
+			fout << v2[i].poz1 << " " << v2[i].poz2 << endl;
 	}
 }
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("pergament.in");
+//ofstream fout("pergament.out");
+//int main()
+//{
+//	int n, q, k;
+//	fin >> n >> k >> q;
+//	int A, B, C, D;
+//	fin >> A >> B >> C >> D;
+//	vector< vector <int> > M;
+//	M.resize(n + 1);
+//	for (int i = 0; i <= n; i++)
+//		M[i].resize(k + 1);
+//	vector<int> x, y;
+//	x.resize(n + 1);
+//	y.resize(n + 1);
+//	fin >> x[1] >> y[1];
+//	int c = 0;
+//	for (int i = x[1], c = 0; c < y[1]; i++, c++)
+//		M[1][i]++;
+//	for (int i = 2; i <= n; i++)
+//	{
+//		x[i] = 1 + (x[i - 1] * A + B) % k;
+//		y[i] = 1 + (y[i - 1] * C + D) % (k - x[i] + 1);
+//		for (int r = x[i], c = 0; c < y[i]; c++, r++)
+//			M[i][r]++;
+//	}
+//	int nr = 0;
+//	while (q)
+//	{
+//		int n1, m1, l;
+//		fin >> n1 >> m1 >> l;
+//		for (int i = 0, c = 0; c < l; i++, c++)
+//		{
+//			if (M[m1 + i][n1] == 1)
+//				nr++;
+//		}
+//
+//		q--;
+//	}
+//	fout << nr;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//#define calcul S[ij][jj] - S[is-1][jj] - S[ij][js-1] + S[is-1][js-1]
+//struct nega
+//{
+//	int nra, i;
+//};
+//struct nada
+//{
+//	int n1, n2;
+//};
+//bool conditie(nega a, nega b)
+//{
+//	return a.nra > b.nra or (a.nra == b.nra and a.i < b.i);
+//}
+//ifstream fin("deminare.in");
+//ofstream fout("deminare.out");
+//int main()
+//{
+//	short c;
+//	fin >> c;
+//	int n, m, k;
+//	fin >> n >> m >> k;
+//	if(c==1)
+//	{
+//		vector<nega> v;
+//		v.resize(n);
+//		for (int i = 0; i < k; i++)
+//		{
+//			int l, c;
+//			fin >> l >> c;
+//			v[l - 1].nra++;
+//			v[l - 1].i = l;
+//		}
+//		sort(v.begin(), v.end(), conditie);
+//		fout << v[0].i << " ";
+//		int i = 1;
+//		while (v[0].nra == v[i].nra)
+//		{
+//			fout << v[i].i << " ";
+//			i++;
+//			if (i == n)
+//				break;
+//		}
+//	}
+//	else
+//	{
+//		vector< vector < int > > v;
+//		vector<nada> v1;
+//		v.resize(n + 1);
+//		for (int i = 0; i <= n; i++)
+//			v[i].resize(m + 1);
+//		for (int i = 0; i < k; i++)
+//		{
+//			int l, c;
+//			fin >> l >> c;
+//			v[l][c] = 1;
+//		}
+//		vector < vector < int > > S;
+//		S.resize(n + 1);
+//		for (int i = 0; i <= n; i++)
+//			S[i].resize(m + 1);
+//		for (int i = 0; i <= n; i++)
+//			S[i][0] = 0;
+//		for (int j = 0; j <= m; j++)
+//			S[0][j] = 0;
+//		for (int i = 1; i <= n; i++)
+//			for (int j = 1; j <= m; j++)
+//				S[i][j] = S[i - 1][j] + S[i][j - 1] - S[i - 1][j - 1] + v[i][j];
+//		int r = min(n, m);
+//		for (int i = 1; i <= r; i++)
+//		{
+//			bool ok = 1;
+//			if(k % i == 0 and i * r >= k)
+//			{
+//				for (int j = 1; j <= r and ok == 1; j++)
+//				{
+//					if (i * j == k)
+//					{
+//						ok = 0;
+//						v1.push_back({ i, j });
+//					}
+//				}
+//			}
+//		}
+//		int is, js, ij, jj;
+//		bool ok1 = 1, ok2 = 1;
+//		int max = 0;
+//		for (int x = 0; x < v1.size(); x++)
+//		{
+//			ok1 = 1;
+//			for (int i = 1; i <= n; i++)
+//			{
+//				ok2 = 1;
+//				for (int j = 1; j <= m; j++)
+//				{
+//					is = i;
+//					js = j;
+//					if (i + v1[x].n1 - 1 <= n and j + v1[x].n2 - 1 <= m)
+//					{
+//						jj = j + v1[x].n2 - 1;
+//						ij = i + v1[x].n1 - 1;
+//						if (S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1] > max)
+//							max = S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1];
+//					}
+//				}
+//			}
+//		}
+//		fout << k - max;
+//	}
+//}
