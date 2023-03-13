@@ -4205,118 +4205,153 @@
 //			fin >> x;
 //			v.push_back(x);
 //		}
-//		v.push_back(-3);
+//		v.push_back(-10);
 //		int nr2 = 0;
+//		int nr1 = 0;
+//		int b = 1;
+//		int i = 0;
 //		for (int i = 0; i < n; i++)
 //		{
-//			if (i + 1 < v.size() and v[i] != v[i + 1])
-//				nr2++;
+//			if (v[i] != v[i + 1])
+//				nr1++;
 //		}
-//		cout << nr2 << endl;
-//		int nr = 0;
 //		for (int i = 0; i < n; i++)
 //		{
-//			if (i > 0 and i + 1 < v.size() and v[i - 1] != v[i] and v[i] == v[i + 1])
-//				nr++;
+//			if (v[i] == v[i + 1])
+//				b++;
+//			else
+//				if (b >= 2)
+//					nr2++, b = 1;
 //		}
-//		cout << nr;
+//		fout << nr1 << endl << nr2 << endl;
 //	}
 //	else
 //	{
-//		vector<int> v, t;
-//		t.resize(10);
+//		vector<int> v;
+//		v.resize(10, 0);
 //		for (int i = 0; i < n; i++)
 //		{
 //			int x;
 //			fin >> x;
-//			v.push_back(x);
-//			t[x]++;
+//			v[x]++;
 //		}
-//		int celmaimarenumarcuaparatiiimpare=-1;
+//		int max1, max2;
+//		max1 = max2 = -1;
 //		for (int i = 0; i < 10; i++)
 //		{
-//			if (t[i] % 2 == 1)
-//				celmaimarenumarcuaparatiiimpare = i;
+//			if (v[i] >= 3 and v[i]%2==1)
+//			{
+//				if(max1<max2)
+//					max1 = max2;
+//				max2 = i;
+//			}
+//			else
+//			{
+//				if (v[i] > 0 and v[i]%2==1)
+//					max1 = i;
+//			}
 //		}
-//		vector<int> palindrom;
-//		palindrom.resize(n); 
-//		for (int i = 0; i < 10; i++)
+//		v[max2]++;
+//		vector<int> r;
+//		cout << max2 << " " << max1 << endl;
+//		for (int i = 9; i >= 0; i--)
 //		{
-//
+//			if (i != max1 and v[i]>=2)
+//			{
+//				while (v[i] > 1)
+//				{
+//					r.push_back(i);
+//					v[i] -= 2;
+//				}
+//			}
+//		}
+//		int x = r.size();
+//		for (int i = 0; i < x; i++)
+//		{
+//			fout << r[i];
+//		}
+//		if(max1!=-1)
+//			fout << max1;
+//		for (int i = x - 1; i >= 0; i--)
+//		{
+//			if (r[i] != max2)
+//				fout << r[i];
+//			else
+//				max2 = -1;
 //		}
 //	}
 //}
-#include<iostream>
-#include<fstream>
-#include<vector>
-#include<set>
-using namespace std;
-struct poz
-{
-	int poz1, poz2;
-};
-#define ne v1[i] - v1[i - 1] - 1 + v1[i + 1] - v1[i] - 1
-vector<int> r;
-vector<int> t;
-ifstream fin("oneout.in");
-ofstream fout("oneout.out");
-int main()
-{
-	int n, c;
-	fin >> c >> n;
-	vector<int> v;
-	v.resize(n);
-	int max = 0;
-	for (int i = 0; i < n; i++)
-	{
-		fin >> v[i];
-		if (v[i] > max)
-			max = v[i];
-	}
-	t.resize(max + 1);
-	for (int i = 2; i * i <= max; i++)
-		for (int j = i * i; j <= max; j += i * i)
-			t[j] = 1;
-	if (c == 1)
-	{
-		int nr = 0;
-		for (int i = 0; i < n; i++)
-		{
-			if ( t[v[i]] == 0)
-				nr++;
-		}
-		fout << nr;
-	}
-	else
-	{
-		vector<int> v1;
-		v1.push_back(0);
-		for (int i = 0; i < n; i++)
-		{
-			if (t[v[i]] == 1)
-				v1.push_back(i + 1);
-		}
-		v1.push_back(n + 1);
-		vector<poz> v2;
-		int max = 0, nr = 0;
-		for (int i = 1; i < v1.size() - 1; i++)
-		{
-			if (v1[i] != v1[i + 1] - 1 and v1[i] != v1[i - 1] + 1)
-			{
-				if (ne > max)
-					max = ne, nr = 0, v2.clear();
-				if (ne == max)
-				{
-					nr++;
-					v2.push_back({ v1[i - 1] + 1, v1[i + 1] - 1 });
-				}
-			}
-		}
-		fout << max << " " << nr << endl;
-		for (int i = 0; i < v2.size(); i++)
-			fout << v2[i].poz1 << " " << v2[i].poz2 << endl;
-	}
-}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<set>
+//using namespace std;
+//struct poz
+//{
+//	int poz1, poz2;
+//};
+//#define ne v1[i] - v1[i - 1] - 1 + v1[i + 1] - v1[i] - 1
+//vector<int> r;
+//vector<int> t;
+//ifstream fin("oneout.in");
+//ofstream fout("oneout.out");
+//int main()
+//{
+//	int n, c;
+//	fin >> c >> n;
+//	vector<int> v;
+//	v.resize(n);
+//	int max = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		fin >> v[i];
+//		if (v[i] > max)
+//			max = v[i];
+//	}
+//	t.resize(max + 1);
+//	for (int i = 2; i * i <= max; i++)
+//		for (int j = i * i; j <= max; j += i * i)
+//			t[j] = 1;
+//	if (c == 1)
+//	{
+//		int nr = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			if ( t[v[i]] == 0)
+//				nr++;
+//		}
+//		fout << nr;
+//	}
+//	else
+//	{
+//		vector<int> v1;
+//		v1.push_back(0);
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (t[v[i]] == 1)
+//				v1.push_back(i + 1);
+//		}
+//		v1.push_back(n + 1);
+//		vector<poz> v2;
+//		int max = 0, nr = 0;
+//		for (int i = 1; i < v1.size() - 1; i++)
+//		{
+//			if (v1[i] != v1[i + 1] - 1 and v1[i] != v1[i - 1] + 1)
+//			{
+//				if (ne > max)
+//					max = ne, nr = 0, v2.clear();
+//				if (ne == max)
+//				{
+//					nr++;
+//					v2.push_back({ v1[i - 1] + 1, v1[i + 1] - 1 });
+//				}
+//			}
+//		}
+//		fout << max << " " << nr << endl;
+//		for (int i = 0; i < v2.size(); i++)
+//			fout << v2[i].poz1 << " " << v2[i].poz2 << endl;
+//	}
+//}
 //#include<iostream>
 //#include<fstream>
 //#include<vector>
@@ -4453,6 +4488,7 @@ int main()
 //		int is, js, ij, jj;
 //		bool ok1 = 1, ok2 = 1;
 //		int max = 0;
+//		bool abcd = 0;
 //		for (int x = 0; x < v1.size(); x++)
 //		{
 //			ok1 = 1;
@@ -4468,11 +4504,1962 @@ int main()
 //						jj = j + v1[x].n2 - 1;
 //						ij = i + v1[x].n1 - 1;
 //						if (S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1] > max)
-//							max = S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1];
+//							max = S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1], abcd = 1;
 //					}
 //				}
 //			}
 //		}
-//		fout << k - max;
+//		if (abcd == 1)
+//			fout << k - max;
+//		else
+//			fout << -1;
 //	}
 //}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<string>
+//using namespace std;
+//ifstream fin("aproape.in");
+//ofstream fout("aproape.out");
+//vector<long long> v;
+//int nrcifre1(int a)
+//{
+//	long long nr = 0;
+//	while (a)
+//	{
+//		a /= 10;
+//		nr++;
+//	}
+//	return nr;
+//}
+//long long nrcifre(int a)
+//{
+//	long long r = 1;
+//	for (long long i = 0; i < a; i++)
+//		r *= 10;
+//	return r;
+//}
+//int cifreschimbate(long long x, long long a)
+//{
+//	long long nr = 0;
+//	while (x)
+//	{
+//		if (x % 10 != a % 10)
+//		{
+//			nr += abs(x % 10 - a % 10);
+//		}
+//		x /= 10;
+//		a /= 10;
+//	}
+//	return nr;
+//}
+//int main()
+//{
+//	long long a;
+//	int b;
+//	fin >> b >> a;
+//
+//	if (b == 1)
+//	{
+//		if (a != 0)
+//		{
+//			int nr = 0;
+//			while (a)
+//			{
+//				a /= 10;
+//				nr++;
+//			}
+//			fout << nr;
+//		}
+//		else
+//			fout << 1;
+//	}
+//	else
+//		if (b == 2)
+//		{
+//			long long cnt = 0;
+//			if (a != 0)
+//			{
+//				if(a>10)
+//				{
+//					while (a)
+//					{
+//						cnt += 2;
+//						if (a == 1)
+//							cnt--;
+//						if (a % 10 == 0)
+//							cnt--;
+//						if (a % 10 == 9)
+//							cnt--;
+//						a /= 10;
+//					}
+//					fout << cnt;
+//				}
+//				else
+//				{
+//					cnt += 2;
+//					if (a == 0)
+//						cnt--;
+//					if (a == 9)
+//						cnt--;
+//					fout << cnt;
+//				}
+//			}
+//			else
+//				fout << 1;
+//		}
+//		else
+//			if (b == 3)
+//			{
+//				if (a != 0)
+//				{
+//					if (a > 10)
+//					{
+//						vector<long long> r;
+//						long long x = nrcifre(nrcifre1(a));
+//						r.resize(x);
+//						r[a] = 1;
+//						long long cnt1, cnt2;
+//						cnt1 = 0;
+//						cnt2 = 1;
+//						for (long long i = x / 10; i < x; i++)
+//						{
+//							/*long long y = abs(a - i);
+//							long long nr = 0;
+//							while (y)
+//							{
+//								nr += y % 10;
+//								y /= 10;
+//							}
+//							if (nr == 1)
+//								r[i] = 1 , cnt1++, cout<<i<<endl;*/
+//							if (cifreschimbate(i, a) == 1 and r[i] == 0)
+//								r[i] = 1, v.push_back(i);
+//						}
+//						for (long long y = 0; y < v.size(); y++)
+//						{
+//							for (int i = x / 10; i < x; i++)
+//							{
+//								if (cifreschimbate(i, v[y]) == 1 and r[i] == 0)
+//									r[i] = 1, cnt2++;
+//							}
+//						}
+//						fout << cnt2;
+//					}
+//					else
+//					{
+//						if (a < 8 and a >= 2)
+//							fout << 3;
+//						else
+//							fout << 2;
+//					}
+//				}
+//				else
+//					fout << 2;
+//			}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("cetate.in");
+//ofstream fout("cetate.out");
+//int main()
+//{
+//	int c;
+//	fin >> c;
+//	int n, m, k;
+//	fin >> n >> m >> k;
+//	vector < vector < int > > v, S;
+//	v.resize(n + 2);
+//	S.resize(n + 2);
+//	for (int i = 0; i <= n; i++)
+//	{
+//		v[i].resize(m + 2);
+//		S[i].resize(m + 2);
+//	}
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//			fin >> v[i][j];
+//	}
+//	for (int i = 0; i <= n; i++)
+//		S[i][0] = 0;
+//	for (int j = 0; j <= m; j++)
+//		S[0][j] = 0;
+//
+//	for (int i = 1; i <= n; i++)
+//		for (int j = 1; j <= m; j++)
+//			S[i][j] = S[i - 1][j] + S[i][j - 1] - S[i - 1][j - 1] + v[i][j];
+//	if(c==1)
+//	{
+//		bool ok1, ok2;
+//		ok1 = 1;
+//		long long max = -9223372036854775807;
+//		int is, js, ij, jj, ism, jsm, ijm, jjm;
+//		ism = jsm = ijm = jjm = 0;
+//		for (int i = 1; i <= n and ok1 == 1; i++)
+//		{
+//			is = i;
+//			ij = i + k - 1;
+//			if (ij > n)
+//				ok1 = 0;
+//			ok2 = 1;
+//			if (ok1 == 1)
+//			{
+//				for (int j = 1; j <= m and ok2 == 1; j++)
+//				{
+//					js = j;
+//					jj = j + k - 1;
+//					if (jj > m)
+//						ok2 = 0;
+//					if (ok2 == 1)
+//					{
+//						if (S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1] > max)
+//						{
+//							max = S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1];
+//							ism = is;
+//							jsm = js;
+//							ijm = ij;
+//							jjm = jj;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		fout << max << endl << ism << " " << jsm << " " << ijm << " " << jjm;
+//	}
+//	else
+//	{
+//		long long max = -9223372036854775807;
+//		int is, js, ij, jj, ism, jsm, ijm, jjm;
+//		ism = jsm = ijm = jjm = 0;
+//		for (int x = 1; x <= k; x++)
+//		{
+//			for(int x2=1;x2<=k;x2++)
+//			{
+//				for (int i = 1; i <= n; i++)
+//				{
+//					is = i;
+//					ij = i + x - 1;
+//					if (ij <= n)
+//					{
+//						for (int j = 1; j <= m; j++)
+//						{
+//							js = j;
+//							jj = j + x2 - 1;
+//							if (jj <= m)
+//							{
+//								if (S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1] > max)
+//								{
+//									max = S[ij][jj] - S[is - 1][jj] - S[ij][js - 1] + S[is - 1][js - 1];
+//									ism = is;
+//									jsm = js;
+//									ijm = ij;
+//									jjm = jj;
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//		fout << max << endl << ism << " " << jsm << " " << ijm << " " << jjm;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("buldo.in");
+//ofstream fout("buldo.out");
+//int main()
+//{
+//	int n, s = 0, mini =1000000000;
+//	fin >> n;
+//	vector<int> v(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		fin >> v[i];
+//		s = s + v[i];
+//		if (v[i] < mini)
+//			mini = v[i];
+//	}
+//	s = s / n;
+//	bool ok = 1;
+//	int cupa = 0;
+//	s = min(v[0], s);
+//	int max = 0;
+//	for (int i = mini; i <= s and ok == 1; i++)
+//	{
+//		cupa = 0;
+//		for (int j = 0; j < n and ok == 1; j++)
+//		{
+//			int x = abs(v[j] - i);
+//			if (v[j] > i)
+//			{
+//				cupa = cupa + x;
+//			}
+//			else if (v[j]<i)
+//			{
+//				cupa = cupa - x;
+//			}
+//			if (cupa < 0)
+//				ok = 0;
+//		}
+//		if (cupa < 0)
+//			ok = 0;
+//		else
+//			max = i;
+//	}
+//	fout << max;
+//}
+//#include<iostream>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("spiralmatrix.in");
+//ofstream fout("spiralmatrix.out");
+//int main()
+//{
+//	long long n, nr = 1, val1, val2, val3, val4;
+//	val1 = val2 = val3 = val4 = 0;
+//	fin >> n;
+//	bool ok = 1;
+//	for (long long i = 1; i <= n / 2 and ok == 1; i++) 
+//	{ 
+//		cout << "1 ";
+//		for (long long j = i; j <= n - i and ok == 1; ++j)
+//		{
+//			cout << "2 ";
+//			if (n % 2 == 0)
+//			{
+//				if(nr == n * n / 2)
+//					val1 = i, val2 = j;
+//				else
+//					if (nr == n * n / 2 + 1)
+//					{
+//						val3 = i, val4 = j;
+//						ok = 0;
+//					}
+//			}
+//			else
+//			{
+//				if(nr==n*n/2)
+//					val1 = i, val2 = j;
+//				else
+//					if (nr == n * n / 2 + 2)
+//					{
+//						val3 = i, val4 = j;
+//						ok = 0;
+//					}
+//			}
+//			nr++;
+//		}
+//		for (long long j = i; j <= n - i and ok == 1; ++j)
+//		{
+//			cout << "3 ";
+//			if (n % 2 == 0)
+//			{
+//				if (nr == n * n / 2)
+//					val1 = j, val2 = n - i + 1;
+//				else
+//					if (nr == n * n / 2 + 1)
+//					{
+//						val3 = j, val4 = n - i + 1;
+//						ok = 0;
+//					}
+//			}
+//			else
+//			{
+//				if (nr == n * n / 2)
+//					val1 = j, val2 = n - i + 1;
+//				else
+//					if (nr == n * n / 2 + 2)
+//					{
+//						val3 = j, val4 = n - i + 1;
+//						ok = 0;
+//					}
+//			}
+//			nr++;
+//		}
+//
+//		for (long long j = n - i + 1; j >= i + 1 and ok == 1; --j)
+//		{
+//			cout << "4 ";
+//			if (n % 2 == 0)
+//			{
+//				if (nr == n * n / 2)
+//					val1 = n - i + 1, val2 = j;
+//				else
+//					if (nr == n * n / 2 + 1)
+//					{
+//						val3 = n - i + 1, val4 = j;
+//						ok = 0;
+//					}
+//			}
+//			else
+//			{
+//				if (nr == n * n / 2)
+//					val1 = n - i + 1, val2 = j;
+//				else
+//					if (nr == n * n / 2 + 2)
+//					{
+//						val3 = n - i + 1, val4 = j;
+//						ok = 0;
+//					}
+//			}
+//			nr++;
+//		}
+//		for (long long j = n - i + 1; j >= i + 1 and ok == 1; --j)
+//		{
+//			cout << "5 ";
+//			if (n % 2 == 0)
+//			{
+//				if (nr == n * n / 2)
+//					val1 = j, val2 = i;
+//				else
+//					if (nr == n * n / 2 + 1)
+//					{
+//						val3 = j, val4 = i;
+//						ok = 0;
+//					}
+//			}
+//			else
+//			{
+//				if (nr == n * n / 2)
+//					val1 = j, val2 = i;
+//				else
+//					if (nr == n * n / 2 + 2)
+//					{
+//						val3 = j, val4 = i;
+//						ok = 0;
+//					}
+//			}
+//			nr++;
+//		}
+//	}
+//	fout << val1 << " " << val2 << endl;
+//	fout << val3 << " " << val4 << endl;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//#define ll long long
+//ifstream fin("abx.in");
+//ofstream fout("abx.out");
+//int main()
+//{
+//	int n, m;
+//	fin >> n >> m;
+//	for (int i = 0; i < n; i++)
+//	{
+//		int x;
+//		fin >> x;
+//		ll st, dr;
+//		st = dr = x;
+//		int r;
+//		bool ok = 1;
+//		bool ok1 = 1;
+//		for (int i = 2; i * i <= x and ok == 1; i++)
+//		{
+//			r = x;
+//			while (r % i == 0)
+//				r /= i;
+//			if (r == 1)
+//				fout << x << endl, ok1 = 0, ok = 0;
+//		}
+//		st--;
+//		dr++;
+//		bool ok2 = 1, ok3 = 1;
+//		while (ok1 == 1)
+//		{
+//			int r;
+//			ok = 1;
+//			for (int j = 2; j * j <= st and ok == 1 and ok2 == 1; j++)
+//			{
+//				r = st;
+//				while (r % j == 0)
+//					r /= j;
+//				if (r == 1)
+//				{
+//					fout << st << endl;
+//					ok1 = 0;
+//					ok = 0;
+//					ok3 = 0;
+//					ok2 = 0;
+//				}
+//			}
+//			ok = 1;
+//			for (int j = 2; j * j <= dr and ok == 1 and ok3 == 1; j++)
+//			{
+//				r = dr;
+//				while (r % j == 0)
+//					r /= j;
+//				if (r == 1)
+//				{
+//					fout << dr << endl;
+//					ok1 = 0;
+//					ok = 0;
+//					ok3 = 0;
+//					ok2 = 0;
+//				}
+//			}
+//			st--;
+//			dr++;
+//			if (st <= 0)
+//				ok2 = 0;
+//			if (dr > m)
+//				ok3 = 0;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//#define ll long long
+//ifstream fin("cufar.in");
+//ofstream fout("cufar.out");
+//vector<ll> v, v2;
+//ll divprimk(ll x, ll k)
+//{
+//	ll i = 0;
+//	while (k)
+//	{
+//		if (x % v2[i] == 0)
+//			k--;
+//		i++;
+//	}
+//	return v2[i - 1];
+//}
+//int main()
+//{
+//	ll n, c;
+//	fin >> c >> n;
+//	v.resize(1000001, 0);
+//	for (ll i = 3; i * i <= 1000000; i++)
+//		for (ll j = 2 * i; j <= 1000000; j = j + i)
+//			v[j] = 1;
+//	v2.push_back(2);
+//	for (ll i = 3; i < 1000001; i++)
+//	{
+//		if (v[i] == 0)
+//			v2.push_back(i);
+//	}
+//	if (c == 1)
+//	{
+//		for (ll i = 0; i < n; i++)
+//		{
+//			ll nr, k;
+//			fin >> nr >> k;
+//			fout << divprimk(nr, k);
+//		}
+//	}
+//	else
+//	{
+//		ll s = 0;
+//		for (ll i = 0; i < n; i++)
+//		{
+//			ll nr, k;
+//			fin >> nr >> k;
+//			s = s + divprimk(nr, k);
+//		}
+//		fout << s << endl;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("div11.in");
+//ofstream fout("div11.out");
+//long long nrcifre(int x)
+//{
+//	long long r = 1;
+//	while (x)
+//	{
+//		x /= 10;
+//		r *= 10;
+//	}
+//	return r;
+//}
+//int main()
+//{
+//	vector<int> v;
+//	vector<long long> v1;
+//	int n;
+//	fin >> n;
+//	for (int i = 0; i < n; i++)
+//	{
+//		int x;
+//		fin >> x;
+//		v.push_back(x);
+//		v1.push_back(nrcifre(x));
+//	}
+//	int nr = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			if ((v[i] * v1[j] + v[j]) % 11 == 0 and j != i)
+//				nr++;
+//		}
+//	}
+//	fout << nr;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//#define spatiu << " " <<
+//ifstream fin("axel.in");
+//ofstream fout("axel.out");
+//int main()
+//{
+//	int n;
+//	fin >> n;
+//	vector< vector < int > > m, m1;
+//	m.resize(n);
+//	m1.resize(n * 2 + 1);
+//	for (int i = 0; i < n; i++)
+//		m[i].resize(n);
+//	for (int i = 0; i <= n * 2; i++)
+//	{
+//		m1[i].resize(n * 2 + 1);
+//	}
+//	int maxi = -1;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			fin >> m[i][j];
+//			if (m[i][j] > maxi)
+//				maxi = m[i][j];
+//			m1[i][j] = m[i][j];
+//			m1[i + n][j] = m[i][j];
+//		}
+//	}
+//	vector<int> v(maxi + 1);
+//	bool ok3 = 0;
+//	for (int x = 0; x <= maxi; x++)
+//	{
+//		bool ok2 = 1;
+//		for (int j = 0; j < n and ok2 == 1; j++)
+//		{
+//			bool ok = 0;
+//			int nr = 0;
+//			for (int i = j; i < 2 * n and ok == 0; i++)
+//			{
+//				if (m1[i][j] == x)
+//				{
+//					v[x] += nr;
+//					ok = 1;
+//				}
+//				nr++;
+//			}
+//			if (ok == 0)
+//			{
+//				v[x] = -1;
+//				ok2 = 0;
+//			}
+//		}
+//		if (ok2 == 1)
+//		{
+//			ok3 = 1;
+//		}
+//	}
+//	if (ok3 == 0)
+//		fout << "NU";
+//	else
+//	{
+//		fout << "DA" << endl;
+//		int maxi2 = -2147483647;
+//		for (int i = 0; i < maxi + 1; i++)
+//		{
+//			if (i - v[i] > maxi2 and v[i] != -1)
+//				maxi2 = i - v[i];
+//		}
+//		fout << maxi2;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("colibri.in");
+//ofstream fout("colibri.out");
+//int main()
+//{
+//	int n;
+//	vector<double> v;
+//	fin >> n;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int a, b, c;
+//		fin >> a >> b >> c;
+//		if (a % 2 == 0)
+//		{
+//			v[i] = b * 1.0 / c * 1.0;
+//		}
+//		else
+//		{
+//			v[i] = -b * 1.0 / c * 1.0;
+//		}
+//	}
+//	vector<int> x, xmax;
+//	int max = -2147483647;
+//	int j, i, t;
+//	int nr = 1;
+//	// calculez numarul de submultimi posibile
+//	nr = 1;
+//	for (i = 1; i <= n; i++)
+//		nr *= 2;
+//	for (i = 1; i < nr; i++)
+//	{
+//		//resetez vectorul x la 0 
+//		x.resize(n, 0);
+//		t = i;
+//		j = n - 1;
+//		//construiesc vectorul x
+//		while (t != 0)
+//		{
+//			x[j--] = t % 2;
+//			t /= 2;
+//		}
+//		//afisez submultimea
+//		int p = 1;
+//		for (j = 0; j < n; j++)
+//			if (x[j] == 1)
+//			{
+//				p = p * v[j];
+//			}
+//		if (p > max)
+//		{
+//			max = p;
+//			xmax.resize(n, 0);
+//			for (int i = 0; i < n; i++)
+//			{
+//				xmax[i] = x[i];
+//			}
+//		}
+//	}
+//	for (int i = 0; i < n; i++)
+//	{
+//		fout << xmax[i];
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("fibofrac.in");
+//ofstream fout("fibofrac.out");
+//int main()
+//{
+//	int n;
+//	fin >> n;
+//	//daca e caz cu n<2 e urat din partea lor :(
+//	vector<unsigned long long> fib = {1, 1};
+//	fib.resize(n);
+//	for (int i = 2; i < n; i++)
+//	{
+//		fib[i] = fib[i - 1] + fib[i - 2];
+//	}
+//	if (n >= 2)
+//	{
+//		unsigned long long nr = n - 2;
+//		for (int i = 2; i < n; i++)
+//		{
+//			for (int j = i + 1; j < n; j++)
+//			{
+//				if (fib[j] % fib[i] != 0)
+//					nr++;
+//			}
+//		}
+//		fout << nr;
+//	}
+//	//else
+//		//fout << 0;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<set>
+//using namespace std;
+//ifstream fin("pro3.in");
+//ofstream fout("pro3.out");
+//struct simfonianumarul5
+//{
+//	int v1, v2, v3;
+//};
+//int main()
+//{
+//	vector<int> v1, v2, v3;
+//	int n, r, t;
+//	fin >> n >> r >> t;
+//	set<int> s;
+//	v1.push_back(n);
+//	s.insert(n);
+//	t--;
+//	while (t)
+//	{
+//		v1.push_back(v1[v1.size() - 1] + r);
+//		s.insert(v1[v1.size() - 1]);
+//		t--;
+//	}
+//	fin >> n >> r >> t;
+//	v2.push_back(n);
+//	s.insert(n);
+//	t--;
+//	while (t)
+//	{
+//		v2.push_back(v2[v2.size() - 1] + r);
+//		s.insert(v2[v2.size() - 1]);
+//		t--;
+//	}
+//	fin >> n >> r >> t;
+//	v3.push_back(n);
+//	s.insert(n);
+//	t--;
+//	while (t)
+//	{
+//		v3.push_back(v3[v3.size() - 1] + r);
+//		s.insert(v3[v3.size() - 1]);
+//		t--;
+//	}
+//	fout << s.size();
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("triunghi5.in");
+//ofstream fout("triunghi5.out");
+//int main()
+//{
+//	int n;
+//	fin >> n;
+//	vector< vector <int> > v;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//		v[i].resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			fin >> v[i][j];
+//		}
+//	}
+//	int k;
+//	fin >> k;
+//	int max = 0;
+//	while (k)
+//	{
+//		int lin, col, dis;
+//		fin >> lin >> col >> dis;
+//		lin--;
+//		col--;
+//		int c, d;
+//		int suma = 0;
+//		if (dis > 0)
+//		{
+//			for (int i = lin, c = 0; c < dis; i++, c++)
+//			{
+//				for (int j = col, d = 0; d < dis-c; j++, d++)
+//				{
+//					suma = suma + v[i][j];;
+//				}
+//			}
+//		}
+//		else
+//		{
+//			dis = abs(dis);
+//			for (int i = lin, c = 0; c < dis; i--, c++)
+//			{
+//				for (int j = col, d = 0; d < dis - c; j--, d++)
+//				{
+//					suma = suma + v[i][j];
+//					cout << v[i][j] << " ";
+//				}
+//				cout << '\n';
+//			}
+//		}
+//		if (suma > max)
+//			max = suma;
+//		k--;
+//	}
+//	fout << max;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//#define ll long long
+//ifstream fin("mexitate.in");
+//ofstream fout("mexitate.out");
+//vector<int> v1;
+//int mex()
+//{
+//	for (int i = 1;i < 400001 ; i++)
+//	{
+//		if (v1[i] == 0)
+//			return i;
+//	}
+//	return 400001;
+//}
+//int main()
+//{
+//	int n, m, ik, jk;
+//	fin >> n >> m >> ik >> jk;
+//	int max = 0;
+//	vector< vector < int > > v;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//	{
+//		v[i].resize(m);
+//	}
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < m; j++)
+//		{
+//			fin >> v[i][j];
+//			if (max < v[i][j])
+//				max = v[i][j];
+//		}
+//	}
+//	bool ok1, ok2;
+//	ok1 = ok2 = 1;
+//	unsigned ll p = 1, r = 1;
+//	int is, ij, js, jj;
+//	is = ij = js = jj = 0;
+//	for (int i = 0; i < n and ok1 == 1; i++)
+//	{
+//		is = i;
+//		ij = i + ik - 1;
+//		ok2 = 1;
+//		if (ij >= n)
+//			ok1 = 0;
+//		else
+//		{
+//			for (int j = 0; j < m and ok2 == 1 and ok1 == 1; j++)
+//			{
+//				js = j;
+//				jj = j + jk - 1;
+//				if (jj >= m)
+//					ok2 = 0;
+//				else
+//				{
+//					v1.clear();
+//					v1.resize(400002, 0);
+//					for (int x1 = is; x1 <= ij; x1++)
+//					{
+//						for (int x2 = js; x2 <= jj; x2++)
+//						{
+//							v1[v[x1][x2]] = 1;
+//						}
+//					}
+//					p = p * ( mex() % 1000000007 ) % 1000000007;
+//				}
+//			}
+//		}
+//	}
+//	fout << p;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("plaja2.in");
+//ofstream fout("plaja2.out");
+//class finclose
+//{
+//public:
+//	int n, k, T;
+//	vector<int> zile;
+//	void citire()
+//	{
+//		fin >> n >> k >> T;
+//		rezolvare();
+//	}
+//	void rezolvare()
+//	{
+//		zile.resize(n + 1);
+//		for (int i = 0; i < k; i++)
+//		{
+//			int Z, T1;
+//			fin >> Z >> T1;
+//			Z--;
+//			zile[Z] = T1;
+//		}
+//		for (int i = 1; i < n; i++)
+//		{
+//			if (zile[i] == 0)
+//			{
+//				if (zile[i + 1] == 0)
+//				{
+//					zile[i] = zile[i - 1] + T;
+//				}
+//				else
+//				{
+//					int x;
+//					if (zile[i + 1] < zile[i - 1])
+//						x = zile[i + 1];
+//					else
+//						x = zile[i - 1];
+//					zile[i] = x + T;
+//				}
+//			}
+//			cout << zile[i] << " ";
+//		}
+//		sort(zile.begin(), zile.end());
+//		fout << zile[zile.size()-1];
+//	}
+//};
+//int main()
+//{
+//	int n, k, T;
+//	finclose a;
+//	a.citire();
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("logic.in");
+//char sir[1026];
+//char v[10][1026];
+//vector<int> puteredoi;
+//int sir21[10][1026];
+//short c, n;
+//void cedrqtrebuiesafieaici(char y724[1026])
+//{
+//	for (int j = 0; j < puteredoi[n - 1]; j++)
+//	{
+//		if (v[n - 1][j] == '&')
+//			sir21[n - 1][j] = ((y724[2 * j] - 48) & (y724[2 * j + 1] - 48));
+//		else
+//			sir21[n - 1][j] = ((y724[2 * j] - 48) | (y724[2 * j + 1] - 48));
+//		cout << sir21[n - 1][j] << " ";
+//	}
+//	cout << '\n';
+//}
+//int main()
+//{
+//	fin >> c >> n;
+//	puteredoi.resize(64);
+//	puteredoi[0] = 1;
+//	for (int i = 1; i < n; i++)
+//	{
+//		puteredoi[i] = puteredoi[i - 1] * 2;
+//	}
+//	if (c == 1)
+//	{
+//		for (int i = 0; i < n; i++)
+//		{
+//			for (int j = 0; j < puteredoi[i]; j++)
+//			{
+//				fin >> v[i][j];
+//			}
+//		}
+//		int k;
+//		fin >> k;
+//		for (int i = 0; i < k; i++)
+//		{
+//			for (int j = 0; j < puteredoi[n]; j++)
+//				fin >> sir[j];
+//			cedrqtrebuiesafieaici(sir);
+//		}
+//	}
+//}
+//#include <iostream>
+//using namespace std;
+//
+//void afisare_cifre(int n) {
+//	if (n < 10)
+//	{ 
+//		cout << n << " ";
+//	}
+//	else 
+//	{
+//		afisare_cifre(n / 10); 
+//		cout << n % 10 << " ";
+//	}
+//}
+//
+//int main() {
+//	int n = 123456789;
+//	afisare_cifre(n);
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("cifre13.in");
+//ofstream fout("cifre13.out");
+//int main()
+//{
+//	int n, m, k;
+//	fin >> n >> m >> k;
+//	vector<vector<int>> v;
+//	v.resize(n + 100);
+//	for (int i = 0; i < n + 100; i++)
+//		v[i].resize(m + 100);
+//	while (k)
+//	{
+//		int nr, lin, col;
+//		fin >> nr >> lin >> col;
+//		if (nr == 0)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 3] = 1;
+//			v[lin + 3][col] = 1;
+//			v[lin + 3][col + 3] = 1;
+//			v[lin + 4][col] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 1)
+//		{
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col + 1] = 1;
+//			v[lin + 1][col + 2] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 2] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col + 2] = 1;
+//			v[lin + 5][col + 2] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//			v[lin + 6][col + 3] = 1;
+//		}
+//		if (nr == 2)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 3] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col + 1] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 6][col] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//			v[lin + 6][col + 3] = 1;
+//		}
+//		if (nr == 3)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 3] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 4)
+//		{
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col + 1] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 3][col] = 1;
+//			v[lin + 3][col + 1] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 3][col + 3] = 1;
+//			v[lin + 4][col + 2] = 1;
+//			v[lin + 5][col + 2] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 5)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin][col + 3] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 3][col + 1] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 6)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 3][col] = 1;
+//			v[lin + 3][col + 1] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 7)
+//		{
+//			v[lin][col] = 1;
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin][col + 3] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col + 2] = 1;
+//			v[lin + 2][col + 2] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col + 1] = 1;
+//			v[lin + 5][col + 1] = 1;
+//			v[lin + 6][col + 1] = 1;
+//		}
+//		if (nr == 8)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 3] = 1;
+//			v[lin + 3][col + 1] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 4][col] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		if (nr == 9)
+//		{
+//			v[lin][col + 1] = 1;
+//			v[lin][col + 2] = 1;
+//			v[lin + 1][col] = 1;
+//			v[lin + 1][col + 3] = 1;
+//			v[lin + 2][col] = 1;
+//			v[lin + 2][col + 3] = 1;
+//			v[lin + 3][col + 1] = 1;
+//			v[lin + 3][col + 2] = 1;
+//			v[lin + 3][col + 3] = 1;
+//			v[lin + 4][col + 3] = 1;
+//			v[lin + 5][col] = 1;
+//			v[lin + 5][col + 3] = 1;
+//			v[lin + 6][col + 1] = 1;
+//			v[lin + 6][col + 2] = 1;
+//		}
+//		k--;
+//	}
+//	int nr = 0;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			if (v[i][j] == 1)
+//				nr++;
+//		}
+//	}
+//	fout << nr;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("castig.in");
+//ofstream fout("castig.out");
+//int main()
+//{
+//	int n, k;
+//	fin >> n >> k;
+//	vector<int> v(n);
+//	for (int i = 0; i < n; i++)
+//		fin >> v[i];
+//	int max = 0, pi, pf;
+//	pi = pf = 0;
+//	for (int i = 0; i < n - k + 1; i++)
+//	{
+//		int s = 0;
+//		for (int j = 0; j < k; j++)
+//		{
+//			s = s + v[j + i];
+//		}
+//		if (s > max)
+//		{
+//			max = s;
+//			pi = i;
+//			pf = i + k;
+//		}
+//	}
+//	for (int i = pi; i < pf; i++)
+//		v[i] = -1;
+//	max = 0;
+//	for (int i = 0; i < n - k + 1; i++)
+//	{
+//		int s = 0;
+//		for (int j = 0; j < k; j++)
+//		{
+//			s = s + v[j + i];
+//		}
+//		if (s > max)
+//		{
+//			max = s;
+//		}
+//	}
+//	fout << max;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("b210.in");
+//ofstream fout("b210.out");
+//int main()
+//{
+//	int n, nr = 0;
+//	fin >> n;
+//	vector<int> v;
+//	while (n)
+//	{
+//		v.push_back(n % 2);
+//		n /= 2;
+//		nr++;
+//	}
+//	int i = 0, max=0;
+//	while (i != nr)
+//	{
+//		int j = i, k = 0, nr2 = 0, p2 = 1;
+//		while (k!=nr)
+//		{
+//			nr2 = nr2 + p2 * v[j];
+//			p2 *= 2;
+//			j++;
+//			k++;
+//			if (j == nr)
+//				j = 0;
+//		}
+//		if (nr2 > max)
+//			max = nr2;
+//		i++;
+//	}
+//	fout << max;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//int cmmdc(int a, int b)
+//{
+//	while (a != b)
+//		if (a > b)
+//			a = a - b;
+//		else
+//			b = b - a;
+//	return a;
+//}
+//ifstream fin("bomboane3.in");
+//int main()
+//{
+//	short c;
+//	fin >> c;
+//	if (c == 1)
+//	{
+//		int n;
+//		fin >> n;
+//		vector<int> v(n);
+//		int min = 2147483647;
+//		for (int i = 0; i < n; i++)
+//		{
+//			fin >> v[i];
+//			if (v[i] < min)
+//				min = v[i];
+//		}
+//		for (int i = 0; i < n; i++)
+//		{
+//			v[i] -= min;
+//		}
+//		int i = 0;
+//		while (v[i] == 0)
+//			i++;
+//		int x = v[i];
+//		for (int i = 0; i < n; i++)
+//		{
+//			if (v[i] != 0)
+//			{
+//				x = cmmdc(x, v[i]);
+//			}
+//		}
+//		cout << x;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("mirror.in");
+//int main()
+//{
+//	short c;
+//	fin >> c;
+//	int n, k;
+//	fin >> n >> k;
+//	if (c == 1)
+//	{
+//		vector<int> v(64), r(n);
+//		for (int i = 0; i < n; i++)
+//		{
+//			fin >> r[i];
+//		}
+//		int j = 0;
+//		for (int i = 0; i < n; i++)
+//		{
+//			while(r[i])
+//			{
+//				v[j++] = r[i] % 2;
+//				cout << r[i] % 2 << " ";
+//				r[i] /= 2;
+//				if (j == k)
+//				{
+//					cout << '\n';
+//					int p2 = 1, x = 0;
+//					for (int i = 0; i < k; i++)
+//					{
+//						;
+//					}
+//					j = 0;
+//				}
+//			}
+//			//cout << endl;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//ifstream fin("orase2.in");
+//ofstream fout("orase2.out");
+//int main()
+//{
+//	short c;
+//	fin >> c;
+//	int n, x;
+//	fin >> n >> x;
+//	vector<double> d(n), v(n), t(n);
+//	for (int i = 0; i < n; i ++ )
+//	{
+//		fin >> d[i];
+//	}
+//	for (int i = 0; i < n; i++)
+//	{
+//		fin >> v[i];
+//		t[i] = (1.0 * d[i]) / (v[i] * 1.0);
+//	}
+//	for (int r = 0; r < x; r++)
+//	{
+//		double max = 0;
+//		int bad = 0;	
+//		for (int i = 0; i < n; i++)
+//		{
+//			double t1 = (1.0 * d[i]) / (v[i] + 1 * 1.0);
+//			if (t1 > max)
+//				max = t1, bad = i;
+//		}
+//		v[bad]++;
+//	}
+//	double timp = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		//cout << v[i] << " ";
+//		timp = timp + ((1.0 * d[i]) / (v[i] * 1.0));
+//	}
+//	fout << int (timp);
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("escape.in");
+//ofstream fout("escape.out");
+//struct asd
+//{
+//	long long nr, i;
+//};
+//bool conditie(asd a, asd b)
+//{
+//	return a.nr > b.nr or (a.nr == b.nr and a.i < b.i);
+//}
+//int main()
+//{
+//	long long n, c, t, i, s1, s2, max1, max2, nr1, nr2;
+//	vector<long long> v, y, x;
+//	fin >> c;
+//	fin >> n;
+//	v.resize(n);
+//	for (i = 0; i < n; i++)
+//		fin >> v[i];
+//	for (i = 0; i < n; i++)
+//	{
+//		fin >> t;
+//		v.push_back(t);
+//	}
+//	s1 = s2 = 0;
+//	max1 = max2 = 0;
+//	nr1 = nr2 = 0;
+//	y.resize(n);
+//	x.resize(n);
+//	long long max = 0;
+//	for (long long j = 0; j < n; j++)
+//	{
+//		y[j] = v[j] / 100;
+//		x[j] = v[j] % 100;
+//		if (y[j] > max)
+//			max = y[j];
+//	}
+//	vector<long long> ciur(max+1);
+//	for (long long i = 2; i * i <= max; i++)
+//	{
+//		if (ciur[i] == 0)
+//		{
+//			for (long long j = 2 * i; j <= max; j += i)
+//			{
+//				ciur[j] = 1;
+//			}
+//		}
+//	}
+//	vector<int> v1, v2;
+//	vector<asd> v3;
+//	v1.resize(10);
+//	v2.resize(10);
+//	v3.resize(10);
+//	for (long long i = 1; i < 10; i++)
+//	{
+//		v3[i].i = i;
+//	}
+//	for (long long j = 0; j < n; j++)
+//	{
+//		s1 = s2 = 0;
+//		if (ciur[y[j]] == 0)
+//		{
+//			while (y[j]>9)
+//			{
+//				s1 = 0;
+//				while (y[j] != 0)
+//				{
+//					s1 = s1 + y[j] % 10;
+//					y[j] /= 10;
+//				}
+//				y[j] = s1;
+//			}
+//			v1[s1] += x[j];
+//			v3[s1].nr++;
+//		}
+//		else
+//		{
+//			while (s2>9)
+//			{
+//				s2 = 0;
+//				while (y[j] != 0)
+//				{
+//					s2 = s2 + y[j] % 10;
+//					y[j] /= 10;
+//				}
+//				y[j] = s2;
+//			}
+//			v2[s2] += x[j];
+//			v3[s2].nr++;
+//		}
+//	}
+//	if (c == 1)
+//	{
+//		int max1, max2;
+//		max1 = max2 = 0;
+//		for (long long i = 1; i < 10; i++)
+//		{
+//			if (v1[i] > max1)
+//				max1 = v1[i];
+//		}
+//		for (long long i = 1; i < 10; i++)
+//		{
+//			if (v2[i] > max2)
+//				max2 = v2[i];
+//		}
+//		fout << max1 << " " << max2;
+//	}
+//	else
+//	{
+//		sort(v3.begin(), v3.end(), conditie);
+//		for (long long i = 0; i < 10; i++)
+//		{
+//			if (v3[i].nr != 0)
+//				fout << v3[i].i << " ";
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<string>
+//using namespace std;
+//class datanastere
+//{
+//public:
+//	datanastere(int z, int l, int a)
+//	{
+//		zi = z;
+//		luna = l;
+//		an = a;
+//	}
+//	datanastere()
+//	{ }
+//	void afisare()
+//	{
+//		cout << zi << " " << luna << " " << an;
+//	}
+//	int zi, luna, an;
+//};
+//class persoana
+//{
+//public:
+//	persoana(string n, datanastere dnaste)
+//	{
+//		nume = n;
+//		dnast = dnaste;
+//	}
+//	persoana()
+//	{ }
+//	void afisare()
+//	{
+//		cout << nume << " ";
+//		dnast.afisare();
+//	}
+//	string nume;
+//	datanastere dnast;
+//};
+//int main()
+//{
+//	int zi, luna, an;
+//	cout << "Data de nastere(zz/ll/aaaa): ";
+//	cin >> zi >> luna >> an;
+//	string nume;
+//	cout << "Nume:";
+//	cin >> nume;
+//	datanastere dnas(zi, luna ,an);
+//	persoana pers(nume, dnas);
+//	datanastere* ptrdnas;
+//	persoana* ptrpers;
+//	ptrdnas = &dnas;
+//	ptrpers = &pers;
+//	if (ptrdnas->an % 4 == 0 and ptrdnas->an % 100 != 0)
+//		cout << ptrdnas->an << " e un an bisect";
+//	else
+//		cout << ptrdnas->an << " nu e un an bisect";
+//	
+//}
+//#include<iostream>
+//using namespace std;
+//int main()
+//{
+//	int x, y, z;
+//	vector<int> v;
+//	cin >> x;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> y;
+//		v.push_back(y);
+//	}
+//	cin >> z;
+//	for (int i = 0; i < n; i++)
+//	{
+//		if (v[i] == z)
+//			cout << i;
+//	}
+//}
+
+
+
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<string>
+//#include<algorithm>
+//using namespace std;
+//ifstream fin("uh.in");
+//struct da
+//{
+//	string a, b, c;
+//	vector<int> v1, v2, v3;
+//};
+//class rezolvare
+//{
+//public:
+//	void citire()
+//	{
+//		getline(fin, s.a);
+//		getline(fin, s.b);
+//		s.v1.resize(26);
+//		s.v2.resize(26);
+//		s.v3.resize(26, 0);
+//		s.c.resize(s.a.length()+s.b.length());
+//		//for (int i = 0; i < s.a.length(); i++)
+//			//s.c[i] = tolower(s.a[i]);
+//		//for (int i = 0; i < s.b.length(); i++)
+//			//s.c[s.a.length() + i - 1] = tolower(s.b[i]);
+//		//for (int i = 0; i < s.c.length(); i++)
+//			//cout << s.c[i] - 'a' << " ";
+//
+//		//c1
+//		for (int i = 0; i < s.a.length() - 1; i++)
+//			s.v1[tolower(s.a[i]) - 'a'] += 1;
+//		for (int i = 0; i < s.b.length() - 1; i++)
+//			s.v2[tolower(s.b[i]) - 'a'] += 1;
+//		for (int i = 0; i < 26; i++)
+//		{
+//			s.v3[i] = s.v1[i] + s.v2[i];
+//		}
+//		sort(s.v3.begin(), s.v3.end());
+//
+//		//c2
+//		cout << s.v3[s.v3.size() - 1] << endl;
+//		for (int i = 0; i < 26; i++)
+//		{
+//			dif += abs(s.v1[i] - s.v2[i]);
+//		}
+//		cout << dif << endl;
+//		
+//		//c3
+//		for(int i=0;i<min(s.a.length(), s.b.length()) - 1 and ok == 1; i++)
+//		{
+//			if (s.a[i] != s.b[i])
+//				ok = 0;
+//			nr++;
+//		}
+//		if (ok == 1)
+//			cout << nr;
+//		else
+//			cout << ok;
+//	}
+//private:
+//	da s;
+//	int dif = 0, nr = 0;
+//	bool ok = 1;
+//};
+//int main()
+//{
+//	rezolvare a;
+//	a.citire();
+//}
+//#include<iostream>
+//#include<stack>
+//#include<string>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("sl.in");
+//ofstream fout("sl.out");
+//int main()
+//{
+//	stack<int> s;
+//	vector<int> s1;
+//	string v;
+//	int i = 0, n, x, x1 = -1;
+//	bool ok = 0;
+//	fin >> n;
+//	while (fin >> v)
+//	{
+//		if (i > x1)
+//		{
+//			if (v == "PUSH")
+//			{
+//				fin >> x;
+//				s.push(x);
+//			}
+//			if (v == "STORE")
+//			{
+//				if(!s.empty())
+//				{
+//					x = s.top();
+//					s.pop();
+//					s1.push_back(x);
+//				}
+//			}
+//			if (v == "LOAD")
+//			{
+//				for (int j = s1.size() - 1; j >= 0; j--)
+//				{
+//					s.push(s1[j]);
+//				}
+//			}
+//			if (v == "PLUS")
+//			{
+//				x = s.top();
+//				s.pop();
+//				x += s.top();
+//				s.pop();
+//				s.push(x);
+//			}
+//			if (v == "TIMES")
+//			{
+//				x = s.top();
+//				s.pop();
+//				x *= s.top();
+//				s.pop();
+//				s.push(x);
+//			}
+//			if (v == "IFZERO")
+//			{
+//				if (s.top() == 0)
+//					fin >> x1;
+//			}
+//			if (v == "DONE")
+//			{
+//				if (!s.empty())
+//					fout << s.top();
+//				else
+//					fout << 0;
+//				break;
+//			}
+//		}
+//		i++;
+//	}
+//}
+//#include<iostream>
+//#include<string>
+//#include<fstream>
+//using namespace std;
+//string text, cuvant, asd, schimb, schimb1;
+//int n;
+//void citire()
+//{
+//	for (int i = 0; i < n; i++)
+//	{
+//		getline(fin, asd);
+//		cout << asd << endl;
+//		schimb = schimb + " " + asd;
+//		getline(fin, asd);
+//		cout << asd << endl;
+//		schimb1 = schimb1 + " " + asd;
+//	}
+//}
+//void citire()
+//{
+//	ifstream in;
+//	in.open("uh.in");
+//	char ch;
+//	int pos;
+//	in.seekg(-1, ios::end);
+//	pos = in.tellg();
+//	for (int i = 0; i < pos; i++)
+//	{
+//		ch = in.get();
+//		cout << ch;
+//		in.seekg(-2, ios::cur);
+//	}
+//	in.close();
+//}
+//int main()
+//{
+//	citire();
+//	//citire();
+//	//cout << schimb << endl << schimb1;
+//}
+#include <iostream>
+#include <fstream>
+#include <list>
+#include <string>
+#include <iterator>
+#include <algorithm>
+using namespace std;
+int main() 
+{
+
+	ifstream fin("uh.in");
+	int n, i;
+	string text, cuvinte, caut, schimb, corect, text1;
+	fin >> n;
+	list<string> l;
+	list<string>::reverse_iterator it, it1;
+	string buffer;
+	while (getline(fin, buffer)) 
+	{
+		l.push_front(buffer);
+	}
+
+	for (list<string>::reverse_iterator it = l.rbegin(); it != l.rend(); it++)
+		text = *it;
+
+	//text1 = text1 + " ";
+	//cout << text1 << endl;
+	l.pop_front();
+	l.pop_back();
+	int b, b1;
+	it = l.rbegin();
+	/*for (list<string>::reverse_iterator it = l.rbegin(); it != l.rend(); it++)
+		cout << *it << endl;*/
+	/*for(list<string>::reverse_iterator it=l.rbegin();it!=l.rend();it++)
+	{
+
+		text = text1;
+		caut = *it;
+		it1 = it;
+		cout << *it << " ";
+		it1++;
+		schimb = *it1;
+		cout << *it1 << endl;
+		while(text1.find(caut) != string::npos)
+		{
+			b = text1.find(caut);
+			b1 = b + caut.size();
+			text.replace(b, b1, schimb);
+			text1.erase(b, b1 + 1);
+			cout << text1 << endl;
+		}
+		it++;
+		if (it == l.rend() or it1 == l.rend())
+			break;
+	}*/
+	text = text + " ";
+	int p = text.find(" ");
+	bool ok = 1;
+	while (p != string::npos)
+	{
+		cuvinte = text.substr(0, p);
+		ok = 1;
+		for(list<string>::reverse_iterator it=l.rbegin();it!=l.rend() and ok == 1;it++)
+		{
+			if (*it == cuvinte)
+			{
+				it++;
+				corect = corect + " " + *it;
+				ok = 0;
+			}
+		}
+		if (ok == 1)
+			corect = corect + " " + cuvinte;
+		text.erase(0, p + 1);
+		p = text.find(" ");
+	}
+	cout << corect;
+	/*for (list<string>::reverse_iterator it = l.rbegin(); it != l.rend(); it++)
+		cout << *it << endl;*/
+}
