@@ -252,15 +252,6 @@
     <None Include="cri.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
-    <None Include="oneout.in">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="deminare.in">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="deminare.out">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="balba.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
@@ -273,7 +264,64 @@
     <None Include="patratele.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
+    <None Include="aproape.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="aproape.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cetate.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="deminare.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="cetate.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="deminare.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="oneout.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
     <None Include="oneout.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="abx.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="abx.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="buldo.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="buldo.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="spiralmatrix.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="spiralmatrix.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="colibri.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="axel.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="axel.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="div11.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="div11.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="colibri.out">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

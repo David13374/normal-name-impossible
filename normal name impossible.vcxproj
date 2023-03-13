@@ -134,9 +134,15 @@
   <ItemGroup>
     <None Include="3cifre.in" />
     <None Include="3cifre.out" />
+    <None Include="abx.in" />
+    <None Include="abx.out" />
+    <None Include="aproape.in" />
+    <None Include="aproape.out" />
     <None Include="arc.in" />
     <None Include="arc.out" />
     <None Include="arrows.out" />
+    <None Include="axel.in" />
+    <None Include="axel.out" />
     <None Include="balba.in" />
     <None Include="betisoare1.in" />
     <None Include="betisoare1.out" />
@@ -144,17 +150,23 @@
     <None Include="binar.out" />
     <None Include="broscute.in" />
     <None Include="broscute.out" />
+    <None Include="buldo.in" />
+    <None Include="buldo.out" />
     <None Include="campionat.in" />
     <None Include="campionat.out" />
     <None Include="cartele.in" />
     <None Include="cartele.out" />
     <None Include="castel.in" />
+    <None Include="cetate.in" />
+    <None Include="cetate.out" />
     <None Include="chei.in" />
     <None Include="chei.out" />
     <None Include="cifre12.in" />
     <None Include="cifre12.out" />
     <None Include="cifre3.in" />
     <None Include="cifre3.out" />
+    <None Include="colibri.in" />
+    <None Include="colibri.out" />
     <None Include="colina.in" />
     <None Include="colina.out" />
     <None Include="concurs4.in" />
@@ -169,6 +181,8 @@
     <None Include="defrag.out" />
     <None Include="deminare.in" />
     <None Include="deminare.out" />
+    <None Include="div11.in" />
+    <None Include="div11.out" />
     <None Include="elicop.in" />
     <None Include="elicop.out" />
     <None Include="fadema.in" />
@@ -204,6 +218,8 @@
     <None Include="roboti2.out" />
     <None Include="secvk.in" />
     <None Include="secvk.out" />
+    <None Include="spiralmatrix.in" />
+    <None Include="spiralmatrix.out" />
     <None Include="sumainsecv.in" />
     <None Include="sumainsecv.out" />
     <None Include="tan.in" />
