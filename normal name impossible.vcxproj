@@ -136,10 +136,13 @@
     <None Include="3cifre.out" />
     <None Include="abx.in" />
     <None Include="abx.out" />
+    <None Include="alee.in" />
     <None Include="aproape.in" />
     <None Include="aproape.out" />
     <None Include="arc.in" />
     <None Include="arc.out" />
+    <None Include="arhitect.in" />
+    <None Include="arhitect.out" />
     <None Include="arrows.out" />
     <None Include="axel.in" />
     <None Include="axel.out" />
@@ -198,6 +201,8 @@
     <None Include="fadema.out" />
     <None Include="fibofrac.in" />
     <None Include="fibofrac.out" />
+    <None Include="fibosnek.in" />
+    <None Include="fibosnek.out" />
     <None Include="galerie.in" />
     <None Include="galerie.out" />
     <None Include="grup.in" />
@@ -228,6 +233,8 @@
     <None Include="pergament.in" />
     <None Include="plaja2.in" />
     <None Include="plaja2.out" />
+    <None Include="pomi.in" />
+    <None Include="pomi.out" />
     <None Include="prietene.in" />
     <None Include="prietene.out" />
     <None Include="pro3.in" />
@@ -242,6 +249,7 @@
     <None Include="sl.out" />
     <None Include="spiralmatrix.in" />
     <None Include="spiralmatrix.out" />
+    <None Include="subtitrare.out" />
     <None Include="sumainsecv.in" />
     <None Include="sumainsecv.out" />
     <None Include="tan.in" />
@@ -255,8 +263,11 @@
     <None Include="triunghi5.in" />
     <None Include="triunghi5.out" />
     <None Include="uh.in" />
+    <None Include="uh.out" />
     <None Include="vecini_buni.in" />
     <None Include="vecini_buni.out" />
+    <None Include="virus.in" />
+    <None Include="virus.out" />
     <None Include="volei1.in" />
     <None Include="volei1.out" />
   </ItemGroup>
@@ -264,6 +275,10 @@
     <Text Include="factori.out" />
     <Text Include="factori.in" />
     <Text Include="arrows.in" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="adunare vector.h" />
+    <ClInclude Include="numere mari.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

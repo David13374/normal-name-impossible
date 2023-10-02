@@ -390,13 +390,46 @@
     <None Include="escape.in">
       <Filter>Source Files\Fisiere vechi</Filter>
     </None>
-    <None Include="uh.in">
+    <None Include="fibosnek.in">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="alee.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
     </None>
     <None Include="sl.in">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Fisiere vechi</Filter>
     </None>
     <None Include="sl.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="subtitrare.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="uh.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="uh.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="virus.out">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="virus.in">
+      <Filter>Source Files\Fisiere vechi</Filter>
+    </None>
+    <None Include="arhitect.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="arhitect.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="fibosnek.out">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="pomi.in">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="pomi.out">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
@@ -415,5 +448,13 @@
     <ClCompile Include="normal name impossible.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="adunare vector.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="numere mari.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
