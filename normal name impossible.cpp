@@ -4251,10 +4251,9 @@
 //					max1 = i;
 //			}
 //		}
-//		v[max2]++;
-//		vector<int> r;
-//		cout << max2 << " " << max1 << endl;
-//		for (int i = 9; i >= 0; i--)
+//		vector<int> palindrom;
+//		palindrom.resize(n); 
+//		for (int i = 0; i < 10; i++)
 //		{
 //			if (i != max1 and v[i]>=2)
 //			{
