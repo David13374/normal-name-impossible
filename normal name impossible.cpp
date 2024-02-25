@@ -8188,126 +8188,1292 @@ int main()
 //		printf("\n");
 //	}
 //}
+//#include<iostream>
+//#include<fstream>
+//#include<string>
+//using namespace std;
+//class adun
+//{
+//protected:
+//	string s;
+//public:
+//	adun(string s = 0)
+//	{
+//		this->s = s;
+//	}
+//	friend ostream& operator<<(ostream& os, const adun& obj) {
+//		os << obj.s;
+//		return os;
+//	}
+//	bool isSmaller(string str1, string str2)
+//	{
+//		int n1 = str1.length(), n2 = str2.length();
+//
+//		if (n1 < n2)
+//			return true;
+//		if (n2 < n1)
+//			return false;
+//
+//		for (int i = 0; i < n1; i++) {
+//			if (str1[i] < str2[i])
+//				return true;
+//			else if (str1[i] > str2[i])
+//				return false;
+//		}
+//		return false;
+//	}
+//	adun operator%(const adun& obji)
+//	{
+//		adun obj = obji;
+//		adun obj2 = s;
+//		adun d = obj2 - obj;
+//		while (d.s[0] != '-')
+//		{
+//			obj2 = obj2 - obj;
+//			d = d - obj;
+//		}
+//		return obj2;
+//	}
+//	string transf(int nr1)
+//	{
+//		return to_string(nr1);
+//	}
+//	adun operator/(const adun& obji)
+//	{
+//		adun obj = obji;
+//		adun obj2 = s;
+//		adun d = obj2 - obj;
+//		int nr1 = 0;
+//		while (d.s[0] != '-')
+//		{
+//			obj2 = obj2 - obj;
+//			d = d - obj;
+//			nr1++;
+//		}
+//		return transf(nr1);
+//	}
+//	string revers(string str)
+//	{
+//		string str1;
+//		for (int i = 0; i < str.length(); i++)
+//			str1.push_back(str[str.length()-1-i]);
+//		return str1;
+//	}
+//	adun operator-(const adun& obj)
+//	{
+//		string str1 = s;
+//		string str2 = obj.s;
+//		bool ok = 1;
+//		if (isSmaller(str1, str2))
+//			swap(str1, str2), ok = 0;
+//
+//		string str = "";
+//
+//		int n1 = str1.length(), n2 = str2.length();
+//		int diff = n1 - n2;
+//
+//		int carry = 0;
+//
+//		for (int i = n2 - 1; i >= 0; i--) {
+//			int sub = ((str1[i + diff] - '0') - (str2[i] - '0') - carry);
+//			if (sub < 0) {
+//				sub = sub + 10;
+//				carry = 1;
+//			}
+//			else
+//				carry = 0;
+//
+//			str.push_back(sub + '0');
+//		}
+//
+//		for (int i = n1 - n2 - 1; i >= 0; i--) {
+//			if (str1[i] == '0' and carry) {
+//				str.push_back('9');
+//				continue;
+//			}
+//			int sub = ((str1[i] - '0') - carry);
+//			if (i > 0 or sub > 0)
+//				str.push_back(sub + '0');
+//			carry = 0;
+//		}
+//		if (ok == 0)
+//			str.push_back('-');
+//		str = revers(str);
+//		return str;
+//	}
+//};
+//int main()
+//{
+//	ifstream fin("pomi.in");
+//	ofstream fout("pomi.out");
+//	int a1, b1, k1;
+//	fin >> a1 >> b1 >> k1;
+//	adun a(to_string(a1)), b(to_string(b1)), k(to_string(k1));
+//	fout << (b - a) / k;
+//}
+//#include <iostream>
+//
+//#define N 2586134
+//
+//unsigned int _ = 0;
+//
+//int reference(int a);
+//
+//void add(int __) {
+//	_ += __;
+//}
+//
+//void add_again(int __) {
+//	_ += __ + 2;
+//}
+//
+//void add_once_again(int __) {
+//	_ += __ * 3 + 2;
+//}
+//
+//void compute_number(int mySweetVar) {
+//	if (mySweetVar % 2 == 0)
+//		for ( int i = N; i >= 0; i--)
+//			add(i);
+//	else if (mySweetVar % 3 == 0)
+//		for (int i = N; i >= 0; i--)
+//			add_again(i);
+//	else
+//		for ( int i = N; i >= 0; i--)
+//			add_once_again(i);
+//}
+//
+//int main(void) {
+//	int mySweetVar;
+//	std::cin >> mySweetVar;
+//	_ = mySweetVar;
+//	compute_number(mySweetVar);
+//	std::cout << _ << "\n";
+//}
+//
+//#include <iostream>
+//#include <stdlib.h>
+//
+//int main(void)
+//{
+//	int a,
+//		b = 0;
+//	srand(66);
+//	a = rand();                     // This is
+//	b = rand();                     // "pure luck" :/
+//	    if ((a == b) && (a-1 == b-1))
+//	{
+//		std::cout << "fail\n";
+//		return 0;
+//	}
+//	std::cout << "success\n";
+//	return 0;
+//}
+//#include <iostream>
+//using namespace std;
+//
+//bool is_prime(int x) {
+//	for (int i = 2; i * i <= x; i++)
+//		if (x % i == 0)
+//			return false;
+//
+//	return true;
+//}
+//
+//int execute()
+//{
+//	int n;
+//	cin >> n;
+//	for (int i = 0; i < n; i++)
+//		if (is_prime(i))
+//			cout << i << " ";
+//	return 1;
+//}
+//
+//static int s = execute();
+//
+//int main() { return 0; }
+//#include <iostream>
+//#include <iomanip>
+//
+//
+//const double PI = 3.14159265;
+//
+//int main() {
+//	int n, a, b;
+//
+//	// this is fine
+//	std::cout << std::fixed;
+//
+//	std::cin >> n;
+//	for (int i = 0; i < n; i++)
+//	{
+//		std::cin >> a >> b;
+//		std::cout << PI * a * b << std::endl;
+//	}
+//
+//	return 0;
+//}
+//#include <iostream>
+//#include <vector>
+//
+//
+//std::vector<int> prime_factors(int n);
+//
+//
+//int main() {
+//	int n;
+//
+//	std::cin >> n;
+//	auto factors = prime_factors(n);
+//
+//	std::cout << n * factors[factors.size()-1] << std::endl;
+//}
+//
+//
+//std::vector<int> prime_factors(int n) {
+//	std::vector<int> factors;
+//
+//	for (int i = 2; i <= n; i++) {
+//		while (n % i == 0) {
+//			factors.push_back(i);
+//			n /= i;
+//		}
+//	}
+//
+//	return factors;
+//}
+//#include <iostream>
+//#include <vector>
+//#include <algorithm>
+//
+//
+//class Statistics {
+//	std::vector<int> numbers;
+//
+//public:
+//	Statistics() {
+//		numbers.clear();
+//		int tmp;
+//
+//		while (std::cin >> tmp) {
+//			numbers.push_back(tmp);
+//		}
+//	}
+//
+//	int sum() {
+//		int s = 0;
+//
+//		for (auto n : numbers)
+//			s += n;
+//
+//		return s;
+//	}
+//
+//	float median() {
+//		const auto middle_itr = numbers.begin() + numbers.size() / 2;
+//		std::nth_element(numbers.begin(), middle_itr, numbers.end());
+//
+//		if (numbers.size() % 2 == 0) {
+//			const auto left_mid_itr = std::max_element(numbers.begin(), middle_itr);
+//			return (*left_mid_itr + *middle_itr) / 2;
+//		}
+//		else {
+//			return *middle_itr;
+//		}
+//	}
+//
+//	float mean() {
+//		return (float)sum() / numbers.size();
+//	}
+//};
+//
+//
+//int main() {
+//	Statistics stats;
+//
+//	std::cout << stats.sum()
+//		<< " " << stats.median()
+//		<< " " << stats.mean() << std::endl;
+//
+//	return 0;
+//}
+//#include<iostream>
+//
+//using namespace std;
+//
+//int main()
+//{
+//	unsigned long long a, b;
+//	cin >> a >> b;
+//	if ((a * b) > ULLONG_MAX) { // Poti modifica doar aceasta linie!
+//		cout << "Nu";
+//	}
+//	else {
+//		cout << "Da";
+//	}
+//	return 0;
+//}
+//#include <iostream>
+//#include <vector>
+//#include <fstream>
+//#include <algorithm>
+//using namespace std;
+//
+//double find_best_phone(std::vector<int>& phones) {
+//	sort(phones.begin(), phones.end());
+//	int number_phones = phones.size();
+//	if (number_phones % 2 == 1) {
+//		return phones[number_phones / 2];
+//	}
+//	else {
+//		return double((phones[(number_phones / 2) - 1] + phones[number_phones / 2])) / 2.0;
+//	}
+//}
+//
+//
+//int main() {
+//	int n;
+//	ifstream fin("input.txt");
+//	fin >> n;
+//	vector<int> phones( n, 0 );
+//	for (int i = 0; i < n; ++i) {
+//		fin >> phones[i];
+//	}
+//
+//	ofstream fout("output.txt");
+//	fout << find_best_phone(phones) << "\n";
+//	fin.close();
+//	fout.close();
+//	return 0;
+//}
+/*
+AcadNet 2020
+Author: Alexandru Razvan Caciulescu
+*/
+
+//#include <iostream>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <time.h>
+//
+//#define LINES           1024
+//#define LINE_LENGTH     20
+//
+//using namespace std;
+//
+//char db[LINES][LINE_LENGTH];
+//
+//int restricted;
+//bool looged_in = false;
+//const char* secret = "very_hidden_secret_which_should_not_be_seen";
+//
+//const char alphanum[] = "abcdefghijklmnopqrstuvwxyz0123456789";
+//
+//void send_password_to_admin()
+//{
+//	// a blackmagic implementation that has been lost in the depths of time
+//}
+//
+//void assign_password()
+//{
+//	int line = rand() % (LINE_LENGTH - 1) + 1;
+//	for (int i = 0; i < LINE_LENGTH; i++) {
+//		db[line][i] = alphanum[rand() % strlen(alphanum)];
+//	}
+//	restricted = line;
+//
+//	send_password_to_admin();
+//}
+//
+//void write_line(int line, const char* word, int word_length)
+//{
+//	if (line == restricted)
+//	{
+//		cerr << "Warning: Attempted to write on a restricted line. Choose another line." << endl;
+//	}
+//	else if (line >= 0 && line < LINES)
+//	{
+//		memset((*(db + line - 1) + LINE_LENGTH), 0, LINE_LENGTH);
+//		memcpy((*(db + line - 1) + LINE_LENGTH), word, word_length);
+//	}
+//	else
+//	{
+//		cerr << "Error: Attempted to write a line outside the bounds of the DB! Terminating program..." << endl;
+//		exit(1);
+//	}
+//}
+//
+//void read_line(int line)
+//{
+//	if (line == restricted)
+//	{
+//		cerr << "Warning: Attempted to read on a restricted line. Choose another line." << endl;
+//		return;
+//	}
+//	for (int j = 0; j < LINE_LENGTH; j++)
+//	{
+//		cout << db[line][j] << ".";
+//	}
+//	cout << endl;
+//}
+//
+//void login(char* input)
+//{
+//	if (strncmp(input, db[restricted], LINE_LENGTH) == 0)
+//	{
+//		cout << "Login successful!" << endl;
+//		looged_in = true;
+//	}
+//	else
+//	{
+//		cerr << "Failed to log in, password incorrect!" << endl;
+//	}
+//
+//}
+//
+//void print_db()
+//{
+//	for (int i = 0; i < LINES; i++)
+//	{
+//		for (int j = 0; j < LINE_LENGTH; j++)
+//		{
+//			if (i == restricted)
+//				cout << "#" << ".";
+//			else
+//				cout << db[i][j] << ".";
+//		}
+//		cout << endl;
+//	}
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	char black_magic[69420];
+//	memset(black_magic, 0, 42069);
+//
+//	char command;
+//	char input[LINE_LENGTH];
+//	int line;
+//
+//	srand(time(0));
+//	assign_password();
+//
+//	cout << "Welcome to Crack the Database!" << endl;
+//	print_db();
+//
+//	memset(input, 0, LINE_LENGTH);
+//	cout << "Enter your command:" << endl;
+//	while (gets(input))
+//	{
+//		switch (input[0])
+//		{
+//		case 'R':
+//			if (!gets(input)) goto input_error;
+//			line = atoi(input);
+//			read_line(line);
+//			break;
+//		case 'W':
+//			if (!gets(input)) goto input_error;
+//			line = atoi(input);
+//			if (!gets(input)) goto input_error;
+//			write_line(line, input, strlen(input));
+//			break;
+//		case 'L':
+//			if (!gets(input)) goto input_error;
+//			login(input);
+//			break;
+//		case 'S':
+//			if (!looged_in) goto input_error;
+//			cout << "Secret revealed: " << secret << endl;
+//			break;
+//		case 'P':
+//			print_db();
+//			break;
+//		case 'Q':
+//			exit(0);
+//		default:
+//			goto input_error;
+//			break;
+//		}
+//		memset(input, 0, LINE_LENGTH);
+//		memset(black_magic, 0, 42069);
+//	}
+//
+//input_error:
+//	cerr << "Error: command not recognized or insufficient rights, terminating program..." << endl;
+//	exit(1);
+//}
+/*
+	Acadnet 2017 - Etapa Judeteana
+	Problema A
+*/
+
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <iostream>
+//#include<fstream>
+//#include <limits.h>
+//#include <vector>
+//
+//using namespace std;
+//
+//int compute_min(const vector<int>& v)
+//{
+//	int min = INT_MAX, i;
+//
+//	for (i = 0; i < v.size(); i++)
+//		if (min > v[i])
+//			min = v[i];
+//
+//	return min;
+//}
+//
+//int count_3min(const vector<int>& v, int min)
+//{
+//	int cnt = 0, i;
+//
+//	for (i = 0; i < v.size(); i++)
+//		if (3 * min > v[i])
+//			cnt++;
+//
+//	return cnt;
+//}
+//
+//int main()
+//{
+//	vector<int> v;
+//	int min, n, i, cnt;
+//
+//	cin >> n;
+//	v.resize(n, 0);
+//
+//	for (i = 0; i < n; i++)
+//		cin >> v[i];
+//
+//	min = compute_min(v);
+//	printf("%d ", min);
+//	cnt = count_3min(v, min);
+//	printf("%d\n", cnt);
+//
+//	return 0;
+//}
+//#include <iostream>
+//
+//using namespace std;
+//
+//bool is_prime(int x) {
+//	if (x == 1) {
+//		return false;
+//	}
+//	for (int d = 2; d * d <= x; d++) {
+//		if (x % d == 0) {
+//			return false;
+//		}
+//	}
+//
+//	return true;
+//}
+//
+//bool is_special_sum(int x) {
+//	for (int a = 1; a < x; a++) {
+//		int p = x - a * a;
+//		if (p > 0 and is_prime(p)) {
+//			cout << p << " " << a << endl;
+//			return true;
+//		}
+//	}
+//	return false;
+//}
+//
+//int main() {
+//	int n, x;
+//
+//	cin >> n;
+//	for (int i = 0; i < n; i++) {
+//		cin >> x;
+//
+//		if (is_special_sum(x)) {
+//			cout << "Yes\n";
+//		}
+//		else {
+//			cout << "No\n";
+//		}
+//	}
+//}
+//#include <vector>
+//#include <iostream>
+//#include <fstream>
+//
+//using namespace std;
+//
+//void flood_island(vector <vector < char >>& grid, int r, int c) {
+//	int nr = grid.size();
+//	int nc = grid[0].size();
+//
+//	grid[r][c] = '0';
+//	if (r - 1 >= 0 && grid[r - 1][c] == '1') flood_island(grid, r - 1, c);
+//	if (r + 1 < nr && grid[r + 1][c] == '1') flood_island(grid, r + 1, c);
+//	if (c - 1 >= 0 && grid[r][c - 1] == '1') flood_island(grid, r, c - 1);
+//	if (c + 1 < nc && grid[r][c + 1] == '1') flood_island(grid, r, c + 1);
+//	if (r - 1 >= 0 and c - 1 >= 0 && grid[r - 1][c - 1] == '1') flood_island(grid, r - 1, c - 1);
+//	if (r + 1 < nr and c + 1 < nc && grid[r + 1][c + 1] == '1') flood_island(grid, r + 1, c + 1);
+//	if (c - 1 >= 0 and r + 1 < nr && grid[r + 1][c - 1] == '1') flood_island(grid, r + 1, c - 1);
+//	if (c + 1 < nc  and r - 1 >= 0 && grid[r - 1][c + 1] == '1') flood_island(grid, r - 1, c + 1);
+//}
+//
+//int numIslands(vector < vector < char >>& grid) {
+//	int nr = grid.size();
+//	if (!nr) return 0;
+//	int nc = grid[0].size();
+//
+//	int num_islands = 0;
+//	for (int r = 0; r < nr; ++r) {
+//		for (int c = 0; c < nc; ++c) {
+//			if (grid[r][c] == '1') {
+//				++num_islands;
+//				flood_island(grid, r, c);
+//			}
+//		}
+//	}
+//
+//	return num_islands;
+//}
+//
+//int main(int argc, char* argv[]) {
+//	int r, c;
+//	char ch;
+//	cin >> r >> c;
+//
+//	vector<vector<char>> earth_sea;
+//
+//	for (int i = 0; i < r; ++i) {
+//		vector<char> v;
+//		for (int j = 0; j < c; ++j) {
+//			cin >> ch;
+//			v.push_back(ch);
+//		}
+//		earth_sea.push_back(v);
+//	}
+//
+//	cout << numIslands(earth_sea) << endl;
+//
+//	return 0;
+//}
+//#include<iostream>
+//#include<unordered_map>
+//#include<fstream>
+//using namespace std;
+//int main()
+//{
+//	ifstream fin("potcoave.in");
+//	ofstream fout("potcoave.out");
+//	unordered_map<int, int> m;
+//	int pot = 0;
+//	int m1;
+//	fin >> m1;
+//	int n;
+//	fin >> n;
+//	for (int i = 0; i < n; i++)
+//	{
+//		int a, b;
+//		fin >> a >> b;
+//		m.insert({ a, b });
+//	}
+//	int zi = 0;
+//	while (pot < m1)
+//	{
+//		zi++;
+//		for (auto i : m)
+//		{
+//			if (zi%i.second)
+//				pot += i.first;
+//		}
+//	}
+//	fout << zi;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<string>
+//#include<algorithm>
+//#include<fstream>
+//using namespace std;
+//int main()
+//{
+//	ifstream fin("criptare.in");
+//	ofstream fout("criptare.out");
+//	vector<string> v;
+//	string s;
+//	int c;
+//	fin >> c;
+//	fin >> s;
+//	if(c==1)
+//	{
+//		v.push_back(s);
+//		for (int i = 0; i < s.size() - 1; i++)
+//		{
+//			char x = s[0];
+//			for (int j = 0; j < s.size() - 1; j++)
+//				s[j] = s[j + 1];
+//			s[s.size() - 1] = x;
+//			v.push_back(s);
+//		}
+//		string cuv = v[0];
+//		sort(v.begin(), v.end());
+//		for (int i = 0; i < s.size(); i++)
+//		{
+//			cout << v[i] << endl;
+//		}
+//		//for (int i = 0; i < s.size(); i++)
+//		//{
+//			//fout << v[i][s.size() - 1];
+//		//}
+//		//fout << find(v.begin(), v.end(), cuv) - v.begin();
+//	}
+//	else if(c==2)
+//	{
+//		int num = s[s.size() - 1] - '0';
+//		s.pop_back();
+//		v.push_back(s);
+//		for (int i = 0; i < s.size() - 1; i++)
+//		{
+//			char x = s[0];
+//			for (int j = 0; j < s.size() - 1; j++)
+//				s[j] = s[j + 1];
+//			s[s.size() - 1] = x;
+//			v.push_back(s);
+//		}
+//		sort(v.begin(), v.end());
+//		fout << v[num];
+//	}
+//	else if(c==3)
+//	{
+//		v.push_back(s);
+//		for (int i = 0; i < s.size() - 1; i++)
+//		{
+//			char x = s[0];
+//			for (int j = 0; j < s.size() - 1; j++)
+//				s[j] = s[j + 1];
+//			s[s.size() - 1] = x;
+//			v.push_back(s);
+//		}
+//		sort(v.begin(), v.end());
+//		int maxi = 1;
+//		for (int i = 0; i < s.size() - 1; i++)
+//		{
+//			for (int j = 0; j < s.size() - 1; j++)
+//			{
+//				for (int i1 = i + 1; i1 < s.size(); i1++)
+//				{
+//					for (int j1 = j + 1; j1 < s.size(); j1++)
+//					{
+//						if (v[i][j] == v[i1][j] and v[i1][j1] == v[i][j1] and v[i1][j1] == v[i1][j])
+//							maxi = max(maxi, (i1 - i + 1) * (j1 - j + 1));
+//					}
+//				}
+//			}
+//		}
+//		fout << maxi;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//#define ull unsigned long long
+//ifstream fin("potcoave.in");
+//ofstream fout("potcoave.out");
+//struct asd
+//{
+//	ull p, v;
+//};
+//vector<asd> v;
+//ull pot, sol;
+//bool verificare(ull zi)
+//{
+//	ull potzi = 0;
+//	for (int i = 0; i < v.size(); i++)
+//	{
+//		potzi = potzi + v[i].p * (zi - zi/v[i].v);
+//	}
+//	return potzi >= pot;
+//}
+//void binary(ull l, ull r)
+//{
+//	ull m = (l + r) / 2;
+//	if (l <= r)
+//	{
+//		if (verificare(m))
+//		{
+//			sol = m;
+//			binary(l, m - 1);
+//		}
+//		else
+//			binary(m + 1, r);
+//	}
+//}
+//int main()
+//{
+//	ios::sync_with_stdio(0);
+//	fin.tie(0);
+//	ull m;
+//	fin >> pot >> m;
+//	v.resize(m);
+//	for (int i = 0; i < m; i++)
+//		fin >> v[i].p >> v[i].v;
+//	binary(0, 10e18);
+//	fout << sol;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<string>
+//#include<queue>
+//using namespace std;
+//int n, m;
+//struct asd
+//{
+//	int r, g, b;
+//};
+//void floodfillR(vector<vector<int>> &v, int i, int j)
+//{
+//	v[i][j] = -v[i][j];
+//	if (i + 1 <= n and j <= m and v[i + 1][j] == 1) floodfillR(v, i + 1, j);
+//	if (i <= n and j + 1 <= m and v[i][j + 1] == 1) floodfillR(v, i, j + 1);
+//	if (i - 1 >= 1 and j <= m and v[i - 1][j] == 1) floodfillR(v, i - 1, j);
+//	if (i <= n and j - 1 >= 1 and v[i][j-1] == 1) floodfillR(v, i, j - 1);
+//
+//	/*if (i + 1 < n and j + 1 < m and v[i + 1][j + 1] == 1) floodfillR(v, i + 1, j + 1);
+//	if (i - 1 >= 0 and j + 1 < m and v[i - 1][j + 1] == 1) floodfillR(v, i - 1, j + 1);
+//	if (i + 1 < n and j - 1 >= 0 and v[i + 1][j - 1] == 1) floodfillR(v, i + 1, j - 1);
+//	if (i - 1 >= 0 and j - 1 >= 0 and v[i - 1][j - 1] == 1) floodfillR(v, i - 1, j - 1);*/
+//}
+//void floodfillG(vector<vector<int>> &v, int i, int j)
+//{
+//	v[i][j] = -v[i][j];
+//	if (i + 1 <= n and j <= m and v[i + 1][j] == 2) floodfillG(v, i + 1, j);
+//	if (i <= n and j + 1 <= m and v[i][j + 1] == 2) floodfillG(v, i, j + 1);
+//	if (i - 1 >= 1 and j <= m and v[i - 1][j] == 2) floodfillG(v, i - 1, j);
+//	if (i <= n and j - 1 >= 1 and v[i][j - 1] == 2) floodfillG(v, i, j - 1);
+//
+//	/*if (i + 1 < n and j + 1 < m and v[i + 1][j + 1] == 2) floodfillG(v, i + 1, j + 1);
+//	if (i - 1 >= 0 and j + 1 < m and v[i - 1][j + 1] == 2) floodfillG(v, i - 1, j + 1);
+//	if (i + 1 < n and j - 1 >= 0 and v[i + 1][j - 1] == 2) floodfillG(v, i + 1, j - 1);
+//	if (i - 1 >= 0 and j - 1 >= 0 and v[i - 1][j - 1] == 2) floodfillG(v, i - 1, j - 1);*/
+//}
+//void floodfillB(vector<vector<int>> &v, int i, int j)
+//{
+//	v[i][j] = -v[i][j];
+//	if (i + 1 <= n and j <= m and v[i + 1][j] == 3) floodfillB(v, i + 1, j);
+//	if (i <= n and j + 1 <= m and v[i][j + 1] == 3) floodfillB(v, i, j + 1);
+//	if (i - 1 >= 1 and j <= m and v[i - 1][j] == 3) floodfillB(v, i - 1, j);
+//	if (i <= n and j - 1 >= 1 and v[i][j - 1] == 3) floodfillB(v, i, j - 1);
+//
+//	/*if (i + 1 < n and j + 1 < m and v[i + 1][j + 1] == 3) floodfillB(v, i + 1, j + 1);
+//	if (i - 1 >= 0 and j + 1 < m and v[i - 1][j + 1] == 3) floodfillB(v, i - 1, j + 1);
+//	if (i + 1 < n and j - 1 >= 0 and v[i + 1][j - 1] == 3) floodfillB(v, i + 1, j - 1);
+//	if (i - 1 >= 0 and j - 1 >= 0 and v[i - 1][j - 1] == 3) floodfillB(v, i - 1, j - 1);*/
+//}
+//bool verificvecini(vector<vector<int>> v, int i, int j)
+//{
+//	if (i + 1 <= n and j <= m and v[i + 1][j] == 0) return 1;
+//	if (i <= n and j + 1 <= m and v[i][j + 1] == 0) return 1;
+//	if (i - 1 >= 1 and j <= m and v[i - 1][j] == 0) return 1;
+//	if (i <= n and j - 1 >= 1 and v[i][j - 1] == 0) return 1;
+//
+//	return 0;
+//}
+//struct Cell
+//{
+//	int l, c;
+//};
+//int Lee(vector<vector<int>> M, int i,int j)
+//{
+//	queue<Cell> Q;
+//	vector<int> linie = { 0, -1, 0, 1, 0 };
+//	vector<int> coloana = { 0, 0, 1, 0, -1 };
+//	Cell start;
+//	start.l = i;
+//	start.c = j;
+//	Q.push(start);
+//	M[start.l][start.c] = 1;
+//	Cell crt;
+//	int val;
+//	while (!Q.empty())
+//	{
+//		crt = Q.front();
+//		Q.pop();
+//		val = M[crt.l][crt.c];
+//		for (i = 1; i <= 4; i++)
+//		{
+//			if (M[crt.l + linie[i]][crt.c + coloana[i]] == -2)
+//				return val - 1;
+//			if (M[crt.l + linie[i]][crt.c + coloana[i]] == 0)
+//			{
+//				Q.push({ crt.l + linie[i], crt.c + coloana[i] });
+//				M[crt.l + linie[i]][crt.c + coloana[i]] = val + 1;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	ifstream fin("insule.in");
+//	ofstream fout("insule.out");
+//	fin.tie(0);
+//	ios::sync_with_stdio(0);
+//	vector < vector < int > > v;
+//	vector<int> v1, v2;
+//	fin >> n >> m;
+//	/*v.resize(n + 2);*/
+//	v1.resize(m + 2);
+//	v2.resize(m + 2, -5);
+//	/*for (int i = 0; i < n + 2; i++)
+//		v[i].resize(m + 2, 0);
+//	for (int i = 0; i < n + 2; i++)
+//		v[i][0] = v[i][n + 1] = -1;
+//	for (int j = 0; j < m + 2; j++)
+//		v[0][j] = v[n + 1][j] = -1;*/
+//	v.push_back(v2);
+//	v1[0] = v1[v1.size() - 1] = -5;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		string s;
+//		fin >> s;
+//		for (int j = 0; j < s.size(); j++)
+//			v1[j + 1] = s[j] - '0';
+//		v.push_back(v1);
+//	}
+//	v.push_back(v2);
+//	asd nr = { 0, 0, 0 };
+//	/*for (int i = 0; i < v.size(); i++)
+//	{
+//		for (int j = 0; j < v[0].size(); j++)
+//			cout << v[i][j];
+//		cout << '\n';
+//	}*/
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			if (v[i][j] == 1)
+//			{
+//				nr.r++;
+//				floodfillR(v, i, j);
+//			}
+//			else if (v[i][j] == 2)
+//			{
+//				nr.g++;
+//				floodfillG(v, i, j);
+//			}
+//			else if (v[i][j] == 3)
+//			{
+//				nr.b++;
+//				floodfillB(v, i, j);
+//			}
+//		}
+//	}
+//	int min = 2147483647;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			if (v[i][j] == -1 and verificvecini(v, i, j))
+//			{
+//				int val = Lee(v, i, j);
+//				if (min > val)
+//					min = val;
+//			}
+//		}
+//	}
+//	/*for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < m; j++)
+//			cout << v[i][j];
+//		cout << endl;
+//	}*/
+//	fout << nr.r << " " << nr.g << " " << nr.b << " " << min;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<string>
+//using namespace std;
+//int main()
+//{
+//	ifstream fin("text.in");
+//	ofstream fout("text.out");
+//	vector<string> v;
+//	string s;
+//	ios::sync_with_stdio(0);
+//	fin.tie(0);
+//	while (fin >> s)
+//	{
+//		string word = "";
+//		for (auto x : s)
+//		{
+//			if (x == ' ')
+//			{
+//				v.push_back(s);
+//				word = "";
+//			}
+//			else
+//				word = word + x;
+//		}
+//		if (word.size())
+//			v.push_back(s);
+//	}
+//	string lit;
+//	int nr = 0, max = -1;
+//	vector<string> maxv, temp;
+//	for (int asujifs = 0; asujifs < v.size() - 1; asujifs++)
+//	{
+//		temp.clear();
+//		nr = 1;
+//		lit = v[asujifs][v[asujifs].size() - 1];
+//		temp.push_back(v[asujifs]);
+//		for (int i = asujifs + 1; i < v.size(); i++)
+//		{
+//			if (v[i][0] == lit[0])
+//			{
+//				temp.push_back(v[i]);
+//				nr++;
+//				lit = v[i][v[i].size() - 1];
+//			}
+//		}
+//		if (nr > max)
+//			max = nr, maxv=temp;
+//	}	
+//	if (v.size() - maxv.size() > v.size())
+//		fout << 0;
+//	else
+//		fout << v.size() - maxv.size();
+//	fout << '\n' << v.size() << '\n';
+//	for (int i = 0; i < maxv.size(); i++)
+//		fout << maxv[i] << '\n';
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//struct celula
+//{
+//	int cul, nr, pat;
+//};
+//int nr = 0;
+//int n, m;
+//vector < vector < celula > > v;
+//int pat;
+//void floodfill(int i, int j, int culi)
+//{
+//	v[i][j].cul = -v[i][j].cul;
+//	v[i][j].pat = pat;
+//	nr++;
+//	if (i <= n and j + 1 <= m and v[i][j + 1].cul == culi) floodfill(i, j + 1, culi);
+//	if (i + 1 <= n and j <= m and v[i + 1][j].cul == culi) floodfill(i + 1, j, culi);
+//	if (i - 1 > 0 and j <= m and v[i - 1][j].cul == culi) floodfill(i - 1, j, culi);
+//	if (i <= n and j - 1 <= m and v[i][j - 1].cul == culi) floodfill(i, j - 1, culi);
+//
+//	//v[i][j].nr = nr;
+//}
+//void floodfillv2(int i, int j, int culi)
+//{
+//	v[i][j].cul = -v[i][j].cul;
+//
+//	if (i <= n and j + 1 <= m and v[i][j + 1].cul == culi) floodfillv2(i, j + 1, culi);
+//	if (i + 1 <= n and j <= m and v[i + 1][j].cul == culi) floodfillv2(i + 1, j, culi);
+//	if (i - 1 > 0 and j <= m and v[i - 1][j].cul == culi) floodfillv2(i - 1, j, culi);
+//	if (i <= n and j - 1 <= m and v[i][j - 1].cul == culi) floodfillv2(i, j - 1, culi);
+//
+//	v[i][j].nr = nr;
+//}
+//bool findimp(vector<int> pat, int caut)
+//{
+//	for (int i = 0; i < pat.size(); i++)
+//		if (pat[i] == caut) return 0;
+//	return 1;
+//}
+//int main()
+//{
+//	ifstream cin("ferma.in");
+//	ofstream cout("ferma.out");
+//	ios::sync_with_stdio(0);
+//	cin.tie(0);
+//	int sadadsa;
+//	cin >> sadadsa;
+//	cin >> n >> m;
+//	v.resize(n + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		v[i].resize(m + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		v[i][0].cul = v[i][n + 1].cul = -2147483647;
+//	for (int j = 0; j < m + 2; j++)
+//		v[0][j].cul = v[n + 1][j].cul = -2147483647;
+//	for (int i = 1; i <= n; i++)
+//		for (int j = 1; j <= m; j++)
+//		{
+//			char x[1];
+//			cin >> x[0];
+//			v[i][j].cul = x[0] - 'a' + 1;
+//		}
+//	if (sadadsa == 1)
+//	{
+//		int max = 0;
+//		for (int i = 1; i <= n; i++)
+//			for (int j = 1; j <= m; j++)
+//			{
+//				nr = 0;
+//				if (v[i][j].cul >= 1)
+//				{
+//					floodfill(i, j, v[i][j].cul);
+//					//cout << nr << " " << v[i][j].cul << endl;
+//				}
+//				if (nr > max)
+//					max = nr;
+//			}
+//		cout << max;
+//	}
+//	else
+//	{
+//		pat = 0;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= m; j++)
+//			{
+//				if (v[i][j].cul >= 1)
+//				{
+//					nr = 0;
+//					floodfill(i, j, v[i][j].cul);
+//					//cout << nr << " " << v[i][j].cul << endl;
+//					floodfillv2(i, j, v[i][j].cul);
+//					pat++;
+//				}
+//			}
+//		}
+//		int max, cul, imax, jmax, nr = 0;
+//		max = cul = imax = jmax = 0;
+//		vector<int> c = { 0, 0, -1, 0, 1, 0, -1, 0, 1 }, l = { 0, -1, 0, 1, 0, -1, 0, 1, 0 };
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= m; j++)
+//			{
+//
+//				for (int i1 = 1; i1 <= 4; i1++)
+//				{
+//					vector<int> pat;
+//					int i2 = i + c[i1];
+//					int j2 = j + l[i1];
+//					if (v[i][j].cul != v[i2][j2].cul)
+//					{
+//						nr = v[i2][j2].nr + 1;
+//						for (int j1 = i1 + 1; j1 <= i1 + 4; j1++)
+//						{
+//							int i3 = i + c[j1];
+//							int j3 = j + l[j1];
+//							if (v[i3][j3].cul == v[i2][j2].cul and findimp(pat, v[i3][j3].pat))
+//								nr += v[i3][j3].nr, pat.push_back(v[i3][j3].pat);
+//						}
+//						if (nr > max)
+//							max = nr, cul = v[i2][j2].cul, imax = i, jmax = j;
+//					}
+//				}
+//				//cout << v[i][j].nr << "   ";
+//			}
+//			//cout << endl;
+//		}
+//
+//		cout << imax << " " << jmax << '\n' << char(cul + 'a' - 1);
+//	}
+//}
 #include<iostream>
+#include<vector>
 #include<fstream>
-#include<string>
 using namespace std;
-class adun
+class numeremari
 {
-protected:
-	string s;
 public:
-	adun(string s = 0)
+	vector<int> v;
+	void inser(int nr)
 	{
-		this->s = s;
-	}
-	friend ostream& operator<<(ostream& os, const adun& obj) {
-		os << obj.s;
-		return os;
-	}
-	bool isSmaller(string str1, string str2)
-	{
-		int n1 = str1.length(), n2 = str2.length();
-
-		if (n1 < n2)
-			return true;
-		if (n2 < n1)
-			return false;
-
-		for (int i = 0; i < n1; i++) {
-			if (str1[i] < str2[i])
-				return true;
-			else if (str1[i] > str2[i])
-				return false;
-		}
-		return false;
-	}
-	adun operator%(const adun& obji)
-	{
-		adun obj = obji;
-		adun obj2 = s;
-		adun d = obj2 - obj;
-		while (d.s[0] != '-')
+		v.clear();
+		while (nr)
 		{
-			obj2 = obj2 - obj;
-			d = d - obj;
+			v.insert(v.begin(), nr % 10);
+			nr /= 10;
 		}
-		return obj2;
 	}
-	string transf(int nr1)
+	void citire()
 	{
-		return to_string(nr1);
+		for (int i = 0; i < v.size(); i++)
+			cout << v[i] << " ";
 	}
-	adun operator/(const adun& obji)
+	numeremari(vector<int> v = { })
 	{
-		adun obj = obji;
-		adun obj2 = s;
-		adun d = obj2 - obj;
-		int nr1 = 0;
-		while (d.s[0] != '-')
+		this->v = v;
+	}
+	numeremari operator+(const numeremari& obj)
+	{
+		vector<int> v1 = obj.v;
+		vector<int> v = this->v;
+		while (v1.size() > v.size())
+			v.insert(v.begin(), 0);
+		while (v1.size() < v.size())
+			v1.insert(v1.begin(), 0);
+		vector<int> res(v.size(), 0);
+		for (int i = v.size() - 1; i >= 0; i--)
 		{
-			obj2 = obj2 - obj;
-			d = d - obj;
-			nr1++;
-		}
-		return transf(nr1);
-	}
-	string revers(string str)
-	{
-		string str1;
-		for (int i = 0; i < str.length(); i++)
-			str1.push_back(str[str.length()-1-i]);
-		return str1;
-	}
-	adun operator-(const adun& obj)
-	{
-		string str1 = s;
-		string str2 = obj.s;
-		bool ok = 1;
-		if (isSmaller(str1, str2))
-			swap(str1, str2), ok = 0;
-
-		string str = "";
-
-		int n1 = str1.length(), n2 = str2.length();
-		int diff = n1 - n2;
-
-		int carry = 0;
-
-		for (int i = n2 - 1; i >= 0; i--) {
-			int sub = ((str1[i + diff] - '0') - (str2[i] - '0') - carry);
-			if (sub < 0) {
-				sub = sub + 10;
-				carry = 1;
+			res[i] = res[i] + v[i] + v1[i];
+			if (res[i] >= 10 and i > 0)
+			{
+				res[i] -= 10;
+				res[i - 1]++;
 			}
-			else
-				carry = 0;
-
-			str.push_back(sub + '0');
 		}
+		if (res[0] >= 10)
+			res.insert(res.begin(), 1), res[0] -= 10;
 
-		for (int i = n1 - n2 - 1; i >= 0; i--) {
-			if (str1[i] == '0' and carry) {
-				str.push_back('9');
-				continue;
-			}
-			int sub = ((str1[i] - '0') - carry);
-			if (i > 0 or sub > 0)
-				str.push_back(sub + '0');
-			carry = 0;
-		}
-		if (ok == 0)
-			str.push_back('-');
-		str = revers(str);
-		return str;
+		numeremari resi;
+		resi.v = res;
+		return resi;
 	}
 };
+void triunghi(int n, int k)
+{
+	vector<numeremari> v1, v2;
+	v1.resize(1000);
+	v2.resize(1000);
+	v2[0].inser(1);
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j < i; j++)
+		{
+			v1[j] = v2[j - 1] + v2[j];
+		}
+		v1[0].inser(1);
+		v1[i].inser(1);
+		v2 = v1;
+	}
+	//v1[k].citire();
+}
 int main()
 {
-	ifstream fin("pomi.in");
-	ofstream fout("pomi.out");
-	int a1, b1, k1;
-	fin >> a1 >> b1 >> k1;
-	adun a(to_string(a1)), b(to_string(b1)), k(to_string(k1));
-	fout << (b - a) / k;
+	ifstream fin("expozitie.in");
+	ofstream fout("expozitie.out");
+
+	/*int n1, d, k1;
+	fin >> n1 >> d >> k1;
+	int k = n1 - k1 * d;
+	int n = k + d - 1;
+	triunghi(n, k);*/
+	numeremari a, b;
+	a.inser(91);
+	b.inser(19);
+	numeremari c = a + b;
+	c.citire();
+	/*numeremari a({9}), b({1});
+	numeremari c = a + b;
+	c.citire();*/
+	//cout << n << " " << k << endl;
+	//asd.calcul();
 }
