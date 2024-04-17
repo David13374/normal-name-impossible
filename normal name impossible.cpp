@@ -10532,67 +10532,1623 @@
 //	}
 //	fout << nr;
 //}
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-using namespace std;
-struct sir
-{
-	string s;
-	int ok = 1;
-};
-bool compare(string a, string b)
-{
-	return a.size() > b.size() or (a.size() == b.size() and a.compare(b) < 0);
-}
-bool sortcon(sir a, sir b)
-{
-	return a.s.size() < b.s.size() or (a.s.size() == b.s.size() and a.s.compare(b.s) < 0);
-}
-int main()
-{
-	int c;
-	cin >> c;
-	if (c == 1)
-	{
-		int n;
-		cin >> n;
-		string max;
-		string s;
-		for (int i = 0; i < n; i++)
-		{
-			cin >> s;
-			if (compare(s, max))
-				max = s;
-		}
-		cout << max;
-		return 0;
-	}
-	vector<sir> v;
-	int n;
-	cin >> n;
-	v.resize(n);
-	for (int i = 0; i < n; i++)
-		cin >> v[i].s;
-	sort(v.begin(), v.end(), sortcon);
-	int number = n;
-	vector<string> rez;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i; j < n and v[i].ok==1; j++)
-		{
-			if (v[j].s.find(v[i].s))
-			{
-				number--, v[i].ok = 0;
-				cout << v[i].s << " " << v[j].s << endl;
-			}
-		}
-	}
-	cout << number;
-	for (int i = 0; i < n; i++)
-	{
-		if (v[i].ok == 1);
-			//cout << v[i].s << endl;
-	}
-}
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//struct sir
+//{
+//	string s;
+//	int ok = 1, poz;
+//};
+//bool compare(string a, string b)
+//{
+//	return a.size() > b.size() or (a.size() == b.size() and a.compare(b) < 0);
+//}
+//bool sortcon(sir a, sir b)
+//{
+//	return a.s.size() < b.s.size() or (a.s.size() == b.s.size() and a.s.compare(b.s) < 0);
+//}
+//bool sort2(sir a, sir b)
+//{
+//	return a.poz < b.poz;
+//}
+//bool gasesc(string a, string b)
+//{
+//	/*for (int i = 0; i < a.size(); i++)
+//	{
+//		if (a[i] == b[0])
+//		{
+//			int j = 0;
+//			while (j < b.size() and i + j < a.size() and a[i + j] == b[j])
+//			{
+//				j++;
+//			}
+//			if (j == b.size() - 1)
+//				return 1;
+//		}
+//	}
+//	return 0;*/
+//	int i = 0;
+//	while (i < b.size() and a[0] != 0)
+//	{
+//		if (b[i] == a[0])
+//			a.erase(0);
+//		else
+//			i++;
+//	}
+//	if (a[0]==0)
+//		return 1;
+//	return 0;
+//}
+//int main()
+//{
+//	ifstream fin("interesant.in");
+//	ofstream fout("interesant.out");
+//	int c;
+//	fin >> c;
+//	if (c == 1)
+//	{
+//		int n;
+//		fin >> n;
+//		string max;
+//		string s;
+//		for (int i = 0; i < n; i++)
+//		{
+//			fin >> s;
+//			if (compare(s, max))
+//				max = s;
+//		}
+//		fout << max;
+//		return 0;
+//	}
+//	vector<sir> v;
+//	int n;
+//	fin >> n;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//		fin >> v[i].s, v[i].poz = i;
+//	sort(v.begin(), v.end(), sortcon);
+//	int number = n;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = i + 1; j < n and v[i].ok == 1; j++)
+//		{
+//			if (gasesc(v[i].s, v[j].s))
+//			{
+//				number--;
+//				v[i].ok = 0;
+//			}
+//		}
+//	}
+//	vector<sir> rez;
+//	fout << number << endl;
+//	for (int i = 0; i < n; i++)
+//	{
+//		if (v[i].ok == 1)
+//			rez.push_back(v[i]);
+//	}
+//	sort(rez.begin(), rez.end(), sort2);
+//	for (int i = 0; i < rez.size(); i++)
+//		fout << rez[i].s << endl;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<map>
+//#include<string>
+//#include<vector>
+//using namespace std;
+//bool verif(int l, int r, string s)
+//{
+//	map<char, int> m;
+//	for (int i = l - 1; i < r; i++)
+//	{
+//		m[s[i]]++;
+//		if (s[i] != '#' and m[s[i]] >= 2)
+//			return 0;
+//	}
+//	return 1;
+//}
+//int main()
+//{
+//	ifstream fin("magice.in");
+//	ofstream fout("magice.out");
+//	string s;
+//	fin >> s;
+//	int n;
+//	fin >> n;
+//	vector<pair<int, int>> p(n);
+//	for (int i = 0; i < n; i++)
+//		fin >> p[i].first >> p[i].second;
+//	for (int i = 0; i < s.size(); i++)
+//	{
+//		int j = 0;
+//		int x1 = p.size();
+//		while (j < p.size() and verif(p[j].first, p[j].second, s))
+//		{
+//			if (verif(p[j].first, p[j].second, s))
+//				p.erase(p.begin() + j);
+//			j++;
+//		}
+//		if (j == x1)
+//		{
+//			fout << i;
+//			return 0;
+//		}
+//		int x;
+//		fin >> x;
+//		s[x - 1] = '#';
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//#include<algorithm>
+//using namespace std;
+//#define MOD 1000000007
+//vector<long long> v, x;
+//long long n, m, maxvect = 0;
+//long long suma = 0;
+//bool comp(int a, int b)
+//{
+//	return a > b;
+//}
+//void Combinari(int k)
+//{
+//	if (k == m + 1)
+//	{
+//		suma += x[v[1] - 1];
+//		suma = suma % MOD;
+//	}
+//	else
+//		for (int i = v[k - 1] + 1; i <= n; i++)
+//		{
+//			v[k] = i;
+//			Combinari(k + 1);
+//		}
+//}
+//int main()
+//{
+//	ifstream fin("ohio.in");
+//	ofstream fout("ohio.out");
+//	ios::sync_with_stdio(0);
+//	fin.tie(0);
+//	fin >> n >> m;
+//	v.resize(m + 1);
+//	x.resize(n);
+//	for (int i = 0; i < n; i++)
+//		fin >> x[i];
+//	sort(x.begin(), x.end(), comp);
+//	Combinari(1);
+//	fout << suma;
+//}
+//#include<string>
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//vector<int> folosit, x;
+//vector<string> v1(5), v;
+//int n, m, nr;
+//void Aranjamente(int k)
+//{
+//	if (k == m + 1)
+//	{
+//		for (int i = 1; i <= m; i++)
+//			v1[i] = v[x[i] - 1];
+//		if (v1[1][v1[1].size() - 1] == v1[2][0] and
+//			v1[2][v1[2].size() - 1] == v1[3][v1[3].size() - 1] and
+//			v1[3][0] == v1[4][v1[4].size() - 1] and
+//			v1[1][0] == v1[4][0])
+//			nr++;
+//	}
+//	else
+//		for (int v = 1; v <= n; v++)
+//		{
+//			x[k] = v;
+//			if (folosit[v] == 0)
+//			{
+//				folosit[v] = 1;
+//				Aranjamente(k + 1);
+//				folosit[v] = 0;
+//			}
+//		}
+//}
+//int main()
+//{
+//	ifstream fin("full-house.in");
+//	ofstream fout("full-house.out");
+//	fin >> n;
+//	m = 4;
+//	folosit.resize(n + 1);
+//	x.resize(m + 1);
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//		fin >> v[i];
+//	Aranjamente(1);
+//	fout << nr;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<queue>
+//using namespace std;
+//struct Cell
+//{
+//	int l, c;
+//};
+//int main()
+//{
+//	ifstream fin("alee.in");
+//	ofstream fout("alee.out");
+//	vector<vector<int>> m;
+//	int n;
+//	cin >> n;
+//	m.resize(n + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		m[i].resize(n + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		m[i][0] = m[0][i] = m[i][n + 1] = m[n + 1][0] = -1;
+//	int x;
+//	cin >> x;
+//	for (int i = 0; i < x; i++)
+//	{
+//		int x1, x2;
+//		cin >> x1 >> x2;
+//		m[x1][x2] = -1;
+//	}
+//	queue<Cell> Q;
+//	Cell start, stop, crt;
+//	cin >> start.l >> start.c >> stop.l >> stop.c;
+//	m[start.l][start.c] = 1;
+//	Q.push(start);
+//	vector<int> l = { 0, -1, 0, 1, 0 }, c = { 0, 0, 1, 0, -1 };
+//	int val = 0;
+//	while (!Q.empty() and m[stop.l][stop.c] == 0)
+//	{
+//		crt = Q.front();
+//		Q.pop();
+//		val = m[crt.l][crt.c];
+//		for (int i = 1; i <= 4; i++)
+//			if (m[crt.l + l[i]][crt.c + c[i]] == 0)
+//			{
+//				Q.push({ crt.l + l[i], crt.c + c[i] });
+//				m[crt.l + l[i]][crt.c + c[i]] = val + 1;
+//			}
+//	}
+//	cout << m[stop.l][stop.c];
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//#define MOD 1000000007;
+//vector<vector<int>> M;
+//vector<unsigned long long> factoriale = { 1 ,1 };
+//int nr = 0, n, m;
+//void factorials(int stop)
+//{
+//	for (int i = factoriale.size(); i <= stop; i++)
+//		factoriale.push_back(factoriale[factoriale.size() - 1] * i);
+//		//,cout << factoriale[factoriale.size() - 1] << " ";
+//}
+//long long nrderanj(int nr1)
+//{
+//	int fact = factoriale[nr], solutie = 0;
+//	for (int i = 0; i <= nr1; i++)
+//	{
+//		if (i % 2 == 0)
+//			solutie += (fact / factoriale[i]);
+//		else
+//			solutie -= (fact / factoriale[i]);
+//	}
+//	return solutie;
+//}
+//void fill(int i, int j)
+//{
+//	if (M[i][j] > 0)
+//		nr++;
+//	M[i][j] = -1;
+//	if (i + 1 <= n and M[i + 1][j] != -1) fill(i + 1, j);
+//	if (i - 1 > 0 and M[i - 1][j] != -1) fill(i - 1, j);
+//	if (j + 1 <= m and M[i][j + 1] != -1) fill(i, j + 1);
+//	if (j - 1 > 0 and M[i][j - 1] != -1) fill(i, j - 1);
+//}
+//int main()
+//{
+//	ifstream fin("poseidon.in");
+//	ofstream fout("poseidon.out");
+//	int c;
+//	fin >> c >> n >> m;
+//	M.resize(n + 2, vector<int>(m + 2, -1));
+//	for (int i = 1; i <= n; i++)
+//		for (int j = 1; j <= m; j++)
+//			fin >> M[i][j];
+//	if (c == 1)
+//	{
+//		int x, y;
+//		fin >> x >> y;
+//		fill(x, y);
+//		fout << nr;
+//	}
+//	else
+//	{
+//		long long sol = 1;
+//		for (int i = 1; i <= n; i++)
+//		{
+//			for (int j = 1; j <= m; j++)
+//			{
+//				if (M[i][j] != -1)
+//				{
+//					nr = 0;
+//					fill(i, j);
+//					if (nr >= factoriale.size())
+//						factorials(nr);
+//					sol *= nrderanj(nr);
+//					sol %= MOD;
+//				}
+//			}
+//		}
+//		fout << sol;
+//	}
+//}
+//#include<iostream>
+//using namespace std;
+//#define MOD 666013
+//int sol = 0;
+//int factorial(int n);
+//void x(int n)
+//{
+//	sol += factorial(n);
+//	sol %= MOD;
+//	cout << factorial(n) << " " << n << " " << endl;
+//}
+//int factorial(int n)
+//{
+//	if (n == 1 or n == 0) return 1;
+//	return n * factorial(n - 1);
+//}
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	while (n)
+//	{
+//		x(n);
+//		n--;
+//	}
+//	cout << sol;
+//}
+//#include<iostream>
+//#include<vector>
+//#include<queue>
+//#include<fstream>
+//using namespace std;
+//struct Cell
+//{
+//	int l, c;
+//};
+//int main()
+//{
+//	ifstream cin("rj.in");
+//	int n, m;
+//	cin >> n >> m;
+//	vector < vector < int > > M(n + 2, vector<int>(m + 2, -1));
+//	Cell start, stop;
+//	start = stop = { 0, 0 };
+//	for (int i = 1; i <= n; i++)
+//	{
+//		for (int j = 1; j <= m; j++)
+//		{
+//			char c[2];
+//			cin >> c[0];
+//			if (c[0] == ' ') M[i][j] = 0;
+//			if (c[0] == 'X') M[i][j] = -1;
+//			if (c[0] == 'R') start = { i, j }, M[i][j] = 0;
+//			if (c[0] == 'J') stop = {i, j}, M[i][j] = 0;
+//		}
+//	}
+//	queue<Cell> Q;
+//	int val;
+//	Q.push(start);
+//	Cell crt;
+//	M[start.l][start.c] = 0;
+//	vector<int> l = { 0, -1, -1, 0, 1, 1, 1, 0, -1 }, c = { 0, 0, 1, 1, 1, 0, -1, -1, -1 };
+//	while (!Q.empty() and M[stop.l][stop.c] == 0)
+//	{
+//		crt = Q.front();
+//		Q.pop();
+//		val = M[crt.l][crt.c];
+//		for (int i = 1; i <= 8; i++)
+//		{
+//			if (M[crt.l+l[i]][crt.c+c[i]] == 0)
+//			{
+//				Q.push({ crt.l + l[i], crt.c + c[i] });
+//				M[crt.l + l[i]][crt.c + c[i]] = val + 1;
+//			}
+//		}
+//	}
+//	cout << M[stop.l][stop.c];
+//}
+//#include<iostream>
+//#include<string>
+//#include<fstream>
+//using namespace std;
+//ifstream fin("ecuatii.in");
+//ofstream fout("ecuatii.out");
+//int num, x;
+//short todigit(char x)
+//{
+//	return x - '0';
+//}
+//bool isdigit(char x)
+//{
+//	return x >= '0' and x <= '9';
+//}
+//int whatnum(string s, int& i)
+//{
+//	int numb = 0;
+//	while (isdigit(s[i]))
+//	{
+//		numb = numb * 10 + todigit(s[i]);
+//		i++;
+//	}
+//	if (numb == 0 and s[i]=='x')
+//		return 1;
+//	return numb;
+//}
+//int howmanyx(string s)
+//{
+//	int semn = 1, egal = 1;
+//	for (int i = 0; i < s.size(); i++)
+//	{
+//		if (s[i] == '-') semn = -1;
+//		if (s[i] == '+') semn = 1;
+//		if (s[i] == '=') semn = 1, egal = -1;
+//		if (isdigit(s[i]))
+//		{
+//			int nu = whatnum(s, i) * semn * egal;
+//			//cout << nu << " ";
+//			if (s[i] == 'x')
+//				x += nu;
+//			else
+//				num += nu, i--;
+//		}
+//	}
+//	cout << endl;
+//	//cout << x << " " << num << endl;
+//	if (x == 0 and num == 0)
+//		return 1;
+//	if (x == 0 and num != 0)
+//		return 2;
+//	return 3;
+//}
+//int main()
+//{
+//	int q;
+//	fin >> q;
+//	while (q--)
+//	{
+//		string s;
+//		fin >> s;
+//		num = x = 0;
+//		switch (howmanyx(s))
+//		{
+//		case 1:
+//			fout << "infinit";
+//			break;
+//		case 2:
+//			fout << "imposibil";
+//			break;
+//		case 3:
+//			fout << (double)-num / (double)x;
+//			break;
+//		}
+//		fout << '\n';
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<string>
+//using namespace std;
+//int main()
+//{
+//	ifstream cin("charlie.in");
+//	ofstream cout("charlie.out");
+//	int c;
+//	cin >> c;
+//	if (c == 1)
+//	{
+//		int max = 0;
+//		string s;
+//		cin >> s;
+//		for (int i = 1; i < s.size(); i++)
+//		{
+//			int lungime = 0;
+//			while (s[i - 1] > s[i] and s[i] < s[i + 1])
+//			{
+//				lungime += 2;
+//				i += 2;
+//			}
+//			if (lungime > max)
+//				max = lungime;
+//		}
+//		cout << max + 1;
+//	}
+//	else
+//	{
+//		int i = 0;
+//		bool ok = 1;
+//		string s;
+//		cin >> s;
+//		int suma = 0;
+//		while (ok)
+//		{
+//			ok = 0;
+//			i = 1;
+//			while (i < s.size() - 1)
+//			{
+//				if (s[i - 1] > s[i] and s[i] < s[i + 1])
+//				{
+//					if (s[i - 1] > s[i + 1])
+//						suma += s[i - 1] - 'a' + 1;
+//					else
+//						suma += s[i + 1] - 'a' + 1;
+//					s.erase(i, 1);
+//					ok = 1;
+//				}
+//				else
+//					i++;
+//			}
+//		}
+//		cout << s << endl << suma;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//vector<int> v, x;
+//int n = 5, m = 3, maxi = 0;
+//void Combinari(int k)
+//{
+//	if (k == m + 1)
+//	{
+//		int min = INT_MAX;
+//		for (int i = 1; i < m; i++)
+//		{
+//			if (min > x[v[i]] - x[v[i - 1]])
+//				min = x[v[i]] - x[v[i - 1]];
+//		}
+//		if (maxi < min)
+//			maxi = min;
+//	}
+//	else
+//		for (int i = v[k - 1] + 1; i <= n; i++)
+//		{
+//			v[k] = i;
+//			Combinari(k + 1);
+//		}
+//}
+//int main()
+//{
+//	cin >> n >> m;
+//	x.resize(n + 1);
+//	for (int i = 1; i <= n; i++)
+//		cin >> x[i];
+//	v.resize(n + 1);
+//	Combinari(1);
+//	cout << maxi;
+//}
+//#include<iostream>
+//#include<map>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//int main()
+//{
+//	ifstream cin("cufere.in");
+//	ofstream cout("cufere.out");
+//	int c;
+//	cin >> c;
+//	if (c == 1)
+//	{
+//		map<short, int> m;
+//		int n;
+//		cin >> n;
+//		for (int i = 1; i <= 27 * n; i++)
+//		{
+//			int x;
+//			cin >> x;
+//			if(x)
+//				m[x % 100] += x/100;
+//		}
+//		for (auto i : m)
+//			cout << i.first << " " << i.second << endl;
+//	}
+//	else
+//	{
+//		vector<int> ciur(101);
+//		for (int i = 2; i <= 100; i++)
+//			if (ciur[i] == 0) 
+//				for (int j = 2 * i; j <= 100; j += i)
+//					ciur[j] = 1;
+//		map<short, int> m;
+//		int n;
+//		cin >> n;
+//		for (int i = 1; i <= 27 * n; i++)
+//		{
+//			int x;
+//			cin >> x;
+//			if (x)
+//				m[x % 100] += x / 100;
+//		}
+//		int nr = 0;
+//		for (auto i : m)
+//		{
+//			if (ciur[i.first] == 0)
+//			{
+//				while (i.second >= 16)
+//				{
+//					if (nr % 9 == 0 and nr != 0)
+//						cout << endl;
+//					cout << 16 << i.first << " ";
+//					nr++;
+//					i.second = i.second - 16;
+//				}
+//			}
+//			else
+//			{
+//				while (i.second >= 64)
+//				{
+//					if (nr % 9 == 0 and nr != 0)
+//						cout << endl;
+//					cout << 64 << i.first << " ";
+//					nr++;
+//					i.second = i.second - 64;
+//				}
+//			}
+//			if (nr % 9 == 0 and nr != 0)
+//				cout << endl;
+//			if (i.second > 0)
+//				cout << i.second << i.first << " ", nr++;
+//		}
+//
+//		while (nr < n * 27)
+//		{
+//			if (nr % 9 == 0 and nr != 0)
+//				cout << endl;
+//			cout << 0 << " ";
+//			nr++;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//vector<long long> fib = { 1, 1 };
+//int binary(int x)
+//{
+//	int l = 0;
+//	int r = fib.size() - 1;
+//	int m = (l + r) / 2;
+//	while (l <= r)
+//	{
+//		m = (l + r) / 2;
+//		if (fib[m] == x)
+//			return m;
+//		if (fib[m] < x)
+//			l = m + 1;
+//		else
+//			r = m - 1;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int c;
+//	cin >> c;
+//	if (c == 1)
+//	{
+//		while (fib[fib.size() - 1] + fib[fib.size() - 2] < 2147483647)
+//			fib.push_back(fib[fib.size() - 1] + fib[fib.size() - 2]);
+//		fib.push_back(fib[fib.size() - 1] + fib[fib.size() - 2]);
+//		int n, m;
+//		cin >> n >> m;
+//		int nr = 0;
+//		for (int i = 0; i < n * m; i++)
+//		{
+//			int x;
+//			cin >> x;
+//			if(binary(x)) nr++;
+//		}
+//		cout << nr;
+//	}
+//	else
+//	{
+//
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//vector<int> prime;
+//int alkdiv(int nr, int k)
+//{
+//	int nr1 = 0;
+//	for (int i = 0; i < prime.size(); i++)
+//	{
+//		if (nr % prime[i] == 0)
+//		{
+//			nr1++;
+//			if (nr1 == k)
+//				return prime[i];
+//		}
+//	}
+//	return 1;
+//}
+//int main()
+//{
+//	ofstream cout("cufar.out");
+//	ifstream cin("cufar.in");
+//	ios::sync_with_stdio(0);
+//	cin.tie(0);
+//	int c;
+//	cin >> c;
+//	if (c == 1)
+//	{
+//		vector<int> ciur(1000001);
+//		for (int i = 2; i <= 1000000; i++)
+//			if (ciur[i] == 0)
+//			{
+//				prime.push_back(i);
+//				for (int j = 2 * i; j <= 1000000; j += i)
+//					ciur[j] = 1;
+//			}
+//		int n;
+//		cin >> n;
+//		while (n--)
+//		{
+//			int nr, k;
+//			cin >> nr >> k;
+//			cout << alkdiv(nr, k);
+//		}
+//	}
+//	else
+//	{
+//		vector<int> ciur(1000001);
+//		ciur[0] = 1;
+//		ciur[1] = 1;
+//		for (int i = 2; i <= 1000000; i++)
+//			if (ciur[i] == 0)
+//			{
+//				prime.push_back(i);
+//				for (int j = 2 * i; j <= 1000000; j += i)
+//					ciur[j] = 1;
+//			}
+//		int n;
+//		cin >> n;
+//		int suma = 0;
+//		while (n--)
+//		{
+//			int nr, k;
+//			cin >> nr >> k;
+//			suma += alkdiv(nr, k);
+//		}
+//		cout << suma;
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//using namespace std;
+//int main() 
+//  {
+//	ifstream fin("exponent.in");
+//	ofstream fout("exponent.out");
+//	int n, k, a = 0, d;
+//	fin >> n >> k;
+//	for (int i = 1; i <= n; ++i) 
+//	{
+//		d = i;
+//		while (d % k == 0) 
+//		{
+//			a++;
+//			d /= k;
+//		}
+//	}
+//	fout << a;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//using namespace std;
+//int main() 
+//{
+//	ifstream cin("numere.in");
+//	ofstream fout("numere.out");
+//	int n;
+//	cin >> n;
+//	vector<int> v(n * n);
+//	for (int i = 0; i < n * n; i++)
+//	{
+//		int x;
+//		cin >> x;
+//		v[x]++;
+//	}
+//	for (int i = 1; i <= n * n; i++)
+//	{
+//		if (v[i] == 0)
+//		{
+//			cout << i << " ";
+//			while (i < v.size() and v[i] == 0)
+//				i++;
+//			if (i == v.size())
+//				cout << i;
+//			else
+//				cout << i - 1;
+//			return 0;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<queue>
+//#include<string>
+//using namespace std;
+//struct Cell
+//{
+//	int l, c;
+//};
+//int n;
+//vector< vector < int >> v;
+//Cell poz = { 0, 0 };
+//void L()
+//{
+//	cout << 1;
+//	while (v[poz.l][poz.c] != -2 and (poz.l != n and poz.c != n))
+//	{
+//		poz.l--;
+//		if (poz.l == 0)
+//			poz.l = n;
+//	}
+//}
+//void R()
+//{
+//	cout << 2;
+//	while (v[poz.l][poz.c] != -2 and (poz.l != n and poz.c != n))
+//	{
+//		poz.l++;
+//		if (poz.l == n + 1)
+//			poz.l = 1;
+//	}
+//}
+//void U()
+//{
+//	cout << 3;
+//	while (v[poz.l][poz.c] != -2 and (poz.l != n and poz.c != n))
+//	{
+//		poz.c--;
+//		if (poz.c == 0)
+//			poz.c = n;
+//	}
+//}
+//void D()
+//{
+//	cout << 4;
+//	while (v[poz.l][poz.c] != -2 and (poz.l != n and poz.c != n))
+//	{
+//		poz.c++;
+//		if (poz.c == n + 1)
+//			poz.c = 1;
+//	}
+//}
+//void cer1()
+//{
+//	cin >> n;
+//	v.resize(n + 2, vector<int>(n + 2));
+//	for (int i = 1; i <= n; i++)
+//		v[i][n + 1] = v[i][0] = v[n + 1][i] = v[0][i] = -1;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		int x;
+//		cin >> x;
+//		v[i][x] = -2;
+//	}
+//	string s;
+//	cin >> s;
+//	while (s.size() and (poz.l != n and poz.c != n))
+//	{
+//		switch (s[0])
+//		{
+//		case 'L':
+//			L();
+//			break;
+//		case 'R':
+//			R();
+//			break;
+//		case 'D':
+//			D();
+//			break;
+//		case 'U':
+//			U();
+//			break;
+//		}
+//		s.erase(s.begin());
+//	}
+//}
+//int main()
+//{
+//	int c;
+//	cin >> c;
+//	if (c == 1)
+//	{
+//		int q;
+//		cin >> q;
+//		while (q--)
+//			cer1();
+//	}
+//}
+//#include<iostream>
+//using namespace std;
+//int NrXDivImp(int a[], int st, int dr, int x)
+//{
+//	if (st == dr)
+//	{
+//		if (a[st] == x)
+//			return 1;
+//		return 0;
+//	}
+//	else
+//	{
+//		int m = (st + dr) / 2;
+//		int s1 = NrXDivImp(a, st, m, x);
+//		int s2 = NrXDivImp(a, m + 1, dr, x);
+//		return s1 + s2;
+//	}
+//}
+//int main()
+//{
+//	int a[] = {2, 5, 1, 5, 3, 5, 5, 5, 7, 6 };
+//	cout << NrXDivImp(a, 9, 10, 5);
+//}
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int NrXDivImp(vector<int> v, int st, int dr)
+//{
+//	if (st == dr)
+//	{
+//		if (v[st] % 2 == 1)
+//			return 1;
+//		return 0;
+//	}
+//	else
+//	{
+//		int m = (st + dr) / 2;
+//		int s1 = NrXDivImp(v, st, m);
+//		int s2 = NrXDivImp(v, m + 1, dr);
+//		return s1 + s2;
+//	}
+//}
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	vector<int> v(n + 1);
+//	for (int i = 1; i <= n; i++)
+//		cin >> v[i];
+//	if (NrXDivImp(v, 1, n) == 0)
+//		cout << "NU";
+//	else cout << "DA";
+//}
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//int MaxDivImp(vector<int> v, int st, int dr)
+//{
+//	if (st == dr)
+//		return v[st];
+//	else
+//	{
+//		int m = (st + dr) / 2;
+//		int s1 = MaxDivImp(v, st, m);
+//		int s2 = MaxDivImp(v, m + 1, dr);
+//		if (s1 > s2)
+//			return s1;
+//		else
+//			return s2;
+//	}
+//}
+//int main()
+//{
+//	int n;
+//	cin >> n;
+//	vector<int> v(n + 1);
+//	for (int i = 1; i <= n; i++)
+//		cin >> v[i];
+//	cout << MaxDivImp(v, 1, n);
+//}
+//#include<iostream>
+//#include<vector>
+//#include<fstream>
+//using namespace std;
+//vector<vector<int>> v;
+//int n;
+//struct Cell
+//{
+//	int x, y;
+//};
+//bool verif(Cell a, Cell b, bool dir)
+//{
+//	switch (dir)
+//	{
+//	case 0:
+//		for (int j = a.y; j <= b.y; j++)
+//			if (v[b.x][j] == 1)
+//			{
+//				//cout << "asd ";
+//				return 0;
+//			}
+//		return 1;
+//		break;
+//	case 1:
+//		for (int i = a.x; i <= b.x; i++)
+//			if (v[i][b.y] == 1)
+//			{
+//				//cout << "dsa ";
+//				return 0;
+//			}
+//		return 1;
+//		break;
+//	default:
+//		return 1;
+//		break;
+//	}
+//}
+//int dei(Cell a, Cell b)
+//{
+//	int s1, s2;
+//	s1 = s2 = 0;
+//	int s = abs(b.x - a.x + 1) * abs(b.y - a.y + 1);
+//	if (b.y + 1 < n and verif(a, { b.x, b.y + 1 }, 1))
+//		s1 = dei(a, { b.x, b.y + 1 });
+//	if (b.x + 1 < n and verif(a, { b.x + 1, b.y }, 0))
+//		s2 = dei(a, { b.x + 1, b.y });
+//	return max(s, max(s1, s2));
+//}
+//int main()
+//{
+//	ifstream cin("hambar.in");
+//	ofstream cout("hambar.out");
+//	cin.tie(0);
+//	ios::sync_with_stdio(0);
+//	int m;
+//	cin >> n >> m;
+//	v.resize(n, vector<int>(n, 0));
+//	while (m--)
+//	{
+//		int x1, x2;
+//		cin >> x1 >> x2;
+//		x1--, x2--;
+//		v[x1][x2]++;
+//	}
+//	int maxim = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n; j++)
+//		{
+//			if(v[i][j] == 0)
+//			{
+//				int de = dei({ i, j }, { i, j });
+//				if (maxim < de)
+//					maxim = de;//, cout << i << " " << j << " " << maxim << endl;
+//			}
+//		}
+//	}
+//	cout << maxim;
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<stack>
+//using namespace std;
+//#define MOD 666013
+//typedef long long ll;
+//int main()
+//{
+//	ifstream cin("changemin.in");
+//	ofstream cout("changemin.out");
+//	stack<ll> s;
+//	vector<ll> v;
+//	int c, n;
+//	cin >> c >> n;
+//	v.resize(n);
+//	for (int i = 0; i < n; i++)
+//		cin >> v[i];
+//	ll cnt = 0;
+//	for (int i = n - 1; i >= 0; i--)
+//	{
+//		while (s.size() and s.top() >= v[i])
+//			s.pop();
+//		s.push(v[i]);
+//		cnt += s.size();
+//	}
+//	if(c==1)
+//		cout << cnt;
+//	else
+//	{
+//		stack<ll> s;
+//		ll sumcoef = 0, sum = 0, scor = 0;
+//		for (int i = n - 1; i >= 0; i--)
+//		{	
+//			while (s.size() and v[i] < s.top())
+//			{
+//				sumcoef = (sumcoef - sum) % MOD;
+//				sum = (sum - s.top()) % MOD;
+//				s.pop();
+//			}
+//			s.push(v[i]);
+//			cnt -= s.size();
+//			sum = (sum + v[i]) % MOD;
+//			sumcoef = (sumcoef + sum) % MOD;
+//			scor = (scor + sum * cnt + sumcoef) % MOD;
+//		}
+//		cout << scor;
+//	}
+//}
+//#include<iostream>
+//#include<vector>
+//#include<algorithm>
+//#include<fstream>
+//using namespace std;
+//#define MOD 111181111
+//bool check_mountain(vector<int> v)
+//{
+//	int n = v.size();
+//	int pos = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		if (v[i] == n)
+//		{
+//			pos = i;
+//			break;
+//		}
+//	}
+//	if (pos == 1 or pos == n) 
+//		return false;
+//	for (int i = 1; i <= pos; i++) 
+//		if (v[i - 1] >= v[i]) 
+//			return false;
+//	for (int i = pos + 1; i < n; i++) 
+//		if (v[i - 1] <= v[i])
+//			return false;
+//	return true;
+//}
+//vector<int> get_vec(vector<pair<int, int>> p) 
+//{
+//	vector<int> v;
+//	for (int i = 0; i < (int)p.size(); i++) 
+//		if (p[i].first != 0) 
+//			v.push_back(p[i].first);
+//	for (int i = p.size() - 1; i >= 0; i--)
+//		if (p[i].second != 0) 
+//			v.push_back(p[i].second);
+//	return v;
+//}
+//
+//int main()
+//{
+//	ifstream cin("munte.in");
+//	ofstream cout("munte.out");
+//	int n, c;
+//	cin >> c >> n;
+//	int full_pairs = n / 2, partial_pairs = (n + 1) / 2;
+//	vector<pair<int, int>> pairs(partial_pairs + 1);
+//	vector<int> found(n + 1, 0);
+//	for (int i = 1; i <= n; i++)
+//	{
+//		int x;
+//		cin >> x;
+//		if (i > partial_pairs)
+//			pairs[full_pairs + 1 - (i - partial_pairs)].second = x;
+//		else
+//			pairs[i].first = x;
+//	}
+//	for (int i = 1; i <= full_pairs; i++) 
+//	{
+//		if (pairs[i].first > pairs[i].second) 
+//		{
+//			swap(pairs[i].first, pairs[i].second);
+//		}
+//	}
+//	sort(pairs.begin() + 1, pairs.begin() + 1 + full_pairs);
+//	int ans = 2;
+//	if (check_mountain(get_vec(pairs))) 
+//	{
+//		for (int i = 2; i <= full_pairs; i++) 
+//		{
+//			if (pairs[i].first > pairs[i - 1].second) 
+//			{
+//				ans = (ans * 2) % MOD;
+//			}
+//		}
+//	}
+//	else
+//		ans = 0;
+//	if (c == 1)
+//		if (ans)
+//			cout << "DA";
+//		else
+//			cout << "NU";
+//	else
+//		cout << ans;
+//}
+//#include<iostream>
+//#include<vector>
+//using namespace std;
+//pair <int, int> d[2][11][1001][2];
+//#define MOD 1000000007
+//void join(pair <int, int >& s1, pair <int, int > s2, bool inc) 
+//{
+//	if (inc)
+//		s2.first++;
+//	if (s2.first < s1.first)
+//		s1 = s2;
+//	else if (s2.first == s1.first)
+//		s1 = { s1.first , 
+//			(s1.second + s2.second) % MOD };
+//}
+//
+//pair <int, int > solve(int n, int steps, int sum, vector <int > v) 
+//{
+//	for (int i = 0; i < 2; i++) 
+//	{
+//		for (int j = 0; j <= steps; j++) 
+//		{
+//			for (int k = 0; k <= sum; k++) 
+//			{
+//				d[i][j][k][0] = d[i][j][k][1] = { INT_MAX , 0 };
+//			}
+//		}
+//	}
+//	d[0][0][0][0] = { 0 , 1 };
+//	for (int i = 1; i <= n; i++) 
+//	{
+//		for (int j = 0; j <= steps; j++) 
+//		{
+//			for (int k = 0; k <= sum; k++) 
+//			{
+//				d[i & 1][j][k][0] = d[i & 1][j][k][1] = { INT_MAX , 0 };
+//				join(d[i & 1][j][k][0], d[(i - 1) & 1][j][k][0], 0);
+//				join(d[i & 1][j][k][0], d[(i - 1) & 1][j][k][1], 0);
+//				if (k >= v[i]) {
+//					join(d[i & 1][j][k][1],	d[(i - 1) & 1][j][k - v[i]][1], 1);
+//					if (j > 0) {
+//						join(d[i & 1][j][k][1],	d[(i - 1) & 1][j - 1][k - v[i]][1], 1);
+//						join(d[i & 1][j][k][1],	d[(i - 1) & 1][j - 1][k - v[i]][0], 1);
+//					}
+//				}
+//			}
+//		}
+//	}
+//	pair <int, int > ans = { INT_MAX , 0 };
+//	for (int j = 0; j <= steps; j++) 
+//	{
+//		for (int bit = 0; bit < 2; bit++) 
+//		{
+//			if (d[n & 1][j][sum][bit].first < ans.first) 
+//				ans = d[n & 1][j][sum][bit];
+//			else if (d[n & 1][j][sum][bit].first == ans.first)
+//				ans.second = (ans.second + d[n & 1][j][sum][bit].second) % MOD;
+//		}
+//	}
+//	if (ans.first == INT_MAX)
+//		return { 0 , 0 };
+//	return ans;
+//}
+//int main()
+//{
+//	int t;
+//	cin >> t;
+//	while (t--)
+//	{
+//		int n, k, s;
+//		cin >> n >> k >> s;
+//		vector<int> v(n + 1);
+//		for (int i = 1; i <= n; i++)
+//			cin >> v[i];
+//		pair<int, int> ans = solve(n, s, k, v);
+//		cout << ans.first << " " << ans.second << endl;
+//	}
+//}
+//#include<iostream> //5:25
+//#include<fstream>
+//#include<vector>
+//#include<stack>
+//using namespace std;
+//int main()
+//{
+//	ifstream cin("scara.in");
+//	ofstream cout("scara.out");
+//	stack<int> s;
+//	int n;
+//	cin >> n;
+//	vector<int> v(n + 1, -1);
+//	for (int i = 0; i < n; i++)
+//	{
+//		int x;
+//		cin >> x;
+//		s.push(x);
+//	}
+//	v[0] = s.top();
+//	s.pop();
+//	int i = 0;
+//	v[n] = -2;
+//	while (true)
+//	{
+//		i = 0;
+//		while (v[i] != -1)
+//		{
+//			i++;
+//			if (v[i] == -2)
+//			{
+//				for (int i = 0; i < v.size() - 1; i++)
+//					cout << v[i] << " ";
+//				return 0;
+//			}
+//			//cout << i << " ";
+//		}
+//		v[i] = s.top();
+//		s.pop();
+//		for (int j = 0; j < i; j++)
+//		{
+//			s.push(v[j]);
+//			v[j] = -1;
+//		}
+//	}
+//}
+//#include<iostream>
+//#include<fstream>
+//#include<vector>
+//#include<queue>
+//using namespace std; //2:25 ramas
+//struct Cell
+//{
+//	int l, c;
+//};
+//struct Portals
+//{
+//	int x, y;
+//};
+//struct Matrix
+//{
+//	int val = 0;
+//	bool Portal = 0, Door = 0;
+//};
+//int t;
+//int LeeWithoutPortals(Cell start, Cell stop, vector< vector < Matrix >> v)
+//{
+//	Cell crt;
+//	queue<Cell> Q;
+//	v[start.l][start.c].val = 0;
+//	Q.push(start);
+//	vector<int> l = { 0, -1, 0, 1, 0 }, c = { 0, 0, 1, 0, -1 };
+//	int val;
+//	while (!Q.empty())
+//	{
+//		crt = Q.front();
+//		Q.pop();
+//		val = v[crt.l][crt.c].val;
+//		for (int i = 1; i <= 4; i++)
+//		{
+//			if (v[crt.l + l[i]][crt.c + c[i]].val != -1)
+//			{
+//				if (val + 1 < v[crt.l + l[i]][crt.c + c[i]].val or v[crt.l + l[i]][crt.c + c[i]].val == 0)
+//				{
+//					if (v[crt.l + l[i]][crt.c + c[i]].Door == 1)
+//					{
+//						Q.push({ crt.l + l[i], crt.c + c[i] });
+//						v[crt.l + l[i]][crt.c + c[i]].val = val + 1 + t;
+//					}
+//					else if (v[crt.l + l[i]][crt.c + c[i]].Portal == 1);
+//					else
+//					{
+//						Q.push({ crt.l + l[i], crt.c + c[i] });
+//						v[crt.l + l[i]][crt.c + c[i]].val = val + 1;
+//					}
+//				}
+//			}
+//		}
+//	}
+//	return v[stop.l][stop.c].val;
+//}
+//int main()
+//{
+//	ifstream cin("walle.in");
+//	ofstream cout("walle.out");
+//	int n, m, t;
+//	cin >> n >> m >> t;
+//	vector< vector < Matrix >> v, v1;
+//	v.resize(n + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		v[i].resize(m + 2);
+//	for (int i = 0; i < n + 2; i++)
+//		v[i][0].val = v[i][m + 1].val = -1;
+//	for (int i = 0; i < m + 2; i++)
+//		v[0][i].val = v[n + 1][i].val = -1;
+//	vector < Portals > portal;
+//	Cell start = { 0, 0 }, stop = { 0 ,0 }, crt;
+//	for (int i = 1; i <= n; i++)
+//	{
+//		string s;
+//		cin >> s;
+//		for (int j = 0; j < s.size(); j++)
+//		{
+//			switch (s[j])
+//			{
+//			case '.':
+//				v[i][j + 1].val = 0;
+//				break;
+//			case '#':
+//				v[i][j + 1].val = -1;
+//				break;
+//			case '+':
+//				v[i][j + 1].val = 0;
+//				v[i][j + 1].Door = 1;
+//				break;
+//			case 'P':
+//				v[i][j + 1].val = 0;
+//				v[i][j + 1].Portal = 1;
+//				portal.push_back({ i, j + 1 });
+//				break;
+//			case 'W':
+//				v[i][j + 1].val = 0;
+//				start.l = i;
+//				start.c = j + 1;
+//				break;
+//			case 'E':
+//				v[i][j + 1].val = 0;
+//				stop.l = i;
+//				stop.c = j + 1;
+//				break;
+//			}
+//		}
+//	}
+//	v1 = v;
+//	int min = LeeWithoutPortals(start, stop, v1);
+//	/*for(int i=0;i<portal.size();i++)
+//	{
+//		Cell start1 = start;
+//		Cell stop1;
+//		v = v1;
+//		queue<Cell> Q;
+//		v[start1.l][start1.c].val = 0;
+//		Q.push(start1);
+//		vector<int> l = { 0, -1, 0, 1, 0 }, c = { 0, 0, 1, 0, -1 };
+//		int val;
+//		stop1.l = portal[i].x;
+//		stop1.c = portal[i].y;
+//		while (!Q.empty() and v[stop1.l][stop1.c].val == 0)
+//		{
+//			crt = Q.front();
+//			Q.pop();
+//			val = v[crt.l][crt.c].val;
+//			for (int i = 1; i <= 4; i++)
+//				if (v[crt.l + l[i]][crt.c + c[i]].val == 0)
+//				{
+//					Q.push({ crt.l + l[i], crt.c + c[i] });
+//					v[crt.l + l[i]][crt.c + c[i]].val = val + 1;
+//					if (v[crt.l + l[i]][crt.c + c[i]].Door == 1)
+//						v[crt.l + l[i]][crt.c + c[i]].val += t;
+//				}
+//		}
+//	}*/
+//	cout << min << " ";
+//}
+//#include<iostream>
+//#include<string>
+//#include<vector>
+//#include<unordered_map>
+//#include<iterator>
+//using namespace std;
+//struct stru
+//{
+//	char letter;
+//	bool isfirst;
+//	int value;
+//};
+//struct stru1
+//{
+//	int ap;
+//	bool isfirst;
+//};
+//long long transform(string s, unordered_map<char, int> map)
+//{
+//	long long number = 0;
+//	for (int i = 0; i < s.size(); i++)
+//	{
+//		number = number * 10 + map.find(s[i])->second;
+//		//cout << map.find(s[i])->second << " " << s[i] << endl;
+//	}
+//	return number;
+//}
+//#include<fstream>
+//int main()
+//{
+//	ifstream cin("artifact.in");
+//	ofstream cout("artifact.out");
+//	int n, m;
+//	cin >> n >> m;
+//	vector<string> st(n), dr(m);
+//	string s;
+//	int i = 0;
+//	vector<stru1> v('z' - 'a' + 1);
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> st[i];
+//		v[st[i][0] - 'A'].isfirst = 1;
+//		for (int j = 0; j < st[i].size(); j++)
+//		{
+//			v[st[i][j] - 'A'].ap++;
+//		}
+//	}
+//	for (int i = 0; i < m; i++)
+//	{
+//		cin >> dr[i];
+//		v[dr[i][0] - 'A'].isfirst = 1;
+//		for (int j = 0; j < st[i].size(); j++)
+//		{
+//			v[dr[i][j] - 'A'].ap++;
+//		}
+//	}
+//	unordered_map<char, int>::iterator it;
+//	unordered_map<char, int> map;
+//	for (int i = 0; i < 'z' - 'a'; i++)
+//	{
+//		if (v[i].ap != 0)
+//		{
+//			map[i + 'A'] = v[i].isfirst;
+//		}
+//	}
+//	map[(char)255]++;
+//	int nr = 0;
+//	bool ok = 1;
+//	while (ok)
+//	{
+//		long long sumleft = 0, sumright = 0;
+//		for (int i = 0; i < st.size(); i++)
+//			sumleft += transform(st[i], map);
+//		for (int i = 0; i < dr.size(); i++)
+//			sumright += transform(dr[i], map);
+//		//cout << sumleft << " " << sumright << endl;
+//		if (sumleft == sumright)
+//			nr++;
+//		it = map.begin();
+//		map[it->first]++;
+//		while (it->second >= 10)
+//		{
+//			if (it->first == (char)255)
+//			{
+//				ok = 0;
+//				break;
+//			}
+//			if (v[(int)(it->first - 'A')].isfirst)
+//				map[it->first] = 1;
+//			else
+//				map[it->first] = 0;
+//			it++;
+//			if (it->first == (char)255)
+//			{
+//				ok = 0;
+//				break;
+//			}
+//			map[it->first]++;
+//		}
+//		//cin.get();
+//	}
+//	cout << nr;
+//}
